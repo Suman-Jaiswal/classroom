@@ -38,7 +38,7 @@ export default function AddFolderBtn({currentFolder}) {
   return (
     <>
       <Button onClick={openModal} variant='outline-success' size='sm' >
-        <i className="fas fa-folder-plus"></i>
+        <i className="fas fa-folder-plus"/>
       </Button>
       <Modal show={open} onHide={closeModal} >
         <Form onSubmit={handleSubmit}>

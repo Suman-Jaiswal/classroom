@@ -1,88 +1,88 @@
-import { useReducer, useEffect } from "react";
+import {useEffect, useReducer} from "react";
 import {database} from '../fbConfig'
 
 const ACTIONS = {
-  SELECT_FOLDER: 'select-folder',
-  UPDATE_FOLDER: 'update-folder',
-  SET_CHILD_FOLDERS: 'set-child-folders'
+    SELECT_FOLDER: 'select-folder',
+    UPDATE_FOLDER: 'update-folder',
+    SET_CHILD_FOLDERS: 'set-child-folders'
 }
 
 export const ROOT_FOLDER = {
-  name: 'Root',
-  id: null,
-  path:[]
+    name: 'Root',
+    id: null,
+    path: []
 }
 
-function reducer(state, {type, payload}){
-  switch(type){
-    case ACTIONS.SELECT_FOLDER:
-      return{
-        folderId: payload.folderId,
-        folder: payload.folder,
-        childFiles:[],
-        childFolders:[]
-      }
-    case ACTIONS.UPDATE_FOLDER:
-       return{
-         ...state,
-         folder: payload.folder
-       } 
-    case ACTIONS.SET_CHILD_FOLDERS:
-       return{
-         ...state,
-         childFolders: payload.childFolders
-       } 
-    
-    default:
-      return state  
-  }
-}
+function reducer(state, {type, payload}) {
+    switch (type) {
+        case ACTIONS.SELECT_FOLDER:
+            return {
+                folderId: payload.folderId,
+                folder: payload.folder,
+                childFiles: [],
+                childFolders: []
+            }
+        case ACTIONS.UPDATE_FOLDER:
+            return {
+                ...state,
+                folder: payload.folder
+            }
+        case ACTIONS.SET_CHILD_FOLDERS:
+            return {
+                ...state,
+                childFolders: payload.childFolders
+            }
 
-export function useFolder(folderId=null , folder = null){
-  const [state, dispatch] = useReducer(reducer, {
-    folderId,
-    folder,
-    childFolders:[],
-    childFiles:[]
-  })
-
-  useEffect(() => {
-    dispatch({type: ACTIONS.SELECT_FOLDER, payload: {folderId, folder}})
-  }, [folder, folderId])
-
-  useEffect(() => {
-    if(folderId===null){
-      return dispatch({
-        type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
-      })
+        default:
+            return state
     }
-    database.folders
-     .doc(folderId)
-     .get()
-     .then(doc => {
-       dispatch({
-        type: ACTIONS.UPDATE_FOLDER, payload: {folder: database.formatDoc(doc)}
-      })
-     })
-     .catch(()=>{
-      dispatch({
-        type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
-      })
-     })
-    
-  }, [folderId])
+}
 
-  useEffect(() => {
-    return database.folders
-    .where('parentId', '==', folderId)
-    .orderBy('createdAt')
-    .onSnapshot(snapshot => {
-      dispatch({
-        type: ACTIONS.SET_CHILD_FOLDERS,
-        payload: {childFolders: snapshot.docs.map(database.formatDoc) } 
-      })
+export function useFolder(folderId = null, folder = null) {
+    const [state, dispatch] = useReducer(reducer, {
+        folderId,
+        folder,
+        childFolders: [],
+        childFiles: []
     })
-  
-  }, [folderId])
-  return state
+
+    useEffect(() => {
+        dispatch({type: ACTIONS.SELECT_FOLDER, payload: {folderId, folder}})
+    }, [folder, folderId])
+
+    useEffect(() => {
+        if (folderId === null) {
+            return dispatch({
+                type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
+            })
+        }
+        database.folders
+            .doc(folderId)
+            .get()
+            .then(doc => {
+                dispatch({
+                    type: ACTIONS.UPDATE_FOLDER, payload: {folder: database.formatDoc(doc)}
+                })
+            })
+            .catch(() => {
+                dispatch({
+                    type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
+                })
+            })
+
+    }, [folderId])
+
+    useEffect(() => {
+        return database.folders
+            .where('parentId', '==', folderId)
+            .orderBy('createdAt')
+            .onSnapshot(snapshot => {
+                dispatch({
+                    type: ACTIONS.SET_CHILD_FOLDERS,
+                    payload: {childFolders: snapshot.docs.map(database.formatDoc)}
+                })
+            })
+
+    }, [folderId])
+    return state
 }

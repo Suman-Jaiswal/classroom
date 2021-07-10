@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCxkttBJ9nWGXWR8Bu6p0WAoHqgcgJlFnc",
   authDomain: "form-1de97.firebaseapp.com",
   projectId: "form-1de97",
@@ -20,6 +20,5 @@ export const database = {
     return {id: doc.id, ...doc.data()}
   },
   timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-
 }
 export const auth = firebase.auth();
