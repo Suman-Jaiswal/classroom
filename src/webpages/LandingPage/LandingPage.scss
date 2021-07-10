@@ -1,0 +1,68 @@
+@import "../../index";
+
+.landing-page-return-wrapper {
+  padding: 7vh 3vw;
+}
+
+.landing-page-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 2vh 2vw;
+  border-radius: 5px;
+  background: #a7e6e7;
+}
+
+.landing-page-hero-left {
+  width: 50%;
+
+  h1 {
+    font-family: 'Oswald', cursive;
+    font-size: 3rem;
+    //color: $color-primary-shade
+  }
+
+  p {
+    font-family: 'Prompt', cursive;
+    font-size: 1.2rem;
+  }
+}
+
+.hero-image {
+  width: 50%;
+}
+
+.landing-page-main-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .landing-page-introduction {
+    flex-direction: column-reverse;
+
+    img {
+      width: 80%;
+    }
+  }
+
+  .landing-page-introduction-left {
+    text-align: center;
+    width: 80%;
+  }
+}
+
+@media (max-width: 800px) {
+  .landing-page-introduction-left {
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
