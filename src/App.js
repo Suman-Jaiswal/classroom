@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import Dashboard from './components/drive/Dashboard';
-import {Route} from 'react-router-dom'
+import DashboardPage from './webpages/DashboardPage/DashboardPage';
+import {Route, useHistory} from 'react-router-dom'
 import LandingPage from "./webpages/LandingPage/LandingPage";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
 import GoogleLogin from "react-google-login";
 import {RingLoader as Loader} from "react-spinners";
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 function App() {
 
@@ -16,17 +20,18 @@ function App() {
         onFailure={handleLoginFailure}
         cookiePolicy={'single_host_origin'}
     />
+    const history = useHistory()
 
     useEffect(() => {
         setLoading(false)
     }, [])
 
-    function handleLoginSuccess(response) {
-
+    function handleLoginSuccess() {
+        history.push('/dashboard')
     }
 
-    function handleLoginFailure(err) {
-        console.log(err)
+    function handleLoginFailure() {
+        toast.error('Sorry, login failed!')
     }
 
     if (loading)
@@ -35,9 +40,11 @@ function App() {
         return (
             <div className="App">
                 <NavbarComponent signInButton={signInButton}/>
-                <Route exact path={'/'} component={LandingPage}/>
-                <Route exact path={'/dashboard'} component={Dashboard}/>
-                <Route exact path={'/folders/:folderId'} component={Dashboard}/>
+                <Route exact path={'/'} render={() => (
+                    <LandingPage signInButton={signInButton}/>
+                )}/>
+                <Route exact path={'/dashboard'} component={DashboardPage}/>
+                <Route exact path={'/folders/:folderId'} component={DashboardPage}/>
             </div>
         )
     }

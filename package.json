@@ -19,6 +19,7 @@
     "react-scripts": "4.0.3",
     "react-spinners": "^0.11.0",
     "react-strap": "^0.0.1",
+    "react-toastify": "^7.0.4",
     "sass": "^1.35.2",
     "web-vitals": "^1.0.1"
   },

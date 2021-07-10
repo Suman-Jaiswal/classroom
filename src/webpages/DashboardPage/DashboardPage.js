@@ -1,20 +1,17 @@
 import React from 'react'
-import AddFolderBtn from './AddFolderBtn'
-import Navbar from '../NavbarComponent/NavbarComponent'
-import FolderBreadcrumbs from './FolderBreadcrubs'
+import AddFolderBtn from '../../components/drive/AddFolderBtn'
+import FolderBreadcrumbs from '../../components/drive/FolderBreadcrubs'
 import {Container} from 'react-bootstrap'
 import {useFolder} from '../../hooks/useFolder'
-import Folder from './Folder'
+import Folder from '../../components/drive/Folder'
 import {useParams} from 'react-router-dom'
 
-
-export default function Dashboard() {
+export default function DashboardPage() {
     const {folderId} = useParams()
     const {folder, childFolders} = useFolder(folderId)
 
     return (
         <>
-            <Navbar/>
             <Container fluid className='mt-2'>
                 <div className="d-flex align-center">
                     <FolderBreadcrumbs currentFolder={folder}/>
