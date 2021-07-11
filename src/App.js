@@ -19,6 +19,14 @@ function App() {
         onSuccess={handleLoginSuccess}
         onFailure={handleLoginFailure}
         cookiePolicy={'single_host_origin'}
+        render={(renderProps) => (
+            <button
+                className={'sign-button'}
+                disabled={renderProps.disabled}
+                onClick={renderProps.onClick}>
+                Sign In
+            </button>
+        )}
     />
     const history = useHistory()
 

@@ -1,209 +1,30 @@
 @import "src/index";
 
-.myNavbar {
-  position: sticky;
-  z-index: 10;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-timing-function: ease;
-}
-
-.showNav {
-  animation-name: showNavbar;
-}
-
-@keyframes showNavbar {
-  0% {
-    top: -120px;
-  }
-  100% {
-    top: 0;
-  }
-}
-
-
-.hideNav {
-  animation-name: hideNavbar;
-}
-
-@keyframes hideNavbar {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: -120px;
-  }
-}
-
-
-#navbarReturnWrapper {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-#navbar {
+.nav-return-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   padding: 1vh 2vw;
-  background: $color-primary;
-  height: 70px;
-}
+  box-shadow: 0 8px 6px -6px #999;
 
-#navbar-left {
-  display: flex;
-  align-items: center;
-  font-family: 'Zen Dots', cursive;
-}
-
-.logo {
-  width: 80px;
-  padding: 10px;
-  background-color: $color-primary-shade;
-  border-radius: 50%;
-}
-
-#navbar-right {
-  display: flex;
-  gap: 2vw;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-}
-
-.navParts {
-  width: 50%;
-  display: flex;
-  padding: 0 80px;
-}
-
-.navLeft {
-  justify-content: flex-end;
-}
-
-.navRight {
-  justify-content: flex-start;
-}
-
-#navbar-right a {
-  background: transparent;
-  border-radius: 5px;
-  transition: 0.2s;
-  border: none;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  opacity: 0.7;
-  text-decoration: none;
-  margin: 0 20px;
-  padding: 5px;
-}
-
-.logoHolder {
-  opacity: 1 !important;
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  margin: 0 0 0 -55px !important;
-}
-
-#navbar-right a:hover {
-  cursor: pointer;
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.logoHolder:hover {
-  transform: none !important;
-}
-
-.logo1 {
-  height: 70px;
-  padding: 5px 0;
-}
-
-.logoHolderMain {
-  display: none;
-}
-
-#hamburgerLinks {
-  display: none;
-  font-family: Karantina, cursive;
-  font-size: 1.5em;
-  flex-direction: column;
-  background: $color-primary;
-  border-radius: 0 0 10px 10px;
-  position: absolute;
-  right: 0;
-  margin: 0;
-  z-index: 1;
-  // to fix the under-lapping from council cards
-  padding: 10px;
-  transform-origin: top;
-  transform: scaleY(0);
-  transition: .4s;
-}
-
-#hamburgerIconWrapper {
-  display: none;
-  margin: auto 0;
-}
-
-#hamburgerLinks li {
-  list-style: none;
-  padding: 2vh 5vw;
-  text-align: center;
-}
-
-#hamburgerLinks a {
-  text-decoration: none;
-  font-size: 1.5em;
-}
-
-@media screen and (max-width: 1100px) {
-  #navbar-right {
-    display: none;
+  img {
+    height: 60px;
+    padding: 4px;
+    border-radius: 50%;
+    background: $color-primary-shade;
   }
-  .logoHolderMain {
-    display: initial;
-  }
-  #navbar {
-    justify-content: space-between;
-  }
-  #hamburgerIconWrapper {
-    display: block;
-    margin: auto 0;
-  }
-  #hamburgerLinks {
-    display: flex;
-    flex-direction: column;
-    background: $color-primary;
-    border-radius: 0 0 10px 10px;
-    position: absolute;
-    right: 0;
-    margin: 0;
-    z-index: 1;
-    // to fix the under-lapping from council cards
-    padding: 10px;
-    transform-origin: top;
-    transform: scaleY(0);
+
+  button {
+    @include classic-button;
+
+    background: $color-accent;
+
     transition: .4s;
-  }
-  #hamburgerLinks li {
-    list-style: none;
-    padding: 2vh 5vw;
-    text-align: center;
-    cursor: pointer;
-  }
-  #hamburgerLinks span {
-    font-size: 1.5em;
+
+    &:hover, &:focus {
+      background: $color-accent-shade;
+      color: white;
+    }
   }
 }
-
-@media (max-width: 700px) {
-  #navbar-left {
-    font-size: 0.8rem;
-  }
-}
-
-;
