@@ -21,8 +21,9 @@
 }
 
 .year-card {
-  height: 360px;
-  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   // border: 3px solid black;
   border-radius: 10px;
@@ -38,18 +39,14 @@
   background: $color-primary;
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 360px;
+    width: 280px;
     transition: all 0.3s;
     height: 80%;
 
   }
 
   h3 {
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
     color: rgba(53, 50, 50, 0.959);
     font-family: Prompt, cursive;
