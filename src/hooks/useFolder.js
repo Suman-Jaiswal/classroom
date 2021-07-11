@@ -9,7 +9,7 @@ const ACTIONS = {
 }
 
 export const ROOT_FOLDER = {
-    name: 'Root',
+    name: 'Dashboard',
     id: null,
     path: []
 }
