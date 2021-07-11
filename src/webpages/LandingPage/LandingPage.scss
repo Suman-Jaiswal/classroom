@@ -11,17 +11,20 @@
   gap: 20px;
 
   padding: 2vh 2vw;
-  border-radius: 5px;
-  background: #a7e6e7;
+  border-radius: 10px;
+  background: $color-primary;
 }
 
 .landing-page-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 50%;
 
   h1 {
     font-family: 'Oswald', cursive;
     font-size: 3rem;
-    //color: $color-primary-shade
+    color: $color-primary-shade
   }
 
   p {
@@ -34,13 +37,8 @@
   width: 50%;
 }
 
-.landing-page-main-button-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
 @media (max-width: 1200px) {
-  .landing-page-introduction {
+  .landing-page-hero {
     flex-direction: column-reverse;
 
     img {
@@ -48,14 +46,14 @@
     }
   }
 
-  .landing-page-introduction-left {
+  .landing-page-hero-left {
     text-align: center;
     width: 80%;
   }
 }
 
 @media (max-width: 800px) {
-  .landing-page-introduction-left {
+  .landing-page-hero-left {
 
     h1 {
       font-size: 2rem;
