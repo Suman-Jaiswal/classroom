@@ -17,7 +17,7 @@ export default function FolderBreadcrubs({ currentFolder }) {
         key={folder.id}
         linkAs={Link}
         linkProps={{
-          to: folder.id? `/folders/${folder.id}`: '/'
+          to: folder.id? `/folders/${folder.id}`: '/dashboard'
         }}
         className='text-truncate d-inline-block' 
         style={{ maxWidth: '150px' }}  
