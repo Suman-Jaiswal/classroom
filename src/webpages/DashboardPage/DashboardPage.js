@@ -5,12 +5,13 @@ import {Container} from 'react-bootstrap'
 import {useFolder} from '../../hooks/useFolder'
 import Folder from '../../components/drive/Folder'
 import File from '../../components/drive/File'
-import {useParams} from 'react-router-dom'
+import {useParams, useLocation} from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 
 export default function DashboardPage() {
     const {folderId} = useParams()
-    const {folder, childFolders, childFiles} = useFolder(folderId)
+    const { state ={} } = useLocation()
+    const {folder, childFolders, childFiles} = useFolder(folderId, state.folder)
 
     return (
         <>
