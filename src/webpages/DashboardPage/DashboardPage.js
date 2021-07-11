@@ -1,54 +1,67 @@
 import React from 'react'
-import AddFolderBtn from '../../components/drive/AddFolderBtn'
-import FolderBreadcrumbs from '../../components/drive/FolderBreadcrubs'
-import {Container} from 'react-bootstrap'
-import {useFolder} from '../../hooks/useFolder'
-import Folder from '../../components/drive/Folder'
-import File from '../../components/drive/File'
-import {useParams} from 'react-router-dom'
-import AddFileBtn from '../../components/drive/AddFileBtn'
+import './DashboardPage.scss'
+import firstYearImage from './yearImages/first.svg'
+import secondYearImage from './yearImages/second.svg'
+import thirdYearImage from './yearImages/third.svg'
+import fourthYearImage from './yearImages/fourth.svg'
 
 export default function DashboardPage() {
-    const {folderId} = useParams()
-    const {folder, childFolders, childFiles} = useFolder(folderId)
 
     return (
-        <>
-            <Container fluid className='mt-2'>
-                <div className="d-flex align-center">
-                    <FolderBreadcrumbs currentFolder={folder}/>
-                    <AddFolderBtn currentFolder={folder}/>
-                    <AddFileBtn currentFolder={folder}/>
+        // <>
+        //     <Container fluid className='mt-2'>
+        //         <div className="d-flex align-center">
+        //             <FolderBreadcrumbs currentFolder={folder}/>
+        //         </div>
+        //         <div className="content-count">
+        //             Folders: {childFolders.length}, Files: {childFiles.length}
+        //         </div>
+        //         <hr/>
+        //         {
+        //             childFolders.length > 0 && (
+        //                 <div className="d-flex flex-wrap">
+        //                     {childFolders.map(childFolder => (
+        //                         <div className='p-2' key={childFolder.id}>
+        //                             <Folder folder={childFolder}/>
+        //                         </div>
+        //                     ))}
+        //                 </div>
+        //             )
+        //         }
+        //         {childFiles.length > 0 && childFolders.length > 0 && <hr/>}
+        //         {
+        //             childFiles.length > 0 && (
+        //                 <div className="d-flex flex-wrap">
+        //                     {childFiles.map(childFile => (
+        //                         <div className='p-2' key={childFile.id}>
+        //                             <File file={childFile}/>
+        //                         </div>
+        //                     ))}
+        //                 </div>
+        //             )
+        //         }
+        //     </Container>
+        // </>
+        <div className={'dashboard-return-wrapper'}>
+            <h1 className={'dashboard-title'}>Welcome to IITI Classroom</h1>
+            <div className={'dashboard-subject-cards'}>
+                <div className={'year-card'} >
+                    <img src={firstYearImage}/>
+                    <h3>first year</h3>
                 </div>
-                <div className="content-count">
-                    Folders: {childFolders.length}, Files: {childFiles.length}
+                <div className={'year-card'} >
+                    <img src={secondYearImage}/>
+                    <h3>second year</h3>
                 </div>
-                <hr/>
-                {
-                    childFolders.length > 0 && (
-                        <div className="d-flex flex-wrap">
-                            {childFolders.map(childFolder => (
-                                <div className='p-2' key={childFolder.id}>
-                                    <Folder folder={childFolder}/>
-                                </div>
-                            ))}
-                        </div>
-                    )
-                }
-                {childFiles.length > 0 && childFolders.length > 0 && <hr/>}
-                {
-                    childFiles.length > 0 && (
-                        <div className="d-flex flex-wrap">
-                            {childFiles.map(childFile => (
-                                <div className='p-2' key={childFile.id}>
-                                    <File file={childFile}/>
-                                </div>
-                            ))}
-                        </div>
-                    )
-                }
-
-            </Container>
-        </>
+                <div className={'year-card'} >
+                    <img src={thirdYearImage}/>
+                    <h3>third year</h3>
+                </div>
+                <div className={'year-card'} >
+                    <img src={fourthYearImage}/>
+                    <h3>fourth year</h3>
+                </div>
+            </div>
+        </div>
     )
 }

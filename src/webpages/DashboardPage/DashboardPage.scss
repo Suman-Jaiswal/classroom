@@ -1,0 +1,59 @@
+@import "src/index";
+
+.dashboard-return-wrapper {
+  padding: 3vh 2vw;
+}
+
+.dashboard-title {
+  font-family: Zen Dots, cursive;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.dashboard-subject-cards {
+  display: grid;
+  justify-content: center;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, 300px);
+
+  padding: 5vh 0;
+}
+
+.year-card {
+  height: 400px;
+  width: 300px;
+
+  border: 4px solid black;
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background: $color-primary;
+
+  img {
+    position: absolute;
+
+    height: 80%;
+    text-align: center;
+  }
+
+  h3 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    font-family: Prompt, cursive;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &:hover {
+    img {
+      height: 90%;
+    }
+  }
+}
