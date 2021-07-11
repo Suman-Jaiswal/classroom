@@ -1,6 +1,9 @@
-$color-primary: #82feff;
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+$color-primary: #3cd2d2;
 $color-primary-tint: #c4ffff;
-$color-primary-shade: #0f3030;
+$color-primary-shade: #164f4f;
 $color-accent: #F3E37C;
 $color-accent-shade: #605b29;
 
@@ -19,17 +22,4 @@ body {
 
   border: 1px solid black;
   border-radius: 4px;
-}
-
-.sign-button {
-  @include classic-button;
-
-  background: $color-accent;
-
-  transition: .4s;
-
-  &:hover, &:focus {
-    background: $color-accent-shade;
-    color: white;
-  }
 }
