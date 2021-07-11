@@ -12,12 +12,15 @@ export default function FolderBreadcrumbs({ currentFolder }) {
     listProps={{ className: 'bg-white p-0 m-0' }}
     >
     {
-      path.map((folder) => (
+      path.map((folder, index) => (
         <Breadcrumb.Item 
         key={folder.id}
         linkAs={Link}
         linkProps={{
-          to: folder.id? `/folders/${folder.id}`: '/dashboard'
+          to: {
+            pathname: folder.id? `/folders/${folder.id}`: '/dashboard',
+            state: {folder: {...folder, path: path.slice(1, index)}}
+          }
         }}
         className='text-truncate d-inline-block' 
         style={{ maxWidth: '150px' }}  
