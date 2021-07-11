@@ -46,19 +46,19 @@ export default function DashboardPage() {
             <h1 className={'dashboard-title'}>Welcome to IITI Classroom</h1>
             <div className={'dashboard-subject-cards'}>
                 <div className={'year-card'} >
-                    <img src={firstYearImage}/>
+                    <img src={firstYearImage} alt={'first-year-image'}/>
                     <h3>first year</h3>
                 </div>
                 <div className={'year-card'} >
-                    <img src={secondYearImage}/>
+                    <img src={secondYearImage} alt={'second-year-image'}/>
                     <h3>second year</h3>
                 </div>
                 <div className={'year-card'} >
-                    <img src={thirdYearImage}/>
+                    <img src={thirdYearImage} alt={'third-year-image'}/>
                     <h3>third year</h3>
                 </div>
                 <div className={'year-card'} >
-                    <img src={fourthYearImage}/>
+                    <img src={fourthYearImage} alt={'fourth-year-image'}/>
                     <h3>fourth year</h3>
                 </div>
             </div>
