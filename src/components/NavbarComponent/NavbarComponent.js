@@ -1,19 +1,15 @@
-import React from 'react'
-import {Nav, Navbar} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import React from "react";
+import "./NavbarComponent.scss";
+import logo from '../../assets/iitiW.webp'
 
-export default function NavbarComponent(props) {
+export default function NavbarComponent() {
+
     return (
-        <Navbar bg='light' expand='xlg'>
-            <Navbar.Brand as={Link} to='/' className='mx-5'>
-                Classroom
-            </Navbar.Brand>
-            <Nav.Link className='mx-5'>
-                {props.signInButton}
-            </Nav.Link>
-            <Nav.Link as={Link} to='/profile' className='mx-5'>
-                View Profile
-            </Nav.Link>
-        </Navbar>
+        <nav className={'nav-return-wrapper'}>
+            <img src={logo} alt={'iiti-logo'}/>
+            <div className={'nav-buttons-wrapper'}>
+                <button name={'signInButton'}>Sign In</button>
+            </div>
+        </nav>
     )
 }

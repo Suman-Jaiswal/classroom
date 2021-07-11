@@ -1,3 +1,35 @@
+$color-primary: #82feff;
+$color-primary-tint: #c4ffff;
+$color-primary-shade: #0f3030;
+$color-accent: #F3E37C;
+$color-accent-shade: #605b29;
+
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  background: $color-primary-tint;
+}
+
+@mixin classic-button {
+  width: 120px;
+  height: 40px;
+
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.sign-button {
+  @include classic-button;
+
+  background: $color-accent;
+
+  transition: .4s;
+
+  &:hover, &:focus {
+    background: $color-accent-shade;
+    color: white;
+  }
 }

@@ -1,0 +1,30 @@
+@import "src/index";
+
+.nav-return-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1vh 2vw;
+  box-shadow: 0 8px 6px -6px #999;
+
+  img {
+    height: 60px;
+    padding: 4px;
+    border-radius: 50%;
+    background: $color-primary-shade;
+  }
+
+  button {
+    @include classic-button;
+
+    background: $color-accent;
+
+    transition: .4s;
+
+    &:hover, &:focus {
+      background: $color-accent-shade;
+      color: white;
+    }
+  }
+}
