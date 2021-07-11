@@ -1,3 +1,11 @@
+$color-primary: #82feff;
+$color-primary-tint: #c4ffff;
+$color-primary-shade: #0f3030;
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  background: $color-primary-tint;
 }
