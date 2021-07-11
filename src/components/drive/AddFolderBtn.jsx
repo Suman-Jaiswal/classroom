@@ -28,7 +28,6 @@ export default function AddFolderBtn({currentFolder}) {
             database.folders.add({
                 name,
                 parentId: currentFolder.id,
-                //  userId,
                 path,
                 createdAt: database.timeStamp
             })
@@ -38,7 +37,7 @@ export default function AddFolderBtn({currentFolder}) {
 
     return (
         <>
-            <Button onClick={openModal} variant='outline-success' size='md'>
+            <Button onClick={openModal} variant='outline-primary' size='md' className='m-2'>
                 <FontAwesomeIcon icon={faFolderPlus}/>
             </Button>
             <Modal show={open} onHide={closeModal}>
