@@ -22,6 +22,7 @@ function LandingPage(props) {
 
     return (
         <div className={'landing-page-return-wrapper'}>
+            <h1 className={'dashboard-title'}>Welcome to IITI Classroom</h1>
             <section className={"landing-page-hero"}>
                 <div className="landing-page-hero-left">
                     <h1>Book your appointments in a breeze.</h1>
@@ -34,7 +35,7 @@ function LandingPage(props) {
                         onClick={handleSignInButtonClick}>
                         Sign In
                     </button>
-                    <Button as={Link} to='/dashboard' ></Button>
+                    <Button className='w-50' variant='success' as={Link} to='/dashboard' >Go to Dashboard {'>>'}</Button>
                 </div>
                 <img className={'hero-image'} src={heroImage} alt={'books'}/>
             </section>
