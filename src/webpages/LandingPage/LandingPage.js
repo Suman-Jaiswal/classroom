@@ -2,8 +2,9 @@ import React from 'react';
 import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
 import {toast} from "react-toastify";
-import {useHistory} from "react-router-dom";
+import {useHistory, Link} from "react-router-dom";
 import firebase from "firebase";
+import{ Button }from 'react-bootstrap'
 
 function LandingPage(props) {
 
@@ -33,6 +34,7 @@ function LandingPage(props) {
                         onClick={handleSignInButtonClick}>
                         Sign In
                     </button>
+                    <Button as={Link} to='/dashboard' ></Button>
                 </div>
                 <img className={'hero-image'} src={heroImage} alt={'books'}/>
             </section>
