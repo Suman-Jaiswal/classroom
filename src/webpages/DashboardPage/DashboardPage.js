@@ -24,7 +24,6 @@ export default function DashboardPage() {
                 </div>
                 {childFolders.length > 0 ?
                     <div className={'dashboard-return-wrapper'}>
-                        <h1 className={'dashboard-title'}>Welcome to IITI Classroom</h1>
                         <div className={'dashboard-subject-cards'}>
                             {childFolders.map(childFolder => (
                                 <Folder key={childFolder.id} folder={childFolder}/>
@@ -34,7 +33,7 @@ export default function DashboardPage() {
                     : null}
                 {(childFiles.length > 0 && childFolders.length > 0) ? <hr/> : null}
                 {childFiles.length > 0 ?
-                    <div className="d-flex flex-wrap">
+                    <div className="d-flex flex-wrap files-container">
                         {childFiles.map(childFile => (
                             <div className='p-2' key={childFile.id}>
                                 <File file={childFile}/>

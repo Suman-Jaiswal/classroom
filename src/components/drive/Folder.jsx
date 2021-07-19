@@ -25,7 +25,7 @@ export default function Folder({folder}) {
 
 
     return (
-        <Button variant='transparent' className={'year-card'} as={Link}
+        <Button variant='transparent' className='year-card' as={Link}
                 to={{pathname: `/folders/${folder.id}`, state: {folder}}}>
             {isYearFolder ?
                 <img src={`img/years/${folder.name}.svg`} alt={folder.name}/>
