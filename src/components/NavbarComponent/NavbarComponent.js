@@ -1,14 +1,12 @@
 import React from "react";
 import "./NavbarComponent.scss";
-import logo from '../../assets/iitiW.webp'
+import logo from '../../assets/classroom-svgrepo-com.svg'
 
 export default function NavbarComponent(props) {
     return (
         <nav className={'nav-return-wrapper'}>
-            <div className="brand-container">
-                 <img src={logo} alt={'iiti-logo'}/>
+                 <img src={logo} alt={'classroom-logo'}/>
                  <h2 className='brand h3'>Classroom</h2>
-            </div>
            
             <div className={'nav-buttons-wrapper'}>
                 {
