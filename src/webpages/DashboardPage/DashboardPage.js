@@ -5,7 +5,7 @@ import FolderBreadcrumbs from '../../components/drive/FolderBreadcrumbs'
 import {Container} from 'react-bootstrap'
 import {useFolder} from '../../hooks/useFolder'
 import Folder from '../../components/Folder/Folder'
-import File from '../../components/drive/File'
+import File from '../../components/File/File'
 import {Redirect, useLocation, useParams} from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 
@@ -33,11 +33,9 @@ export default function DashboardPage(props) {
                     : null}
                 {(childFiles.length > 0 && childFolders.length > 0) ? <hr/> : null}
                 {childFiles.length > 0 ?
-                    <div className="d-flex flex-wrap files-container">
+                    <div className="dashboard-cards-wrapper">
                         {childFiles.map(childFile => (
-                            <div className='p-2' key={childFile.id}>
-                                <File file={childFile}/>
-                            </div>
+                                <File key={childFile.id} file={childFile}/>
                         ))}
                     </div>
                     : null}

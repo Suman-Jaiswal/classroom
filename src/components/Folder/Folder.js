@@ -22,10 +22,10 @@ export default function Folder({folder}) {
         )
     } else {
         return (
-            <Button variant='transparent' className='year-card' as={Link}
+            <Button variant='transparent' className='folder-card' as={Link}
                     to={{pathname: `/folders/${folder.id}`, state: {folder}}}>
                 <FontAwesomeIcon icon={faFolder}/>
-                <h6>{folder.name}</h6>
+                <span>{folder.name}</span>
             </Button>
         )
     }

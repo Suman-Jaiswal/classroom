@@ -14,7 +14,6 @@ export default function AddFileBtn({currentFolder}) {
 
         for (let i = 0; i < e.target.files.length; i++) {
 
-
             const file = e.target.files[i] ? e.target.files[i] : null
             if (currentFolder === null || file === null) return
 
@@ -67,10 +66,8 @@ export default function AddFileBtn({currentFolder}) {
                         .get()
                         .then(existingFiles => {
                             const existingFile = existingFiles[0]
-                            console.log(existingFiles)
                             if (existingFile) {
                                 existingFile.ref.update({url: url})
-                                console.log('updated')
                             } else {
                                 database.files.add({
                                     url,
@@ -78,7 +75,6 @@ export default function AddFileBtn({currentFolder}) {
                                     createdAt: database.timeStamp,
                                     folderId: currentFolder.id
                                 })
-                                console.log('added')
                             }
                         })
 
