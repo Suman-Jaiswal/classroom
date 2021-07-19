@@ -17,16 +17,3 @@
     background: $color-primary-shade;
   }
 }
-
-.sign-button {
-  @include classic-button;
-
-  background: $color-accent;
-
-  transition: .4s;
-
-  &:hover, &:focus {
-    background: $color-accent-shade;
-    color: white;
-  }
-}
