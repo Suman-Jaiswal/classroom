@@ -1,9 +1,5 @@
 @import "src/index";
 
-.dashboard-return-wrapper {
-  padding: 3vh 2vw;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-}
 .files-container {
   padding: 3vh 2vw;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
@@ -13,64 +9,12 @@
   font-family: 'Oswald', cursive;
   text-align: center;
   margin-bottom: 20px;
-  // text-decoration: underline;
 }
 
-.dashboard-subject-cards {
-  // display: grid;
+.dashboard-cards-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // gap: 30px;
-  // grid-template-columns: repeat(auto-fit, 300px);
  
   padding: 5vh 0;
-}
-
-.year-card {
-  display: flex;
-  margin: 10px;
-  flex-direction: column;
-  align-items: center;
-
-  border-radius: 10px;
-
-  overflow: hidden;
-
-  position: relative;
-
-  cursor: pointer;
-
-  box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.5);
-
-  background: $color-primary;
-  height: fit-content;
-
-  img {
-    height: 320px;
-    width: 280px;
-    transition: all 0.3s;
-
-  }
-
-  h3 {
-    width: 100%;
-    color: rgba(53, 50, 50, 0.959);
-    font-family: Prompt, cursive;
-    font-weight: bolder;
-    text-transform: uppercase;
-    text-align: center;
-  
-  }
-
-  &:hover {
-    img {
-      height: 340px;
-      color: unset;
-      transform: scale(1.1);
-    }
-    h6{
-      color: rgb(3, 3, 97);
-    }
-  }
 }
