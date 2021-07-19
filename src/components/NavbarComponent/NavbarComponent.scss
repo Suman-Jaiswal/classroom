@@ -16,4 +16,15 @@
     border-radius: 50%;
     background: $color-primary-shade;
   }
+
+  span {
+    font-family: Oswald, cursive;
+    font-size: 25px;
+  }
+}
+
+.brand-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }

@@ -49,9 +49,9 @@ export function App() {
         setLoading(false)
     }, [])
 
-    function handleSignInSuccess() {
-        history.push('/dashboard')
+    function handleSignInSuccess(response) {
         setResponse(response)
+        history.push('/dashboard')
     }
 
     function handleSignInFailure() {
@@ -59,12 +59,13 @@ export function App() {
     }
 
     function handleSignOutSuccess() {
-        console.log('logout success')
         setResponse(null)
+        history.push('/')
     }
 
     function handleSignOutFailure() {
-        console.log('logout failure')
+        toast.error('An error occurred!')
+        history.push('/')
     }
 
     if (loading) {
@@ -83,8 +84,16 @@ export function App() {
                         response={response}
                     />
                 )}/>
-                <Route exact path={'/dashboard'} component={DashboardPage}/>
-                <Route exact path={'/folders/:folderId'} component={DashboardPage}/>
+                <Route exact path={'/dashboard'} render={() => (
+                    <DashboardPage
+                        response={response}
+                    />
+                )}/>
+                <Route exact path={'/folders/:folderId'} render={() => (
+                    <DashboardPage
+                        response={response}
+                    />
+                )}/>
             </div>
         )
     }
