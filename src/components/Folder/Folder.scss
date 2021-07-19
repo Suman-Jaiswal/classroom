@@ -1,0 +1,49 @@
+@import "src/index";
+
+.year-card {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+
+  background: $color-primary;
+  height: fit-content;
+
+  img {
+    height: 320px;
+    width: 280px;
+    transition: all 0.3s;
+
+  }
+
+  h3 {
+    width: 100%;
+    color: rgba(53, 50, 50, 0.959);
+    font-family: Prompt, cursive;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+
+  }
+
+  &:hover {
+    img {
+      height: 340px;
+      color: unset;
+      transform: scale(1.1);
+    }
+    h6{
+      color: rgb(3, 3, 97);
+    }
+  }
+}
