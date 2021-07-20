@@ -1,16 +1,31 @@
 @import "src/index";
 
 .file-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin: 10px;
   background-color: whitesmoke;
-  width: 150px;
+  width: 140px;
+  height: 130px;
   overflow: hidden;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
   transition: .4s;
+  padding: 0%;
+
+  a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+   
+    span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: black;
+      padding: 0 3px;
+    }
+  } 
 
   svg {
     margin: 0 auto;
@@ -20,17 +35,8 @@
     }
   }
 
-  span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-
-    color: black;
-  }
-
   &:hover {
     cursor: pointer;
-
     transform: scale(1.3);
   }
 }

@@ -8,9 +8,9 @@ export default function File({ file }) {
     return (
         <Button variant={'transparent'} className={'file-button outline'}>
             <a target="_blank" href={file.url} rel="noreferrer">
-                <img src={file.url} alt={file.name}  style={{width: "100px"}} />
-            </a>
+                <img src={file.url} alt={file.name}  style={{width: "140px", height: "80%"}} />
             <span>{file.name}</span>
+            </a>
         </Button>
     )
 }
