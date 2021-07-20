@@ -1,16 +1,19 @@
 import React from 'react'
 import './File.scss'
-import { Button } from "react-bootstrap";
 
-export default function File({ file }) {
+export default function File({file}) {
     // use file.url to show the file in new window
 
+    function handleButtonClick(event) {
+
+    }
+
     return (
-        <Button variant={'transparent'} className={'file-button outline'}>
-            <a target="_blank" href={file.url} rel="noreferrer">
-                <img src={file.url} alt={file.name}  style={{width: "140px", height: "80%"}} />
+        <button className={'file-button'}
+        onClick={handleButtonClick}>
+            <img src={file.url}
+                 alt={file.name}/>
             <span>{file.name}</span>
-            </a>
-        </Button>
+        </button>
     )
 }

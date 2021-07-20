@@ -16,7 +16,7 @@ export function App() {
     const [response, setResponse] = useState(null)
 
     const history = useHistory()
-    const CLIENT_ID = '394247690551-qrhqonr04pohlgcg44s7hrp1u7or4qi2.apps.googleusercontent.com'
+    const CLIENT_ID = '394247690551-qrhqonr04pohlgcg44s7hrp1u7or4qi2.apps.googleusercontent.com' 
     const signInButton =
         <GoogleLogin
             clientId={CLIENT_ID} 
