@@ -73,11 +73,10 @@
     text-overflow: ellipsis;
   }
 
-  &:hover {
+  &:hover, &:focus {
     cursor: pointer;
 
-    width: 150px;
-    height: 80px;
+    transform: scale(1.2);
 
     background: $color-primary-shade;
 

@@ -10,6 +10,7 @@ import {Redirect, useLocation, useParams} from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 
 export default function DashboardPage(props) {
+
     const {folderId} = useParams()
     const {state = {}} = useLocation()
     const {folder, childFolders, childFiles} = useFolder(folderId, state.folder)
@@ -35,7 +36,7 @@ export default function DashboardPage(props) {
                 {childFiles.length > 0 ?
                     <div className="dashboard-cards-wrapper">
                         {childFiles.map(childFile => (
-                                <File key={childFile.id} file={childFile}/>
+                            <File key={childFile.id} file={childFile}/>
                         ))}
                     </div>
                     : null}

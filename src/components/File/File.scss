@@ -18,6 +18,7 @@
 
   svg {
     margin: 0 auto;
+
     path {
       fill: black;
     }
@@ -34,17 +35,11 @@
   &:hover {
     cursor: pointer;
 
-    width: 150px;
-    height: 80px;
-
-    background: $color-accent-shade;
-
-    svg path{
-      fill: white;
-    }
-
-    span {
-      color: white;
-    }
+    transform: scale(1.5);
   }
+}
+
+.file-thumbnail {
+  width: 100%;
+  overflow: hidden;
 }
