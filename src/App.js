@@ -3,7 +3,7 @@ import DashboardPage from './webpages/DashboardPage/DashboardPage';
 import {Route, useHistory} from 'react-router-dom'
 import LandingPage from "./webpages/LandingPage/LandingPage";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
-import {RingLoader as Loader} from "react-spinners";
+import {HashLoader as Loader} from "react-spinners";
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import {GoogleLogin, GoogleLogout} from 'react-google-login';
@@ -46,7 +46,9 @@ export function App() {
         />
 
     useEffect(() => {
-        setLoading(false)
+        setTimeout(() => {
+            setLoading(false)
+        }, 500);
     }, [])
 
     function handleSignInSuccess(response) {
@@ -69,7 +71,7 @@ export function App() {
     }
 
     if (loading) {
-        return <Loader loading={true} color={"#5a5a9f"} css={{position: "fixed", top: "50%", left: "50%"}}/>
+        return <Loader loading={true} size={100} color={"#0ff0f0"} css={{position: "absolute", left: "calc(50% - 50px)", top: "calc(50% - 50px)" }}/>
     } else {
         return (
             <div className="App">
