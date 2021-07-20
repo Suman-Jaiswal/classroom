@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
 
-$color-primary: #2ff1f1d5;
+$color-primary: #2ff1f1f6;
 $color-primary-tint: #57797918;
 $color-primary-shade: #164f4f;
 $color-accent: #F3E37C;
@@ -14,7 +14,9 @@ $color-accent-shade: #605b29;
 }
 
 body {
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-image:  url("./assets/cubes.png");
+  background-color: rgba(245, 245, 245, 0.349);
+  background-blend-mode: saturation;
 }
 
 .sign-button {

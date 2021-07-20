@@ -19,7 +19,7 @@ export function App() {
     const CLIENT_ID = '394247690551-qrhqonr04pohlgcg44s7hrp1u7or4qi2.apps.googleusercontent.com'
     const signInButton =
         <GoogleLogin
-            clientId={CLIENT_ID}
+            clientId={CLIENT_ID} 
             onSuccess={handleSignInSuccess}
             onFailure={handleSignInFailure}
             cookiePolicy={'single_host_origin'}
