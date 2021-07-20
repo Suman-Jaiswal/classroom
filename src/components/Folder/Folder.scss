@@ -10,8 +10,6 @@
 
   overflow: hidden;
 
-  position: relative;
-
   cursor: pointer;
 
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
@@ -42,8 +40,53 @@
       color: unset;
       transform: scale(1.1);
     }
-    h6{
+
+    h6 {
       color: rgb(3, 3, 97);
+    }
+  }
+}
+
+.folder-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 10px;
+
+  width: 100px;
+  height: 60px;
+
+  background: $color-primary;
+
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+
+  transition: .4s;
+
+  svg {
+    margin: 0 auto;
+  }
+
+  span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    width: 150px;
+    height: 80px;
+
+    background: $color-primary-shade;
+
+    svg path{
+      fill: $color-accent;
+    }
+
+    span {
+      color: $color-accent;
     }
   }
 }

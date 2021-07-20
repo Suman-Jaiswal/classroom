@@ -1,0 +1,50 @@
+@import "src/index";
+
+.file-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 10px;
+
+  width: 120px;
+  height: 70px;
+
+  background: $color-accent;
+
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+
+  transition: .4s;
+
+  svg {
+    margin: 0 auto;
+    path {
+      fill: black;
+    }
+  }
+
+  span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: black;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    width: 150px;
+    height: 80px;
+
+    background: $color-accent-shade;
+
+    svg path{
+      fill: white;
+    }
+
+    span {
+      color: white;
+    }
+  }
+}
