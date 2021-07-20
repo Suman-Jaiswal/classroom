@@ -16,11 +16,15 @@
     border-radius: 50%;
     background: $color-primary-shade;
   }
-  h2{
-    margin: 0%;
-    font-family: 'Oswald', cursive;
-    font-weight: bold;
-    letter-spacing: 2px;
-  }
 
+  span {
+    font-family: Oswald, cursive;
+    font-size: 25px;
+  }
+}
+
+.brand-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
