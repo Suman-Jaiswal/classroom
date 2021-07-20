@@ -1,19 +1,19 @@
-import {faFile} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import React, {useState} from 'react'
+import { faFile } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState } from 'react'
 import './File.scss'
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-export default function File({file}) {
+export default function File({ file }) {
     // use file.url to show the file in window
 
     const [hover, setHover] = useState(false)
 
-    const image =
-        <img src={file.url}
-             alt={'thumbnail'}
-             className={'file-thumbnail'}
-        /> // preload the image
+    // const image =
+    //     <img src={file.url}
+    //         alt={'thumbnail'}
+    //         className={'file-thumbnail'}
+    //     /> // preload the image
 
     function handleMouseEnter() {
         setHover(true)
@@ -24,17 +24,13 @@ export default function File({file}) {
     }
 
     return (
-        <Button variant={'transparent'} className={'file-button'}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}>
-            {
-                hover ?
-                    image :
-                    <>
-                        <FontAwesomeIcon icon={faFile}/>
-                        <span>{file.name}</span>
-                    </>
-            }
+        <Button variant={'transparent'} className={'file-button outline'}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
+            <a target="_blank" href={file.url} rel="noreferrer">
+                <img src={file.url} alt={file.name}  style={{width: "100px"}} />
+            </a>
+            <span>{file.name}</span>
         </Button>
     )
 }
