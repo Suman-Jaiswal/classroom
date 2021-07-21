@@ -8,7 +8,7 @@ import { Button, Modal } from 'react-bootstrap';
 export default function DeleteBtn({ currentFolder }) {
 
     const [open, setOpen] = useState(false)
-
+    console.log(currentFolder)
     const openModal = () => {
         setOpen(true)
     }
@@ -17,12 +17,19 @@ export default function DeleteBtn({ currentFolder }) {
     }
     const handleDelete = () => {
         setOpen(false)
+        
+        // database.files.where('folderId', '==', currentFolder.id).delete().then(() => {
+        //     console.log("Files successfully deleted!");
+        // }).catch((error) => {
+        //     console.error("Error removing document: ", error);
+        // });
 
         database.folders.doc(currentFolder.id).delete().then(() => {
             console.log("Folder successfully deleted!");
         }).catch((error) => {
             console.error("Error removing document: ", error);
         });
+        
     }
 
 
