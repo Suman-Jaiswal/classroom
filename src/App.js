@@ -26,6 +26,7 @@ export function App() {
                     const check = data.user.email.indexOf('@iiti.ac.in')
                     if (check > -1) {
                         toast.success('Logged in Successfully')
+                        history.push('/dashboard')
                     }
                     else {
                         signOut()
@@ -63,7 +64,6 @@ export function App() {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
                 setUser(user);
-                history.push('/dashboard')
             } else {
                 setUser(null);
             }

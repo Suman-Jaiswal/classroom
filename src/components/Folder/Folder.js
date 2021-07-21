@@ -45,7 +45,7 @@ export default function Folder({folder}) {
                          style={folderExpanded ? {maxHeight: '100px'} : {maxHeight: '0'}}>
                         <div style={folderExpanded ? {display: 'flex'} : {display: 'none'}}>
                             <RenameBtn currentFolder={folder}/>
-                            <DeleteBtn currentFolder={folder}/>
+                            <DeleteBtn id={folder.id} type='folder'/>
                         </div>
                     </div>
                     <div className={'options-caret-wrapper'}>
