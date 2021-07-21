@@ -16,7 +16,7 @@ export default function File({file}) {
     }
 
     return (
-        <div>
+        <>
             <button className={'file-button'}
                     onClick={handleButtonClick}>
                 <img src={file.url}
@@ -25,8 +25,10 @@ export default function File({file}) {
             </button>
             <Modal show={open}
                    onHide={closeModal}>
-                <embed src={file.url} className={'modal-file-view'}/>
+                <Modal.Body>
+                    <embed src={file.url}/>
+                </Modal.Body>
             </Modal>
-        </div>
+        </>
     )
 }

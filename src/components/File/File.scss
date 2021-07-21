@@ -1,4 +1,5 @@
 @import "src/index";
+
 .file-button {
   height: 120px;
   width: 150px;
@@ -15,10 +16,11 @@
   color: black;
   overflow: hidden;
   text-overflow: ellipsis;
+
   img {
     width: 150px;
     height: 85%;
-   
+
     margin: 0;
   }
 
@@ -26,14 +28,27 @@
     font-family: Prompt, cursive;
     font-size: 12px;
     font-weight: bold;
-  
+
     white-space: nowrap;
-  
+
     padding: 0 5px;
   }
 
   &:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.modal-body {
+  position: relative;
+
+  embed {
+    width: 80vw;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -40vw;
   }
 }
