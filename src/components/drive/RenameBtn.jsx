@@ -27,7 +27,9 @@ export default function RenameBtn({ currentFolder }) {
     return (
         <>
             <Button onClick={openModal} variant='transparent' style={{ }} >
-                <FontAwesomeIcon icon={faPen} style={{width: '10px', height: '10px', }} />
+                <FontAwesomeIcon
+                    icon={faPen}
+                    style={{width: '10px', height: '10px', outline: 'none !important'}} />
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>
@@ -45,6 +47,9 @@ export default function RenameBtn({ currentFolder }) {
                         </Form.Group>
                     </Modal.Body>
                     <Modal.Footer>
+                        <Button variant='danger' onClick={closeModal}>
+                            Cancel
+                        </Button>
                         <Button variant='secondary' onClick={closeModal} type='submit'>
                             Rename
                         </Button>
