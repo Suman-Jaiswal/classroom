@@ -15,8 +15,8 @@ $color-accent-shade: #6b651b;
 body {
   background-image:  url("./assets/cubes.png");
   // removed them because they were not working in firefox
-  //background-color: rgba(245, 245, 245, 0.548);
-  //background-blend-mode: saturation;
+  background-color: rgba(245, 245, 245, 0.445);
+  background-blend-mode: saturation;
 }
 
 .sign-button {
