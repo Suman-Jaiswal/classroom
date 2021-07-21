@@ -6,7 +6,7 @@ import {Container} from 'react-bootstrap'
 import {useFolder} from '../../hooks/useFolder'
 import Folder from '../../components/Folder/Folder'
 import File from '../../components/File/File'
-import {Redirect, useLocation, useParams} from 'react-router-dom'
+import { useLocation, useParams} from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 
 export default function DashboardPage(props) {
@@ -15,9 +15,6 @@ export default function DashboardPage(props) {
     const {state = {}} = useLocation()
     const {folder, childFolders, childFiles} = useFolder(folderId, state.folder)
 
-    if (props.response == null) {
-        return <Redirect to={'/'}/>
-    } else {
         return (
             <Container fluid className='mt-2'>
                 <div className="d-flex align-center">
@@ -42,5 +39,4 @@ export default function DashboardPage(props) {
                     : null}
             </Container>
         )
-    }
 }

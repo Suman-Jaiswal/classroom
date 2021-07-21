@@ -13,10 +13,10 @@ toast.configure()
 export function App() {
 
     const [loading, setLoading] = useState(true)
-    const [response, setResponse] = useState(null)
-
     const history = useHistory()
+
     const CLIENT_ID = '394247690551-qrhqonr04pohlgcg44s7hrp1u7or4qi2.apps.googleusercontent.com' 
+
     const signInButton =
         <GoogleLogin
             clientId={CLIENT_ID} 
@@ -52,7 +52,7 @@ export function App() {
     }, [])
 
     function handleSignInSuccess(response) {
-        setResponse(response)
+
         history.push('/dashboard')
     }
 
@@ -61,7 +61,7 @@ export function App() {
     }
 
     function handleSignOutSuccess() {
-        setResponse(null)
+
         history.push('/')
     }
 
@@ -78,22 +78,22 @@ export function App() {
                 <NavbarComponent
                     signInButton={signInButton}
                     signOutButton={signOutButton}
-                    response={response}
+       
                 />
                 <Route exact path={'/'} render={() => (
                     <LandingPage
                         signInButton={signInButton}
-                        response={response}
+
                     />
                 )}/>
                 <Route exact path={'/dashboard'} render={() => (
                     <DashboardPage
-                        response={response}
+
                     />
                 )}/>
                 <Route exact path={'/folders/:folderId'} render={() => (
                     <DashboardPage
-                        response={response}
+
                     />
                 )}/>
             </div>
