@@ -1,8 +1,9 @@
+import { Button } from 'react-bootstrap';
 import React from 'react';
 import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
 
-function LandingPage(props) {
+function LandingPage({ signInWithGoogle }) {
     return (
         <div className={'landing-page-return-wrapper'}>
             <section className={"landing-page-hero"}>
@@ -12,7 +13,7 @@ function LandingPage(props) {
                         porro possimus totam! Autem consequatur, doloremque, earum explicabo id in maiores, maxime
                         nam
                         nisi officia quia similique voluptates!</p>
-                    {props.signInButton}
+                    <Button onClick={signInWithGoogle} > Sign In </Button>
                 </div>
                 <img className={'hero-image'} src={heroImage} alt={'student'}/>
             </section>

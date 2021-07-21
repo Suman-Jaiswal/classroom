@@ -1,49 +1,44 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import DashboardPage from './webpages/DashboardPage/DashboardPage';
-import {Route, useHistory} from 'react-router-dom'
+import { Route, Switch, useHistory, Redirect } from 'react-router-dom'
 import LandingPage from "./webpages/LandingPage/LandingPage";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
-import {HashLoader as Loader} from "react-spinners";
-import {toast} from 'react-toastify'
+import { HashLoader as Loader } from "react-spinners";
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import {GoogleLogin, GoogleLogout} from 'react-google-login';
+import firebase, { auth } from './fbConfig'
 
 toast.configure()
 
 export function App() {
 
-    const [loading, setLoading] = useState(true)
     const history = useHistory()
+    const [loading, setLoading] = useState(true)
+    const [user, setUser] = useState(() => auth.currentUser)
 
-    const CLIENT_ID = '394247690551-qrhqonr04pohlgcg44s7hrp1u7or4qi2.apps.googleusercontent.com' 
 
-    const signInButton =
-        <GoogleLogin
-            clientId={CLIENT_ID} 
-            onSuccess={handleSignInSuccess}
-            onFailure={handleSignInFailure}
-            cookiePolicy={'single_host_origin'}
-            render={renderProps => (
-                <button className={'sign-button'}
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}>
-                    Sign In
-                </button>
-            )}
-        />
-    const signOutButton =
-        <GoogleLogout
-            clientId={CLIENT_ID}
-            onLogoutSuccess={handleSignOutSuccess}
-            onFailure={handleSignOutFailure}
-            render={renderProps => (
-                <button className={'sign-button'}
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}>
-                    Sign Out
-                </button>
-            )}
-        />
+    const signInWithGoogle = async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.useDeviceLanguage();
+        try {
+            await auth.signInWithPopup(provider)
+            history.push('/dashboard')
+        } catch (error) {
+            console.error(error);
+        }
+
+    };
+
+
+    const signOut = async () => {
+        try {
+            await firebase.auth().signOut();
+            history.push('/')
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -51,51 +46,43 @@ export function App() {
         }, 500);
     }, [])
 
-    function handleSignInSuccess(response) {
 
-        history.push('/dashboard')
-    }
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser(null);
+            }
+        })
+        return unsubscribe
+    });
 
-    function handleSignInFailure() {
-        toast.error('Sign In failed!')
-    }
-
-    function handleSignOutSuccess() {
-
-        history.push('/')
-    }
-
-    function handleSignOutFailure() {
-        toast.error('An error occurred!')
-        history.push('/')
-    }
 
     if (loading) {
-        return <Loader loading={true} size={100} color={"#0ff0f0"} css={{position: "absolute", left: "calc(50% - 50px)", top: "calc(50% - 50px)" }}/>
+        return <Loader loading={true} size={100} color={"#0ff0f0"} css={{ position: "absolute", left: "calc(50% - 50px)", top: "calc(50% - 50px)" }} />
     } else {
         return (
             <div className="App">
-                <NavbarComponent
-                    signInButton={signInButton}
-                    signOutButton={signOutButton}
-       
-                />
-                <Route exact path={'/'} render={() => (
-                    <LandingPage
-                        signInButton={signInButton}
 
-                    />
-                )}/>
-                <Route exact path={'/dashboard'} render={() => (
-                    <DashboardPage
+                <NavbarComponent signOut={signOut} user={user} />
 
-                    />
-                )}/>
-                <Route exact path={'/folders/:folderId'} render={() => (
-                    <DashboardPage
+                <Switch>
 
-                    />
-                )}/>
+                    <Route exact path={'/'} render={() => (
+                        <LandingPage signInWithGoogle={signInWithGoogle} />
+                    )} />
+
+                    <Route exact path={'/dashboard'} render={() => user ? (
+                        <DashboardPage user={user} />
+                    ) : <Redirect to={'/'} />} />
+
+                    <Route exact path={'/folders/:folderId'} render={() => user ? (
+                        <DashboardPage user={user} />
+                    ) : <Redirect to={'/'} />} />
+
+                </Switch>
+
             </div>
         )
     }
