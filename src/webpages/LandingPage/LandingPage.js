@@ -15,7 +15,6 @@ function LandingPage({ signInWithGoogle }) {
                         nisi officia quia similique voluptates!</p>
                     <Button onClick={signInWithGoogle} > Sign In </Button>
                 </div>
-                <img className={'hero-image'} src={heroImage} alt={'books'} />
                 <img className={'hero-image'} src={heroImage} alt={'student'}/>
             </section>
         </div>
