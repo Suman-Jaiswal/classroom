@@ -14,8 +14,8 @@ function LandingPage({ signInWithGoogle, user }) {
                         nam
                         nisi officia quia similique voluptates!</p>
                     {
-                       user ?  <Button as={Link} to='/dashboard' > Go to Dashboard {'>>'} </Button>
-                       : <Button onClick={signInWithGoogle} > Sign In </Button>
+                       user ?  <Link to='/dashboard' > Go to Dashboard {'>>'} </Link>
+                       : <Link onClick={signInWithGoogle} > Sign In </Link>
                     }
                    
                 </div>
