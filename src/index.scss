@@ -8,14 +8,13 @@ $color-primary-shade: #164f4f;
 $color-accent: #F3E37C;
 $color-accent-shade: #605b29;
 
-
 * {
   box-sizing: border-box;
 }
 
 body {
   background-image:  url("./assets/cubes.png");
-  background-color: rgba(245, 245, 245, 0.548);
+  background-color: rgba(245, 245, 245, 0.527);
   background-blend-mode: saturation;
 }
 
