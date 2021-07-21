@@ -21,8 +21,20 @@ export function App() {
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.useDeviceLanguage();
         try {
-            await auth.signInWithPopup(provider)
-            history.push('/dashboard')
+            await auth.signInWithPopup(provider).then(
+                data => {
+                    const check = data.user.email.indexOf('@iiti.ac.in')
+                    if (check > -1) {
+                        toast.success('Logged in Successfully')
+                    }
+                    else {
+                        signOut()
+                        toast.error('This website is restricted to its organisation only. Use domain "@iiti.ac.in"')
+                    }
+                }
+            )
+
+
         } catch (error) {
             console.error(error);
         }
@@ -51,6 +63,7 @@ export function App() {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
                 setUser(user);
+                history.push('/dashboard')
             } else {
                 setUser(null);
             }

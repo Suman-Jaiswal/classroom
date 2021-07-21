@@ -8,7 +8,7 @@ import { Button, Modal } from 'react-bootstrap';
 export default function DeleteBtn({ currentFolder }) {
 
     const [open, setOpen] = useState(false)
-    console.log(currentFolder)
+  
     const openModal = () => {
         setOpen(true)
     }
