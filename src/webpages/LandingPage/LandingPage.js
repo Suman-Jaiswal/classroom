@@ -14,7 +14,7 @@ function LandingPage(props) {
                         nisi officia quia similique voluptates!</p>
                     {props.signInButton}
                 </div>
-                <img className={'hero-image'} src={heroImage} alt={'books'}/>
+                <img className={'hero-image'} src={heroImage} alt={'student'}/>
             </section>
         </div>
     )

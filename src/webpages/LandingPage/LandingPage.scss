@@ -13,6 +13,7 @@
   padding: 2vh 2vw;
   border-radius: 10px;
   background: $color-primary;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .landing-page-hero-left {
@@ -24,7 +25,7 @@
   h1 {
     font-family: 'Oswald', cursive;
     font-size: 3rem;
-    color: $color-primary-shade;
+    color: $color-accent-shade;
   }
 
   p {

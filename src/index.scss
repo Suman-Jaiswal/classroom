@@ -6,7 +6,7 @@ $color-primary: #2ff1f1f6;
 $color-primary-tint: #57797918;
 $color-primary-shade: #164f4f;
 $color-accent: #F3E37C;
-$color-accent-shade: #605b29;
+$color-accent-shade: #6b651b;
 
 
 * {
@@ -15,16 +15,20 @@ $color-accent-shade: #605b29;
 
 body {
   background-image:  url("./assets/cubes.png");
-  background-color: rgba(245, 245, 245, 0.548);
-  background-blend-mode: saturation;
+  // removed them because they were not working in firefox
+  //background-color: rgba(245, 245, 245, 0.548);
+  //background-blend-mode: saturation;
 }
 
 .sign-button {
   width: 120px;
   height: 40px;
 
-  border: 1px solid black;
+  border: none;
   border-radius: 4px;
+  outline: none;
+
+  font-weight: bold;
 
   background: $color-accent;
 
@@ -32,6 +36,11 @@ body {
 
   &:hover, &:focus {
     background: $color-accent-shade;
+    border: none;
+
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+
     color: white;
   }
 }
