@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import {faFolder} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import './Folder.scss'
+import RenameBtn from '../drive/RenameBtn';
+import DeleteBtn from '../drive/DeleteBtn';
 
 export default function Folder({folder}) {
 
@@ -22,11 +24,15 @@ export default function Folder({folder}) {
         )
     } else {
         return (
+            <div className='folder-wrapper'>
+            <RenameBtn currentFolder={folder} />
+            <DeleteBtn currentFolder={folder} />
             <Button variant='transparent' className='folder-card' as={Link}
                     to={{pathname: `/folders/${folder.id}`, state: {folder}}}>
                 <FontAwesomeIcon icon={faFolder}/>
                 <span>{folder.name}</span>
             </Button>
+            </div>
         )
     }
 }

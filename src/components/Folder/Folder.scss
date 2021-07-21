@@ -47,12 +47,16 @@
   }
 }
 
+.folder-wrapper{
+    margin: 10px;
+}
+
 .folder-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  margin: 10px;
+
 
   width: 100px;
   height: 60px;

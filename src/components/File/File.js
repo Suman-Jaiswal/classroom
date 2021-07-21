@@ -34,7 +34,7 @@ export default function File({file}) {
                    onHide={closeModal}>
                 <Modal.Body>
                     <FileViewer
-                        fileType={'png'}
+                        // fileType={'png'}
                         filePath={file.url}
                         errorComponent={CustomErrorComponent}
                         onError={errorHandler}/>
@@ -43,3 +43,4 @@ export default function File({file}) {
         </div>
     )
 }
+
