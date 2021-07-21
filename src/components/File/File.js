@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import './File.scss'
 import {Modal} from "react-bootstrap";
-import FileViewer from 'react-file-viewer';
-import {CustomErrorComponent} from 'custom-error';
 
 export default function File({file}) {
     // use file.url to show the file in new window
@@ -17,11 +15,6 @@ export default function File({file}) {
         setOpen(false)
     }
 
-    function errorHandler() {
-        console.log('error occurred!')
-        setOpen(false)
-    }
-
     return (
         <div>
             <button className={'file-button'}
@@ -32,15 +25,8 @@ export default function File({file}) {
             </button>
             <Modal show={open}
                    onHide={closeModal}>
-                <Modal.Body>
-                    <FileViewer
-                        // fileType={'png'}
-                        filePath={file.url}
-                        errorComponent={CustomErrorComponent}
-                        onError={errorHandler}/>
-                </Modal.Body>
+                <embed src={file.url} className={'modal-file-view'}/>
             </Modal>
         </div>
     )
 }
-
