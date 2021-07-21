@@ -43,6 +43,9 @@ export default function DeleteBtn({ currentFolder }) {
                         Confirm Delete!
                     </Modal.Body>
                     <Modal.Footer>
+                        <Button variant='danger' onClick={closeModal}>
+                            Cancel
+                        </Button>
                         <Button variant='secondary' onClick={handleDelete} type='submit'>
                             Confirm
                         </Button>
