@@ -1,9 +1,10 @@
 import { Button } from 'react-bootstrap';
 import React from 'react';
+import {Link} from 'react-router-dom'
 import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
 
-function LandingPage({ signInWithGoogle }) {
+function LandingPage({ signInWithGoogle, user }) {
     return (
         <div className={'landing-page-return-wrapper'}>
             <section className={"landing-page-hero"}>
@@ -13,7 +14,11 @@ function LandingPage({ signInWithGoogle }) {
                         porro possimus totam! Autem consequatur, doloremque, earum explicabo id in maiores, maxime
                         nam
                         nisi officia quia similique voluptates!</p>
-                    <Button onClick={signInWithGoogle} > Sign In </Button>
+                    {
+                       user ?  <Button as={Link} to='/dashboard' > Go to Dashboard {'>>'} </Button>
+                       : <Button onClick={signInWithGoogle} > Sign In </Button>
+                    }
+                   
                 </div>
                 <img className={'hero-image'} src={heroImage} alt={'student'}/>
             </section>

@@ -15,7 +15,7 @@ export function App() {
     const history = useHistory()
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(() => auth.currentUser)
-
+    console.log(user)
 
     const signInWithGoogle = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -70,7 +70,7 @@ export function App() {
                 <Switch>
 
                     <Route exact path={'/'} render={() => (
-                        <LandingPage signInWithGoogle={signInWithGoogle} />
+                        <LandingPage signInWithGoogle={signInWithGoogle} user={user} />
                     )} />
 
                     <Route exact path={'/dashboard'} render={() => user ? (

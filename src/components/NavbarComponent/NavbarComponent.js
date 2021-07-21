@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import "./NavbarComponent.scss";
 import logo from '../../assets/classroom-svgrepo-com.svg'
 import { Button } from "react-bootstrap";
@@ -8,15 +9,14 @@ export default function NavbarComponent({ signOut, user }) {
         <nav className={'nav-return-wrapper'}>
             <div className="brand-container">
                 <img src={logo} alt={'iiti-logo'} />
-                <span>Classroom</span>
+                <Link to={'/'}>Classroom</Link>
             </div>
             {
-                user ? <span>{user.displayName}</span> : null
+                user ? <span> <img src={user.photoURL} alt="" /> <span id='name'>{user.displayName}</span> {
+                    user ? <Button variant={'danger'} className='btn-sm' onClick={signOut} > Log Out</Button> : null
+                }</span> : null
             }
 
-            {
-                user ? <Button variant={'danger'} onClick={signOut} > Log Out</Button> : null
-            }
 
 
         </nav>
