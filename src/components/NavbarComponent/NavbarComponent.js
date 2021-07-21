@@ -12,7 +12,7 @@ export default function NavbarComponent({signOut, user}) {
             </div>
             {
                 user ? <span> <img src={user.photoURL} alt="" /> <span id='name'>{user.displayName}</span> {
-                    user ? <button variant={'danger'} className='btn-sm' onClick={signOut} > Log Out</button> : null
+                    user ? <button className='sign-button' onClick={signOut} > Log Out</button> : null
                 }</span> : null
             }
         </nav>

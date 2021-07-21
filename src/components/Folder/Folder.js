@@ -35,7 +35,7 @@ export default function Folder({folder}) {
                     className={'open-folder-button'}
                     to={{pathname: `/folders/${folder.id}`, state: {folder}}}>
 
-                    <FontAwesomeIcon icon={faFolder} style={{height: '32px'}}/>
+                    <FontAwesomeIcon icon={faFolder} size={'2x'}/>
                     <span>{folder.name}</span>
                 </Link>
 

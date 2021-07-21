@@ -54,7 +54,7 @@
 
   position: relative;
 
-  width: 120px;
+  width: 150px;
 
   margin: 10px;
   border-radius: 4px;
@@ -67,7 +67,7 @@
 
   text-decoration: none;
 
-  height: 70px;
+  height: 90px;
   padding: 10px;
 
   display: flex;
@@ -93,11 +93,19 @@
   }
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     background: $color-primary-shade;
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
 
     color: white;
+
+    svg path {
+      fill: white;
+    }
+
+    span {
+      color: white;
+    }
   }
 }
 
@@ -109,7 +117,7 @@
   padding: 0;
 
   position: absolute;
-  bottom: -20px;
+  bottom: -19px;
   left: 0;
 
   width: 100%;

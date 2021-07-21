@@ -27,7 +27,8 @@ body {
   border-radius: 4px;
   outline: none;
 
-  font-weight: bold;
+  text-decoration: none;
+  color: black;
 
   background: $color-accent;
 
@@ -41,5 +42,22 @@ body {
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
 
     color: white;
+  }
+}
+
+.awesome-link {
+  width: fit-content;
+
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+
+  transition: .15s;
+
+  &:hover {
+    color: darkblue;
+    text-decoration: underline;
+    transform: skew(-20deg);
   }
 }

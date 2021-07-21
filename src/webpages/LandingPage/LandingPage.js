@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
 
-function LandingPage({ signInWithGoogle, user }) {
+function LandingPage({signInWithGoogle, user}) {
     return (
         <div className={'landing-page-return-wrapper'}>
             <section className={"landing-page-hero"}>
@@ -14,10 +14,16 @@ function LandingPage({ signInWithGoogle, user }) {
                         nam
                         nisi officia quia similique voluptates!</p>
                     {
-                       user ?  <Link to='/dashboard' > Go to Dashboard {'>>'} </Link>
-                       : <Link onClick={signInWithGoogle} > Sign In </Link>
+                        user ?
+                            <Link to='/dashboard'
+                                  className={'awesome-link'}>
+                                Go to Dashboard {'>>'}
+                            </Link>
+                            : <Link onClick={signInWithGoogle}
+                                    className={'awesome-link'}>
+                                Sign In
+                            </Link>
                     }
-                   
                 </div>
                 <img className={'hero-image'} src={heroImage} alt={'student'}/>
             </section>
