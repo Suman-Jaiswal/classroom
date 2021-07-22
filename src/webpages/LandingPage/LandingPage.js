@@ -21,7 +21,7 @@ function LandingPage({signInWithGoogle, user}) {
                             </Link>
                             : <Link onClick={signInWithGoogle}
                                     className={'awesome-link'}>
-                                Sign In
+                                Sign In {'>>'}
                             </Link>
                     }
                 </div>

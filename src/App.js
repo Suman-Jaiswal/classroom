@@ -3,7 +3,7 @@ import DashboardPage from './webpages/DashboardPage/DashboardPage';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom'
 import LandingPage from "./webpages/LandingPage/LandingPage";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
-import { HashLoader as Loader } from "react-spinners";
+import { PulseLoader as Loader } from "react-spinners";
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import firebase, { auth } from './fbConfig'
@@ -73,7 +73,7 @@ export function App() {
 
 
     if (loading) {
-        return <Loader loading={true} size={100} color={"#0ff0f0"} css={{ position: "absolute", left: "calc(50% - 50px)", top: "calc(50% - 50px)" }} />
+        return  <Loader loading={true} size={15} css={{position: "absolute", top: "calc(50% - 7.5px)", left: "calc(50% - 7.5px)"}} />
     } else {
         return (
             <div className="App">

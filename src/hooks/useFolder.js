@@ -21,7 +21,8 @@ function reducer(state, {type, payload}) {
                 folderId: payload.folderId,
                 folder: payload.folder,
                 childFiles: [],
-                childFolders: []
+                childFolders: [],
+                loaded: false
             }
         case ACTIONS.UPDATE_FOLDER:
             return {
@@ -31,7 +32,8 @@ function reducer(state, {type, payload}) {
         case ACTIONS.SET_CHILD_FOLDERS:
             return {
                 ...state,
-                childFolders: payload.childFolders
+                childFolders: payload.childFolders,
+                loaded: true
             }
         case ACTIONS.SET_CHILD_FILES:
             return {
