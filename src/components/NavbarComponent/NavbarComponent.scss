@@ -5,17 +5,19 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 1vh 2vw;
+  padding: 1px 2vw;
   box-shadow: 0 8px 6px -6px #999;
 
   background: $color-primary;
 
   img {
     height: 40px;
-    padding: 4px;
+    padding: 1px;
     border-radius: 50%;
-    background: $color-primary-shade;
-    margin: 5px;
+    margin: 0 2px;
+  }
+  #logo{
+    height: 60px;
   }
   a {
     font-family: Oswald, cursive;

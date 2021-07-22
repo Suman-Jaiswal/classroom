@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import "./NavbarComponent.scss";
-import logo from '../../assets/classroom-svgrepo-com.svg'
 
 export default function NavbarComponent({signOut, user}) {
     return (
         <nav className={'nav-return-wrapper'}>
             <div className="brand-container">
-                <img src={logo} alt={'iiti-logo'} />
+                <img id="logo" src="/img/brand.png" alt={'iiti-logo'} />
                 <Link to={'/'}>Classroom</Link>
             </div>
             {
