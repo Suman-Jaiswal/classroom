@@ -9,11 +9,11 @@ import File from '../../components/File/File'
 import { useLocation, useParams } from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 
-export default function DashboardPage({ user }) {
-
+export default function DashboardPage() {
     const { folderId } = useParams()
     const { state = {} } = useLocation()
     const { folder, childFolders, childFiles } = useFolder(folderId, state.folder)
+
 
     return (
         <Container fluid className='mt-2'>
@@ -22,8 +22,8 @@ export default function DashboardPage({ user }) {
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
             </div>
-            
-            <div className='px-3'>
+
+                <div className='px-3'>
                 <span>Folders: ({childFolders.length}) </span>
                 <span>Files: ({childFiles.length})</span>
             </div>
@@ -36,8 +36,8 @@ export default function DashboardPage({ user }) {
                 : null}
 
             {(childFiles.length > 0 && childFolders.length > 0) ? <hr /> : null}
-            {(childFiles.length === 0 && childFolders.length === 0) ? <div className='empty' ><img src="/img/empty-box.png" alt="Empty" /></div> : null}
-
+            {(childFiles.length === 0 && childFolders.length === 0) ? <div className="empty"><img src="/img/empty-box.png" alt="Empty" /></div> : null}
+            
             {childFiles.length > 0 ?
                 <div className="dashboard-cards-wrapper">
                     {childFiles.map(childFile => (
@@ -45,6 +45,7 @@ export default function DashboardPage({ user }) {
                     ))}
                 </div>
                 : null}
+        
         </Container>
     )
 
