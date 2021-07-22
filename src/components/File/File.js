@@ -17,7 +17,7 @@ export default function File({ file }) {
 
     return (
         <div className={'file-wrapper'}>
-            <a
+            <button
                 className={'preview-file-button'}
                 onClick={() => setOpen(!open)}>
 
@@ -25,7 +25,7 @@ export default function File({ file }) {
                     alt={file.name} />
                 <span>{file.name}</span>
 
-            </a>
+            </button>
 
             <div className={'file-options'}
                 onClick={handleFileOptionsClick}>
