@@ -8,8 +8,8 @@
   padding: 5px 2vw;
   box-shadow: 0 8px 6px -6px #999;
 
-  background: rgb(60,255,255);
-  
+  background: rgb(60, 255, 255);
+
 
   img {
     height: 40px;
@@ -17,10 +17,12 @@
     border-radius: 50%;
     margin: 0 2px;
   }
-  #logo{
+
+  #logo {
     height: 50px;
     border-radius: 0;
   }
+
   a {
     font-family: 'Comic Neue', cursive;
     font-size: 25px;
@@ -28,12 +30,13 @@
     text-decoration: none;
     font-weight: bold;
   }
+
   span {
     font-family: 'Comic Neue', cursive;
     font-size: 18px;
     margin-right: 5px;
     margin-top: 3px;
-    font-weight: 800;
+    font-weight: bolder;
   }
 }
 
@@ -42,8 +45,15 @@
   gap: 20px;
   align-items: center;
 }
-@media only screen and ( max-width: 572px ){
-   #name{
-     display: none;
-   }
+
+.nav-right-wrapper {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+@media only screen and (max-width: 572px) {
+  #name {
+    display: none;
+  }
 }

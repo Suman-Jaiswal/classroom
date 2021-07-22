@@ -46,9 +46,7 @@ export default function DeleteBtn({ id, type }) {
                 console.error("Error removing document: ", error);
             });
         }
-
     }
-
 
     return (
         <>
