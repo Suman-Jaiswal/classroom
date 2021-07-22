@@ -1,15 +1,26 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './File.scss'
 import DeleteBtn from '../drive/DeleteBtn';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCaretDown, faCaretUp} from "@fortawesome/free-solid-svg-icons";
+import {faCaretDown, faCaretUp, faFile} from "@fortawesome/free-solid-svg-icons";
 import {Modal} from "react-bootstrap";
 import DownloadBtn from "../drive/DownloadBtn";
 
+const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'bmp']
+
 export default function File({file}) {
+
     // use file.url to show the file in new window
     const [open, setOpen] = useState(false)
     const [fileExpanded, setFileExpanded] = useState(false)
+    const [isImage, setIsImage] = useState(false)
+
+    useEffect(() => {
+        const fileExtension = file.name.slice(-3).toLowerCase()
+        if (imageExtensions.includes(fileExtension)) {
+            setIsImage(true)
+        }
+    })
 
     function handleFileOptionsClick() {
         setFileExpanded(!fileExpanded)
@@ -21,8 +32,12 @@ export default function File({file}) {
                 className={'preview-file-button'}
                 onClick={() => setOpen(!open)}>
 
-                <img src={file.url}
-                     alt={file.name}/>
+                {isImage ?
+                    <img src={file.url}
+                         alt={file.name}/>
+                    : <FontAwesomeIcon icon={faFile}
+                                       size={'4x'}/>}
+
                 <span>{file.name}</span>
 
             </a>

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
 $color-primary: #1fe7e7;
 $color-primary-tint: #57797918;
 $color-primary-shade: #164f4f;
@@ -29,7 +30,7 @@ body {
   background: $color-accent;
 
   transition: .4s;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 
   &:hover, &:focus {
     background: $color-accent-shade;
