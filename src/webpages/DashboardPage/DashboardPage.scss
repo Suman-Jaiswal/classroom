@@ -6,7 +6,7 @@
 }
 
 .dashboard-title {
-  font-family: 'Oswald', cursive;
+  font-family: Comic Sans MS, Comic Sans, cursive;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -15,5 +15,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 5vh 0;
+  padding: 3vh 0px;
+}
+.empty{
+  margin: 50px;
+  text-align: center;
+  img{
+      width: 200px;
+  }
 }

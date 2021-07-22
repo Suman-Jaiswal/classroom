@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
-
-$color-primary: #2ff1f1f6;
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+$color-primary: #1fe7e7;
 $color-primary-tint: #57797918;
 $color-primary-shade: #164f4f;
 $color-accent: #d80000;
@@ -13,10 +13,8 @@ $color-accent-shade: #361108;
 }
 
 body {
-  background-image:  url("./assets/cubes.png");
   // removed them because they were not working in firefox
-  background-color: rgba(245, 245, 245, 0.733);
-  background-blend-mode: saturation;
+  background-color: rgb(236, 236, 236);
 }
 
 .sign-button {

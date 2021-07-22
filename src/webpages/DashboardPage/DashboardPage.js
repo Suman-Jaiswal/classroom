@@ -17,10 +17,15 @@ export default function DashboardPage({ user }) {
 
     return (
         <Container fluid className='mt-2'>
-            <div className="d-flex align-center">
+            <div className="d-flex align-center px-2">
                 <FolderBreadcrumbs currentFolder={folder} />
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
+            </div>
+            
+            <div className='px-3'>
+                <span>Folders: ({childFolders.length}) </span>
+                <span>Files: ({childFiles.length})</span>
             </div>
             {childFolders.length > 0 ?
                 <div className={'dashboard-cards-wrapper'}>
@@ -29,7 +34,10 @@ export default function DashboardPage({ user }) {
                     ))}
                 </div>
                 : null}
+
             {(childFiles.length > 0 && childFolders.length > 0) ? <hr /> : null}
+            {(childFiles.length === 0 && childFolders.length === 0) ? <div className='empty' ><img src="/img/empty-box.png" alt="Empty" /></div> : null}
+
             {childFiles.length > 0 ?
                 <div className="dashboard-cards-wrapper">
                     {childFiles.map(childFile => (

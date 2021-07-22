@@ -6,7 +6,7 @@ export default function NavbarComponent({signOut, user}) {
     return (
         <nav className={'nav-return-wrapper'}>
             <div className="brand-container">
-                <img id="logo" src="/img/brand.png" alt={'iiti-logo'} />
+                <img id="logo" src="/img/brand.svg" alt={'iiti-logo'} />
                 <Link to={'/'}>Classroom</Link>
             </div>
             {

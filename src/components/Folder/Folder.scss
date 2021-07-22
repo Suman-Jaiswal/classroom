@@ -9,7 +9,7 @@
   border-radius: 10px;
 
   overflow: hidden;
-
+ 
   cursor: pointer;
 
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
@@ -27,8 +27,7 @@
   h3 {
     width: 100%;
     color: rgba(53, 50, 50, 0.959);
-    font-family: Prompt, cursive;
-    font-weight: bolder;
+    font-family: 'Comic Neue', cursive;
     text-transform: uppercase;
     text-align: center;
 
@@ -50,11 +49,10 @@
 .folder-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 
   position: relative;
 
-  width: 150px;
+  width: 145px;
 
   margin: 10px;
   border-radius: 4px;
@@ -117,7 +115,7 @@
   padding: 0;
 
   position: absolute;
-  bottom: -19px;
+  bottom: -10px;
   left: 0;
 
   width: 100%;
