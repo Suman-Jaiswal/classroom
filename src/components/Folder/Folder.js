@@ -41,7 +41,7 @@ export default function Folder({folder}) {
 
                 <div className={'folder-options'}
                      onClick={handleFolderOptionsClick}>
-                    <div id="options-buttons-wrapper"
+                    <div className="folder-options-buttons-wrapper"
                          style={folderExpanded ? {maxHeight: '100px'} : {maxHeight: '0'}}>
                         <div style={folderExpanded ? {display: 'flex'} : {display: 'none'}}>
                             <RenameBtn currentFolder={folder}/>

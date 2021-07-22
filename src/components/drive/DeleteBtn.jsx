@@ -19,13 +19,13 @@ export default function DeleteBtn({ id, type }) {
         setOpen(false)
 
         if (type === 'folder') {
-            var child_files_query = database.files.where('folderId', '==', id);
+            const child_files_query = database.files.where('folderId', '==', id);
             child_files_query.get().then(function (querySnapshot) {
                 querySnapshot.forEach(function (doc) {
                     doc.ref.delete();
                 });
             });
-            var child_folders_query = database.folders.where('parentId', '==', id);
+            const child_folders_query = database.folders.where('parentId', '==', id);
             child_folders_query.get().then(function (querySnapshot) {
                 querySnapshot.forEach(function (doc) {
                     doc.ref.delete();
@@ -52,8 +52,8 @@ export default function DeleteBtn({ id, type }) {
 
     return (
         <>
-            <Button onClick={openModal} variant='transparent' style={{}} >
-                <FontAwesomeIcon icon={faTrash} style={{ width: '10px', height: '10px', }} />
+            <Button onClick={openModal} variant='transparent'>
+                <FontAwesomeIcon icon={faTrash}/>
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Modal.Body>

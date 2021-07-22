@@ -1,37 +1,58 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import './File.scss'
-import { Modal } from "react-bootstrap";
 import DeleteBtn from '../drive/DeleteBtn';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCaretDown, faCaretUp} from "@fortawesome/free-solid-svg-icons";
+import {Modal} from "react-bootstrap";
+import DownloadBtn from "../drive/DownloadBtn";
 
-export default function File({ file }) {
+export default function File({file}) {
     // use file.url to show the file in new window
     const [open, setOpen] = useState(false)
+    const [fileExpanded, setFileExpanded] = useState(false)
 
-    function handleButtonClick() {
-        setOpen(true)
-    }
-
-    function closeModal() {
-        setOpen(false)
+    function handleFileOptionsClick() {
+        setFileExpanded(!fileExpanded)
     }
 
     return (
-        <>  <div>
-            <DeleteBtn id={file.id} type='file' />
-            <button className={'file-button'}
-                onClick={handleButtonClick}>
+        <div className={'file-wrapper'}>
+            <a
+                className={'preview-file-button'}
+                onClick={() => setOpen(!open)}>
+
                 <img src={file.url}
-                    alt={file.name} />
+                     alt={file.name}/>
                 <span>{file.name}</span>
-            </button>
-        </div>
+
+            </a>
+
+            <div className={'file-options'}
+                 onClick={handleFileOptionsClick}>
+                <div className={"file-options-buttons-wrapper"}
+                     style={fileExpanded ? {maxHeight: '100px'} : {maxHeight: '0'}}>
+                    <div style={fileExpanded ? {display: 'flex'} : {display: 'none'}}>
+                        <DeleteBtn id={file.id} type='file'/>
+                        <DownloadBtn downloadUrl={file.url} name={file.name}/>
+                    </div>
+                </div>
+                <div className={'options-caret-wrapper'}>
+                    {fileExpanded ?
+                        <FontAwesomeIcon
+                            icon={faCaretDown}
+                            onClick={handleFileOptionsClick}/>
+                        : <FontAwesomeIcon
+                            icon={faCaretUp}
+                            onClick={handleFileOptionsClick}/>}
+                </div>
+            </div>
 
             <Modal show={open}
-                onHide={closeModal}>
-                <Modal.Body>
-                    <embed src={file.url} />
+                   onHide={() => setOpen(false)}>
+                <Modal.Body className={'file-preview-modal-body'}>
+                    <embed src={file.url}/>
                 </Modal.Body>
             </Modal>
-        </>
+        </div>
     )
 }

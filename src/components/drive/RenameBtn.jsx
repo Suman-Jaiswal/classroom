@@ -29,7 +29,7 @@ export default function RenameBtn({ currentFolder }) {
             <Button onClick={openModal} variant='transparent' style={{ }} >
                 <FontAwesomeIcon
                     icon={faPen}
-                    style={{width: '10px', height: '10px', outline: 'none !important'}} />
+                    style={{outline: 'none !important'}} />
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>
