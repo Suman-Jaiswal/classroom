@@ -53,7 +53,7 @@ export default function DashboardPage() {
                         ))}
                     </div>
                     : null}
-            </div> : <Loader loading={true} size={15} css={{position: "absolute", top: "calc(50% - 7.5px)", left: "calc(50% - 7.5px)"}} />
+            </div> : <Loader loading={true} size={15} css={{position: "absolute", top: "50%", left: "calc(50% - 25px)"}} />
             }
             
 

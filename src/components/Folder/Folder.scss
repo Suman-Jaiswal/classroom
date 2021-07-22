@@ -14,7 +14,8 @@
 
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
 
-  background: $color-primary;
+  background: rgb(60,255,255);
+  background: linear-gradient(0deg, rgba(60,255,255,1) 27%, rgba(22,208,216,1) 100%);
   height: fit-content;
 
   img {
@@ -66,7 +67,7 @@
   text-decoration: none;
 
   height: 90px;
-  padding: 10px;
+  margin:  0px;
 
   display: flex;
   flex-direction: column;
@@ -75,6 +76,7 @@
 
   svg {
     margin: auto;
+    height: 50%;
 
     path {
       fill: black;
@@ -85,7 +87,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
+    padding-bottom: 8px;
     text-align: center;
     color: black;
   }
@@ -115,7 +117,7 @@
   padding: 0;
 
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 0;
 
   width: 100%;

@@ -73,7 +73,7 @@ export function App() {
 
 
     if (loading) {
-        return  <Loader loading={true} size={15} css={{position: "absolute", top: "calc(50% - 7.5px)", left: "calc(50% - 7.5px)"}} />
+        return  <Loader loading={true} size={15} css={{position: "absolute", top: "50%", left: "calc(50% - 25px)"}} />
     } else {
         return (
             <div className="App">
