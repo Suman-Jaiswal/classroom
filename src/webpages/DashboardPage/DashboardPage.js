@@ -9,12 +9,12 @@ import File from '../../components/File/File'
 import { useLocation, useParams } from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 import { PulseLoader as Loader } from "react-spinners";
+import CopyBtn from '../../components/drive/CopyBtn'
 
 export default function DashboardPage() {
     const { folderId } = useParams()
     const { state = {} } = useLocation()
     const { folder, childFolders, childFiles, loaded } = useFolder(folderId, state.folder)
-
 
     return (
         <Container fluid className='mt-2'>
@@ -22,40 +22,41 @@ export default function DashboardPage() {
                 <FolderBreadcrumbs currentFolder={folder} />
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
+                <CopyBtn/>
             </div>
             {
                 loaded ?
-                <div>
-                <div className='px-3'>
-                    <span>Folders: ({childFolders.length}) </span>
-                    <span>Files: ({childFiles.length})</span>
-                </div>
-                {childFolders.length > 0 ?
-                    <div className={'dashboard-cards-wrapper'}>
-                        {childFolders.map(childFolder => (
-                            <Folder key={childFolder.id} folder={childFolder} />
-                        ))}
-                    </div>
-                    : null}
+                    <div>
+                        <div className='px-3'>
+                            <span>Folders: ({childFolders.length}) </span>
+                            <span>Files: ({childFiles.length})</span>
+                        </div>
+                        {childFolders.length > 0 ?
+                            <div className={'dashboard-cards-wrapper'}>
+                                {childFolders.map(childFolder => (
+                                    <Folder key={childFolder.id} folder={childFolder} />
+                                ))}
+                            </div>
+                            : null}
 
-                {(childFiles.length > 0 && childFolders.length > 0) ? <hr /> : null}
-                {(childFiles.length === 0 && childFolders.length === 0 && loaded) ? 
-                <div className="empty">
-                    <h5>Empty !</h5>
-                    <img src="/img/empty-box.png" alt="Empty" />
-                </div> : null}
+                        {(childFiles.length > 0 && childFolders.length > 0) ? <hr /> : null}
+                        {(childFiles.length === 0 && childFolders.length === 0 && loaded) ?
+                            <div className="empty">
+                                <h5>Empty !</h5>
+                                <img src="/img/empty-box.png" alt="Empty" />
+                            </div> : null}
 
 
-                {childFiles.length > 0 ?
-                    <div className="dashboard-cards-wrapper">
-                        {childFiles.map(childFile => (
-                            <File key={childFile.id} file={childFile} />
-                        ))}
-                    </div>
-                    : null}
-            </div> : <Loader loading={true} size={15} css={{position: "absolute", top: "50%", left: "calc(50% - 25px)"}} />
+                        {childFiles.length > 0 ?
+                            <div className="dashboard-cards-wrapper">
+                                {childFiles.map(childFile => (
+                                    <File key={childFile.id} file={childFile} />
+                                ))}
+                            </div>
+                            : null}
+                    </div> : <Loader loading={true} size={15} css={{ position: "absolute", top: "50%", left: "calc(50% - 25px)" }} />
             }
-            
+
 
         </Container>
     )

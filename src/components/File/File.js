@@ -20,7 +20,7 @@ export default function File({file}) {
         if (imageExtensions.includes(fileExtension)) {
             setIsImage(true)
         }
-    })
+    },[file.name])
 
     function handleFileOptionsClick() {
         setFileExpanded(!fileExpanded)

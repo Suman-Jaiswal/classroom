@@ -19,7 +19,7 @@
   text-decoration: none;
   border: none;
   height: 120px;
-
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   background: transparent;
@@ -53,9 +53,6 @@
     transform: scale(1.07);
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
 
-    svg path {
-      fill: white;
-    }
   }
 }
 
