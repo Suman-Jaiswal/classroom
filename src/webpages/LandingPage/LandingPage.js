@@ -8,7 +8,7 @@ function LandingPage({signInWithGoogle, user}) {
         <div className={'landing-page-return-wrapper'}>
             <section className={"landing-page-hero"}>
                 <div className="landing-page-hero-left">
-                    <h1>Book your appointments in a breeze.</h1>
+                    <h1>Welcome to IITI Classroom.</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet assumenda corporis
                         porro possimus totam! Autem consequatur, doloremque, earum explicabo id in maiores, maxime
                         nam

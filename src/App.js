@@ -11,11 +11,10 @@ import firebase, { auth } from './fbConfig'
 toast.configure()
 
 export function App() {
-
     const history = useHistory()
     const [loading, setLoading] = useState(true)
+    const [location, setLocation] = useState('')
     const [user, setUser] = useState(() => auth.currentUser)
-    console.log(user)
 
     const signInWithGoogle = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -25,8 +24,16 @@ export function App() {
                 data => {
                     const check = data.user.email.indexOf('@iiti.ac.in')
                     if (check > -1) {
+                        setTimeout(() => {
+                            if (location !== '') {
+                                history.push(location)
+                            }
+                            else {
+                                history.push('/dashboard')
+                            }
+                        }, 100);
+
                         toast.success('Logged in Successfully')
-                        history.push('/dashboard')
                     }
                     else {
                         signOut()
@@ -57,7 +64,7 @@ export function App() {
         setTimeout(() => {
             setLoading(false)
         }, 500);
-    }, [])
+    })
 
 
     useEffect(() => {
@@ -69,11 +76,10 @@ export function App() {
             }
         })
         return unsubscribe
-    });
-
+    })
 
     if (loading) {
-        return  <Loader loading={true} size={15} css={{position: "absolute", top: "50%", left: "calc(50% - 25px)"}} />
+        return <Loader loading={true} size={15} css={{ position: "absolute", top: "50%", left: "calc(50% - 25px)" }} />
     } else {
         return (
             <div className="App">
@@ -90,9 +96,16 @@ export function App() {
                         <DashboardPage user={user} />
                     ) : <Redirect to={'/'} />} />
 
-                    <Route exact path={'/folders/:folderId'} render={() => user ? (
-                        <DashboardPage user={user} />
-                    ) : <Redirect to={'/'} />} />
+                    <Route exact path={'/folders/:folderId'} render={() => {
+                        if (user) {
+                            return <DashboardPage user={user} />
+                        }
+                        else {
+                            setLocation(window.location.pathname)
+                            return <Redirect to={'/'} />
+                        }
+                    }
+                    } />
 
                 </Switch>
 
