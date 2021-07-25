@@ -10,7 +10,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 import { PulseLoader as Loader } from "react-spinners";
 import CopyBtn from '../../components/drive/CopyBtn'
-import SearchButton from "../../components/SearchButton/SearchButton";
+
 
 export default function DashboardPage() {
     const { folderId } = useParams()
@@ -18,10 +18,9 @@ export default function DashboardPage() {
     const { folder, childFolders, childFiles, loaded } = useFolder(folderId, state.folder)
 
     return (
-        <Container fluid className='mt-2'>
-            <div className="d-flex align-center px-2">
+        <Container fluid className='mt-2 dashboard-container'>
+            <div className="d-flex align-center px-1 top">
                 <FolderBreadcrumbs currentFolder={folder} />
-                <SearchButton/>
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
                 <CopyBtn />
@@ -29,7 +28,7 @@ export default function DashboardPage() {
             {
                 loaded ?
                     <div>
-                        <div className='px-3'>
+                        <div className='px-1 count'>
                             <span>Folders: ({childFolders.length}) </span>
                             <span>Files: ({childFiles.length})</span>
                         </div>

@@ -24,10 +24,10 @@ export default function CopyBtn() {
     }, [copied])
 
     return (
-        <div>
-            <Button onClick={copy} variant='outline-primary' size='md' className='m-2'>
-                <FontAwesomeIcon icon={!copied ? faCopy : faCheck} />
-            </Button>
-        </div>
+
+        <Button onClick={copy} variant='outline-primary' size='md' className='ms-1'>
+            <FontAwesomeIcon icon={!copied ? faCopy : faCheck} />
+        </Button>
+
     )
 }

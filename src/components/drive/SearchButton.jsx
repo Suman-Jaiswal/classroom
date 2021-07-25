@@ -40,9 +40,9 @@ function SearchButton() {
     return (
         <>
             <Button onClick={() => setOpen(true)}
-                variant='outline-primary'
+                variant='outline-dark'
                 size='md'
-                className='m-2'>
+                className='m-2 search-btn'>
                 <FontAwesomeIcon icon={faSearch} />
             </Button>
             <Modal show={open} onHide={() => setOpen(false)}>

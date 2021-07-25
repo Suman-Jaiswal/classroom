@@ -85,7 +85,7 @@ export default function AddFileBtn({ currentFolder }) {
 
     return (
         <>
-            <label className='btn btn-outline-primary m-2 mr-5'>
+            <label className='btn btn-outline-primary ms-1'>
                 <FontAwesomeIcon icon={faFileUpload} />
                 <input
                     type="file"

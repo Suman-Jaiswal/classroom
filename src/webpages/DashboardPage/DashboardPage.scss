@@ -1,5 +1,7 @@
 @import "src/index";
-
+.dashboard-container{
+  padding: 0 2vw;
+}
 .files-container {
   padding: 3vh 2vw;
   background-color: antiquewhite;
@@ -22,5 +24,29 @@
   text-align: center;
   img{
       width: 200px;
+  }
+}
+@media only screen and (max-width: 572px) {
+  
+  .top{
+    button, label{
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      margin: 0px;
+    }
+  }
+  nav{
+    li{
+      font-size: 13px;
+
+    }
+  }
+  .breadcrumbs{
+    flex-wrap: wrap;
+    width: auto;
+  }
+  .count{
+    font-size: 12px;
   }
 }

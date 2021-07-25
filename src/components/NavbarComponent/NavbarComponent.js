@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import "./NavbarComponent.scss";
 import logo from '../../assets/brand.svg'
+import SearchButton from "../drive/SearchButton";
 
 export default function NavbarComponent({ signOut, user }) {
     return (
@@ -12,7 +13,8 @@ export default function NavbarComponent({ signOut, user }) {
             </div>
             {
                 user ?
-                    <div className="nav-right-wrapper">
+                <div className="nav-right-wrapper">
+                        <SearchButton/>
                         <img src={user.photoURL} alt="" />
                         <span id='name'>{user.displayName}</span>
                         {user ?

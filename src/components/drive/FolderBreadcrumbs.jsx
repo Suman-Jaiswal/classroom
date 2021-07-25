@@ -8,7 +8,7 @@ export default function FolderBreadcrumbs({ currentFolder }) {
     if (currentFolder) path = [...path, ...currentFolder.path]
     return (
         <Breadcrumb
-            className='mt-auto mb-auto p-1 flex-grow-1'
+            className='mt-auto mb-auto py-1 flex-grow-1 breadcrumbs'
             listProps={{ className: 'p-0 m-0' }}
         >
             {
@@ -25,14 +25,14 @@ export default function FolderBreadcrumbs({ currentFolder }) {
                         className='text-truncate d-inline-block'
                         style={{ maxWidth: '150px', textDecoration: "none" }}
                     >
-                        {folder.name}
+                     {folder.name}
                     </Breadcrumb.Item>
                 ))
             }
             {currentFolder && (
                 <Breadcrumb.Item
                     className='text-truncate d-inline-block'
-                    style={{ maxWidth: '200px', color: "grey", fontSize: "18px" }}
+                    style={{ maxWidth: '200px', color: "grey" }}
                     active>
                     {currentFolder.name}
                 </Breadcrumb.Item>
