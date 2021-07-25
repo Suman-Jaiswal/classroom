@@ -19,10 +19,11 @@ function LandingPage({signInWithGoogle, user}) {
                                   className={'awesome-link'}>
                                 Go to Dashboard {'>>'}
                             </Link>
-                            : <Link onClick={signInWithGoogle}
+                            : <span
+                                onClick={signInWithGoogle}
                                     className={'awesome-link'}>
                                 Sign In {'>>'}
-                            </Link>
+                            </span>
                     }
                 </div>
                 <img className={'hero-image'} src={heroImage} alt={'student'}/>

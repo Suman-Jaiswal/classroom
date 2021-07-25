@@ -10,6 +10,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import AddFileBtn from '../../components/drive/AddFileBtn'
 import { PulseLoader as Loader } from "react-spinners";
 import CopyBtn from '../../components/drive/CopyBtn'
+import SearchButton from "../../components/SearchButton/SearchButton";
 
 export default function DashboardPage() {
     const { folderId } = useParams()
@@ -20,6 +21,7 @@ export default function DashboardPage() {
         <Container fluid className='mt-2'>
             <div className="d-flex align-center px-2">
                 <FolderBreadcrumbs currentFolder={folder} />
+                <SearchButton/>
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
                 <CopyBtn/>

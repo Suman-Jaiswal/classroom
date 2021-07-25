@@ -40,7 +40,6 @@ function reducer(state, {type, payload}) {
                 ...state,
                 childFiles: payload.childFiles
             }
-
         default:
             return state
     }
@@ -90,7 +89,6 @@ export function useFolder(folderId = null, folder = null) {
                     payload: {childFolders: snapshot.docs.map(database.formatDoc)}
                 })
             })
-
     }, [folderId])
 
     useEffect(() => {
