@@ -1,5 +1,5 @@
-import {useEffect, useReducer} from "react";
-import {database} from '../fbConfig'
+import { useEffect, useReducer } from "react";
+import { database } from '../fbConfig'
 
 const ACTIONS = {
     SELECT_FOLDER: 'select-folder',
@@ -14,7 +14,7 @@ export const ROOT_FOLDER = {
     path: []
 }
 
-function reducer(state, {type, payload}) {
+function reducer(state, { type, payload }) {
     switch (type) {
         case ACTIONS.SELECT_FOLDER:
             return {
@@ -54,13 +54,13 @@ export function useFolder(folderId = null, folder = null) {
     })
 
     useEffect(() => {
-        dispatch({type: ACTIONS.SELECT_FOLDER, payload: {folderId, folder}})
+        dispatch({ type: ACTIONS.SELECT_FOLDER, payload: { folderId, folder } })
     }, [folder, folderId])
 
     useEffect(() => {
         if (folderId === null) {
             return dispatch({
-                type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
+                type: ACTIONS.UPDATE_FOLDER, payload: { folder: ROOT_FOLDER }
             })
         }
         database.folders
@@ -68,12 +68,12 @@ export function useFolder(folderId = null, folder = null) {
             .get()
             .then(doc => {
                 dispatch({
-                    type: ACTIONS.UPDATE_FOLDER, payload: {folder: database.formatDoc(doc)}
+                    type: ACTIONS.UPDATE_FOLDER, payload: { folder: database.formatDoc(doc) }
                 })
             })
             .catch(() => {
                 dispatch({
-                    type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
+                    type: ACTIONS.UPDATE_FOLDER, payload: { folder: ROOT_FOLDER }
                 })
             })
 
@@ -86,7 +86,7 @@ export function useFolder(folderId = null, folder = null) {
             .onSnapshot(snapshot => {
                 dispatch({
                     type: ACTIONS.SET_CHILD_FOLDERS,
-                    payload: {childFolders: snapshot.docs.map(database.formatDoc)}
+                    payload: { childFolders: snapshot.docs.map(database.formatDoc) }
                 })
             })
     }, [folderId])
@@ -98,7 +98,7 @@ export function useFolder(folderId = null, folder = null) {
             .onSnapshot(snapshot => {
                 dispatch({
                     type: ACTIONS.SET_CHILD_FILES,
-                    payload: {childFiles: snapshot.docs.map(database.formatDoc)}
+                    payload: { childFiles: snapshot.docs.map(database.formatDoc) }
                 })
             })
 

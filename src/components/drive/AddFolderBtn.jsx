@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
-import {Button, Form, Modal} from 'react-bootstrap'
-import {database} from '../../fbConfig'
-import {ROOT_FOLDER} from '../../hooks/useFolder'
-import {faFolderPlus} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, { useState } from 'react'
+import { Button, Form, Modal } from 'react-bootstrap'
+import { database } from '../../fbConfig'
+import { ROOT_FOLDER } from '../../hooks/useFolder'
+import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function AddFolderBtn({currentFolder}) {
+export default function AddFolderBtn({ currentFolder }) {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState('')
 
@@ -22,7 +22,7 @@ export default function AddFolderBtn({currentFolder}) {
         if (!(currentFolder === null)) {
             const path = [...currentFolder.path]
             if (currentFolder !== ROOT_FOLDER) {
-                path.push({name: currentFolder.name, id: currentFolder.id})
+                path.push({ name: currentFolder.name, id: currentFolder.id })
                 console.log('pushed')
             }
             database.folders.add({
@@ -38,7 +38,7 @@ export default function AddFolderBtn({currentFolder}) {
     return (
         <>
             <Button onClick={openModal} variant='outline-primary' size='md' className='m-2'>
-                <FontAwesomeIcon icon={faFolderPlus}/>
+                <FontAwesomeIcon icon={faFolderPlus} />
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>

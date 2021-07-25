@@ -51,7 +51,7 @@ export default function DeleteBtn({ id, type }) {
     return (
         <>
             <Button onClick={openModal} variant='transparent'>
-                <FontAwesomeIcon icon={faTrash}/>
+                <FontAwesomeIcon icon={faTrash} />
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Modal.Body>

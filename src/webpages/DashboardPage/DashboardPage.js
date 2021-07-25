@@ -24,7 +24,7 @@ export default function DashboardPage() {
                 <SearchButton/>
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
-                <CopyBtn/>
+                <CopyBtn />
             </div>
             {
                 loaded ?
