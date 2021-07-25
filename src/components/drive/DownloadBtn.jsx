@@ -1,8 +1,8 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDownload} from "@fortawesome/free-solid-svg-icons";
-import {toast} from "react-toastify";
-import {Button} from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
+import { Button } from "react-bootstrap";
 
 function DownloadBtn(props) {
 
@@ -30,8 +30,8 @@ function DownloadBtn(props) {
 
     return (
         <Button variant={'transparent'}
-                onClick={handleButtonClick}>
-            <FontAwesomeIcon icon={faDownload}/>
+            onClick={handleButtonClick}>
+            <FontAwesomeIcon icon={faDownload} />
         </Button>
     );
 }

@@ -1,13 +1,13 @@
-import {Button} from 'react-bootstrap'
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
-import {faCaretDown, faCaretUp, faFolder} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Button } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { faCaretDown, faCaretUp, faFolder } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Folder.scss'
 import RenameBtn from '../drive/RenameBtn';
 import DeleteBtn from '../drive/DeleteBtn';
 
-export default function Folder({folder}) {
+export default function Folder({ folder }) {
 
     const [folderExpanded, setFolderExpanded] = useState(false)
 
@@ -23,8 +23,8 @@ export default function Folder({folder}) {
     ) {
         return (
             <Button variant='transparent' className='year-card' as={Link}
-                    to={{pathname: `/folders/${folder.id}`, state: {folder}}}>
-                <img src={`img/years/${folder.name}.svg`} alt={folder.name}/>
+                to={{ pathname: `/folders/${folder.id}`, state: { folder } }}>
+                <img src={`img/years/${folder.name}.svg`} alt={folder.name} />
                 <h3>{folder.name}</h3>
             </Button>
         )
@@ -33,29 +33,29 @@ export default function Folder({folder}) {
             <div className={'folder-wrapper'}>
                 <Link
                     className={'open-folder-button'}
-                    to={{pathname: `/folders/${folder.id}`, state: {folder}}}>
+                    to={{ pathname: `/folders/${folder.id}`, state: { folder } }}>
 
-                    <FontAwesomeIcon icon={faFolder} size={'3x'}/>
+                    <FontAwesomeIcon icon={faFolder} size={'3x'} />
                     <span>{folder.name}</span>
                 </Link>
 
                 <div className={'folder-options'}
-                     onClick={handleFolderOptionsClick}>
+                    onClick={handleFolderOptionsClick}>
                     <div className="folder-options-buttons-wrapper"
-                         style={folderExpanded ? {maxHeight: '100px'} : {maxHeight: '0'}}>
-                        <div style={folderExpanded ? {display: 'flex'} : {display: 'none'}}>
-                            <RenameBtn currentFolder={folder}/>
-                            <DeleteBtn id={folder.id} type='folder'/>
+                        style={folderExpanded ? { maxHeight: '100px' } : { maxHeight: '0' }}>
+                        <div style={folderExpanded ? { display: 'flex' } : { display: 'none' }}>
+                            <RenameBtn currentFolder={folder} />
+                            <DeleteBtn id={folder.id} type='folder' />
                         </div>
                     </div>
                     <div className={'options-caret-wrapper'}>
                         {folderExpanded ?
                             <FontAwesomeIcon
                                 icon={faCaretDown}
-                                onClick={handleFolderOptionsClick}/>
+                                onClick={handleFolderOptionsClick} />
                             : <FontAwesomeIcon
                                 icon={faCaretUp}
-                                onClick={handleFolderOptionsClick}/>}
+                                onClick={handleFolderOptionsClick} />}
                     </div>
                 </div>
             </div>

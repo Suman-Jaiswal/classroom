@@ -23,7 +23,6 @@ export default function RenameBtn({ currentFolder }) {
         setRename('')
     }
 
-
     return (
         <>
             <Button onClick={openModal} variant='transparent' style={{ }} >

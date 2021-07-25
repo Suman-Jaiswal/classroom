@@ -22,7 +22,7 @@ export default function DashboardPage() {
                 <FolderBreadcrumbs currentFolder={folder} />
                 <AddFolderBtn currentFolder={folder} />
                 <AddFileBtn currentFolder={folder} />
-                <CopyBtn/>
+                <CopyBtn />
             </div>
             {
                 loaded ?
