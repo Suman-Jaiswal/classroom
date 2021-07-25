@@ -4,14 +4,18 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { database } from '../../fbConfig';
 import { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
+import { useRef } from 'react';
 
 export default function RenameBtn({ currentFolder }) {
-
+    const myRef = useRef(null)
     const [rename, setRename] = useState('')
     const [open, setOpen] = useState(false)
 
     const openModal = () => {
         setOpen(true)
+        setTimeout(() => {
+            myRef.current.focus()
+        }, 100);
     }
     const closeModal = () => {
         setOpen(false)
@@ -42,6 +46,7 @@ export default function RenameBtn({ currentFolder }) {
                                 required
                                 value={rename}
                                 onChange={e => setRename(e.target.value)}
+                                ref={myRef}
                             />
                         </Form.Group>
                     </Modal.Body>

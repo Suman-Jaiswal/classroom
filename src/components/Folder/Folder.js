@@ -7,7 +7,7 @@ import './Folder.scss'
 import RenameBtn from '../drive/RenameBtn';
 import DeleteBtn from '../drive/DeleteBtn';
 
-export default function Folder({ folder }) {
+export default function Folder({ folder, closeModal }) {
 
     const [folderExpanded, setFolderExpanded] = useState(false)
 
@@ -33,8 +33,8 @@ export default function Folder({ folder }) {
             <div className={'folder-wrapper'}>
                 <Link
                     className={'open-folder-button'}
-                    to={{ pathname: `/folders/${folder.id}`, state: { folder } }}>
-
+                    to={{ pathname: `/folders/${folder.id}`, state: { folder } }} onClick={closeModal}>
+                    
                     <FontAwesomeIcon icon={faFolder} size={'3x'} />
                     <span>{folder.name}</span>
                 </Link>
