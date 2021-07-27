@@ -9,24 +9,12 @@ function LandingPage({signInWithGoogle, user}) {
             <section className={"landing-page-hero"}>
                 <div className="landing-page-hero-left">
 
-                    <h1>Classroom is not limited to four walls.</h1>
-                    <p>Welcome, This is the place where you can find all your
+                    <h1>Welcome to IITI Classroom.</h1>
+                    <p>Classroom is not limited to four walls. This is the place where you can find all your
                         study material and class notes. You can prepare yourself
                         for upcoming quizes using the sample paper. Take a look
                         at the notification bar to know the recent update.
-                        Log In to view the resources.
-                    </p>
-                    <button
-                        className={'sign-button'}
-                        onClick={handleSignInButtonClick}>
-                        Sign In
-                    </button>
-
-                    <h1>Welcome to IITI Classroom.</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet assumenda corporis
-                        porro possimus totam! Autem consequatur, doloremque, earum explicabo id in maiores, maxime
-                        nam
-                        nisi officia quia similique voluptates!</p>
+                        Log In to view the resources.</p>
                     {
                         user ?
                             <Link to='/dashboard'
