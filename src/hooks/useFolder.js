@@ -1,5 +1,5 @@
-import {useEffect, useReducer} from "react";
-import {database} from '../fbConfig'
+import { useEffect, useReducer } from "react";
+import { database } from '../fbConfig'
 
 const ACTIONS = {
     SELECT_FOLDER: 'select-folder',
@@ -9,19 +9,20 @@ const ACTIONS = {
 }
 
 export const ROOT_FOLDER = {
-    name: 'Root',
+    name: 'Dashboard',
     id: null,
     path: []
 }
 
-function reducer(state, {type, payload}) {
+function reducer(state, { type, payload }) {
     switch (type) {
         case ACTIONS.SELECT_FOLDER:
             return {
                 folderId: payload.folderId,
                 folder: payload.folder,
                 childFiles: [],
-                childFolders: []
+                childFolders: [],
+                loaded: false
             }
         case ACTIONS.UPDATE_FOLDER:
             return {
@@ -31,14 +32,14 @@ function reducer(state, {type, payload}) {
         case ACTIONS.SET_CHILD_FOLDERS:
             return {
                 ...state,
-                childFolders: payload.childFolders
+                childFolders: payload.childFolders,
+                loaded: true
             }
         case ACTIONS.SET_CHILD_FILES:
             return {
                 ...state,
                 childFiles: payload.childFiles
             }
-
         default:
             return state
     }
@@ -53,13 +54,13 @@ export function useFolder(folderId = null, folder = null) {
     })
 
     useEffect(() => {
-        dispatch({type: ACTIONS.SELECT_FOLDER, payload: {folderId, folder}})
+        dispatch({ type: ACTIONS.SELECT_FOLDER, payload: { folderId, folder } })
     }, [folder, folderId])
 
     useEffect(() => {
         if (folderId === null) {
             return dispatch({
-                type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
+                type: ACTIONS.UPDATE_FOLDER, payload: { folder: ROOT_FOLDER }
             })
         }
         database.folders
@@ -67,12 +68,12 @@ export function useFolder(folderId = null, folder = null) {
             .get()
             .then(doc => {
                 dispatch({
-                    type: ACTIONS.UPDATE_FOLDER, payload: {folder: database.formatDoc(doc)}
+                    type: ACTIONS.UPDATE_FOLDER, payload: { folder: database.formatDoc(doc) }
                 })
             })
             .catch(() => {
                 dispatch({
-                    type: ACTIONS.UPDATE_FOLDER, payload: {folder: ROOT_FOLDER}
+                    type: ACTIONS.UPDATE_FOLDER, payload: { folder: ROOT_FOLDER }
                 })
             })
 
@@ -85,10 +86,9 @@ export function useFolder(folderId = null, folder = null) {
             .onSnapshot(snapshot => {
                 dispatch({
                     type: ACTIONS.SET_CHILD_FOLDERS,
-                    payload: {childFolders: snapshot.docs.map(database.formatDoc)}
+                    payload: { childFolders: snapshot.docs.map(database.formatDoc) }
                 })
             })
-
     }, [folderId])
 
     useEffect(() => {
@@ -98,7 +98,7 @@ export function useFolder(folderId = null, folder = null) {
             .onSnapshot(snapshot => {
                 dispatch({
                     type: ACTIONS.SET_CHILD_FILES,
-                    payload: {childFiles: snapshot.docs.map(database.formatDoc)}
+                    payload: { childFiles: snapshot.docs.map(database.formatDoc) }
                 })
             })
 

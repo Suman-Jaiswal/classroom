@@ -1,0 +1,155 @@
+@import "src/index";
+
+.year-card {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+
+  background: rgb(60, 255, 255);
+  background: linear-gradient(0deg, rgba(60, 255, 255, 1) 27%, rgba(22, 208, 216, 1) 100%);
+  height: fit-content;
+
+  img {
+    height: 320px;
+    width: 280px;
+    transition: all 0.2s;
+
+  }
+
+  h3 {
+    width: 100%;
+    color: rgba(53, 50, 50, 0.959);
+    font-family: 'Comic Neue', cursive;
+    text-transform: uppercase;
+    text-align: center;
+
+  }
+
+  &:hover {
+    img {
+      height: 350px;
+      color: unset;
+      transform: scale(1.1);
+    }
+
+    h6 {
+      color: rgb(3, 3, 97);
+    }
+  }
+}
+
+.folder-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  width: 145px;
+
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.open-folder-button {
+  background: $color-primary;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+
+  text-decoration: none;
+
+  height: 90px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: .4s;
+
+  svg {
+    margin: auto;
+    height: 50%;
+
+    path {
+      fill: black;
+    }
+  }
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 8px;
+    text-align: center;
+    color: black;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    background: $color-primary-shade;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+
+    span {
+      color: white;
+    }
+  }
+}
+
+.folder-options {
+  background: $color-primary-shade;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+
+  padding: 0;
+
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+
+  width: 100%;
+
+  svg {
+    path {
+      fill: white;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.folder-options-buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+
+  transition: 1s;
+}
+
+.options-caret-wrapper {
+  display: flex;
+  justify-content: center;
+
+  background: $color-primary-shade;
+  border-radius: 0 0 4px 4px;
+
+  svg {
+    path {
+      fill: white;
+    }
+  }
+}

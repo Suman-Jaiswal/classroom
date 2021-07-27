@@ -1,34 +1,29 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import "./NavbarComponent.scss";
-import logo from '../../assets/iitiW.webp'
-import firebase from "firebase";
-import {toast} from "react-toastify";
-import {useHistory} from "react-router-dom";
+import logo from '../../assets/brand.svg'
+import SearchButton from "../drive/SearchButton";
 
-export default function NavbarComponent(props) {
-
-    const history = useHistory()
-
-    function handleSignInButtonClick() {
-        firebase.auth().signInWithPopup(props.googleAuthProvider)
-            .then(() => {
-                history.push('/dashboard')
-            })
-            .catch(() => {
-                toast.error('Sorry, login failed!')
-            })
-    }
-
+export default function NavbarComponent({ signOut, user }) {
     return (
         <nav className={'nav-return-wrapper'}>
-            <img src={logo} alt={'iiti-logo'}/>
-            <div className={'nav-buttons-wrapper'}>
-                <button
-                    className={'sign-button'}
-                    onClick={handleSignInButtonClick}>
-                    Sign In
-                </button>
+            <div className="brand-container">
+                <img id="logo" src={logo} alt={'iiti-logo'} />
+                <Link to={'/'}>Classroom</Link>
             </div>
+            {
+                user ?
+                <div className="nav-right-wrapper">
+                        <SearchButton/>
+                        <img src={user.photoURL} alt="" />
+                        <span id='name'>{user.displayName}</span>
+                        {user ?
+                            <button className='sign-button' onClick={signOut}> Log Out</button>
+                            : null
+                        }
+                    </div>
+                    : null
+            }
         </nav>
     )
 }

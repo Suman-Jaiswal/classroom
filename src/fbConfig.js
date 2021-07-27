@@ -18,9 +18,10 @@ export const database = {
     folders: firestore.collection('folders'),
     files: firestore.collection('files'),
     formatDoc: doc => {
-        return {id: doc.id, ...doc.data()}
+        return { id: doc.id, ...doc.data() }
     },
     timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
 }
 export const storage = firebase.storage()
 export const auth = firebase.auth();
+export default firebase

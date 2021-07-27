@@ -1,7 +1,7 @@
 @import "../../index";
 
 .landing-page-return-wrapper {
-  padding: 7vh 3vw;
+  padding: 7vh 2vw;
 }
 
 .landing-page-hero {
@@ -12,7 +12,9 @@
 
   padding: 2vh 2vw;
   border-radius: 10px;
-  background: $color-primary;
+  background: rgb(60,255,255);
+  background: linear-gradient(0deg, rgba(60,255,255,1) 27%, rgba(22,208,216,1) 100%);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.336);
 }
 
 .landing-page-hero-left {
@@ -22,13 +24,13 @@
   width: 50%;
 
   h1 {
-    font-family: 'Oswald', cursive;
+    font-family: 'Comic neue' , cursive;
     font-size: 3rem;
-    color: $color-primary-shade
+    color: $color-accent-shade;
   }
 
   p {
-    font-family: 'Prompt', cursive;
+    font-family: 'Comic neue' , cursive;
     font-size: 1.2rem;
   }
 }

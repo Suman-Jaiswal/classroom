@@ -1,16 +1,20 @@
-import React, {useState} from 'react'
-import {Button, Form, Modal} from 'react-bootstrap'
-import {database} from '../../fbConfig'
-import {ROOT_FOLDER} from '../../hooks/useFolder'
-import {faFolderPlus} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, { useState, useRef } from 'react'
+import { Button, Form, Modal } from 'react-bootstrap'
+import { database } from '../../fbConfig'
+import { ROOT_FOLDER } from '../../hooks/useFolder'
+import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function AddFolderBtn({currentFolder}) {
+export default function AddFolderBtn({ currentFolder }) {
+    const myRef = useRef(null)
     const [open, setOpen] = useState(false)
     const [name, setName] = useState('')
 
     const openModal = () => {
         setOpen(true)
+        setTimeout(() => {
+            myRef.current.focus()
+        }, 100);
     }
     const closeModal = () => {
         setOpen(false)
@@ -22,7 +26,7 @@ export default function AddFolderBtn({currentFolder}) {
         if (!(currentFolder === null)) {
             const path = [...currentFolder.path]
             if (currentFolder !== ROOT_FOLDER) {
-                path.push({name: currentFolder.name, id: currentFolder.id})
+                path.push({ name: currentFolder.name, id: currentFolder.id })
                 console.log('pushed')
             }
             database.folders.add({
@@ -37,8 +41,8 @@ export default function AddFolderBtn({currentFolder}) {
 
     return (
         <>
-            <Button onClick={openModal} variant='outline-primary' size='md' className='m-2'>
-                <FontAwesomeIcon icon={faFolderPlus}/>
+            <Button onClick={openModal} variant='outline-primary' size='md' className='ms-1 mt-1'>
+                <FontAwesomeIcon icon={faFolderPlus} />
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>
@@ -52,6 +56,7 @@ export default function AddFolderBtn({currentFolder}) {
                                 required
                                 value={name}
                                 onChange={e => setName(e.target.value)}
+                                ref={myRef}
                             />
                         </Form.Group>
                     </Modal.Body>

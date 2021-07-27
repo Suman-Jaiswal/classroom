@@ -1,25 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
-$color-primary: #3cd2d2;
-$color-primary-tint: #c4ffff;
+$color-primary: #1fe7e7;
+$color-primary-tint: #57797918;
 $color-primary-shade: #164f4f;
-$color-accent: #F3E37C;
-$color-accent-shade: #605b29;
-
+$color-accent: #d80000;
+$color-accent-shade: #361108;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: $color-primary-tint;
+  // removed them because they were not working in firefox
+  background-color: rgb(236, 236, 236);
 }
 
-@mixin classic-button {
-  width: 120px;
-  height: 40px;
-
-  border: 1px solid black;
+.sign-button {
+  width: 80px;
+  height: 35px;
+  font-size: 15px;
+  border: none;
   border-radius: 4px;
+  outline: none;
+  text-decoration: none;
+  color: white;
+  background: $color-accent;
+
+  transition: .4s;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+
+  &:hover, &:focus {
+    background: $color-accent-shade;
+    transform: translate(-1px, -1px);
+    
+  }
+}
+
+.awesome-link {
+  width: fit-content;
+
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+
+  transition: .15s;
+
+  &:hover {
+    color: darkblue;
+    text-decoration: underline;
+    transform: skew(-20deg);
+  }
+}
+a{
+  color: rgb(0, 0, 211);
+}
+h5{
+  color: gray;
 }
