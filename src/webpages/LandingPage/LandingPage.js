@@ -12,8 +12,7 @@ function LandingPage({signInWithGoogle, user}) {
                     <h1>Welcome to IITI Classroom.</h1>
                     <p>Classroom is not limited to four walls. This is the place where you can find all your
                         study material and class notes. You can prepare yourself
-                        for upcoming quizes using the sample paper. Take a look
-                        at the notification bar to know the recent update.
+                        for upcoming quizes using the sample paper. 
                         Log In to view the resources.</p>
                     {
                         user ?
