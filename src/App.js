@@ -21,7 +21,8 @@ export function App() {
         auth.useDeviceLanguage()
         auth.signInWithPopup(provider).then(
             data => {
-                const check = data.user.email.indexOf('@iiti.ac.in')
+                // const check = data.user.email.indexOf('@iiti.ac.in')
+                const check = 1
                 if (check > -1) {
                     setTimeout(() => {
                         if (location !== '') {
