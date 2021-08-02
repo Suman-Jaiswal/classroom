@@ -29,9 +29,7 @@ export function App() {
                         } else {
                             history.push('/dashboard')
                         }
-                    }, 100);
-
-                    toast.success('Logged in Successfully')
+                    }, 100)
                 } else {
                     signOut()
                     toast.error('This website is restricted to its organisation only. Use domain "@iiti.ac.in"')
