@@ -35,7 +35,7 @@ body {
   &:hover, &:focus {
     background: $color-accent-shade;
     transform: translate(-1px, -1px);
-    
+
   }
 }
 
@@ -44,6 +44,7 @@ body {
 
   color: blue;
   text-decoration: none;
+  margin: auto;
   font-weight: bold;
   font-size: 20px;
 
