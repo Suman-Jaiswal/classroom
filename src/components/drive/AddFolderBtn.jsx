@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react'
-import { Button, Form, Modal } from 'react-bootstrap'
-import { database } from '../../fbConfig'
-import { ROOT_FOLDER } from '../../hooks/useFolder'
-import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, {useRef, useState} from 'react'
+import {Button, Form, Modal} from 'react-bootstrap'
+import {database} from '../../fbConfig'
+import {ROOT_FOLDER} from '../../hooks/useFolder'
+import {faFolderPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default function AddFolderBtn({ currentFolder }) {
+export default function AddFolderBtn({currentFolder}) {
     const myRef = useRef(null)
     const [open, setOpen] = useState(false)
     const [name, setName] = useState('')
@@ -26,7 +26,7 @@ export default function AddFolderBtn({ currentFolder }) {
         if (!(currentFolder === null)) {
             const path = [...currentFolder.path]
             if (currentFolder !== ROOT_FOLDER) {
-                path.push({ name: currentFolder.name, id: currentFolder.id })
+                path.push({name: currentFolder.name, id: currentFolder.id})
                 console.log('pushed')
             }
             database.folders.add({
@@ -41,8 +41,11 @@ export default function AddFolderBtn({ currentFolder }) {
 
     return (
         <>
-            <Button onClick={openModal} variant='primary transparent-primary' size='md' className='ms-1 mt-1'>
-                <FontAwesomeIcon icon={faFolderPlus} />
+            <Button onClick={openModal}
+                    variant={'outline-primary'}
+                    size='md'
+                    className='m-2'>
+                <FontAwesomeIcon icon={faFolderPlus}/>
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>
@@ -61,7 +64,10 @@ export default function AddFolderBtn({ currentFolder }) {
                         </Form.Group>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant='secondary' onClick={closeModal} type='submit'>
+                        <Button variant={'danger'} onClick={closeModal}>
+                            Cancel
+                        </Button>
+                        <Button variant='success' onClick={closeModal} type='submit'>
                             Add Folder
                         </Button>
                     </Modal.Footer>

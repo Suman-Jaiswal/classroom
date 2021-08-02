@@ -29,7 +29,8 @@ function DownloadBtn(props) {
     }
 
     return (
-        <Button variant={'transparent'}
+        <Button
+            variant={'transparent'}
             onClick={handleButtonClick}>
             <FontAwesomeIcon icon={faDownload} />
         </Button>

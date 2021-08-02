@@ -39,7 +39,6 @@ export function App() {
             }
         )
             .catch(error => console.log(error.message))
-
     }
 
     const signOut = () => {

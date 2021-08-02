@@ -51,7 +51,7 @@ function SearchButton() {
     return (
         <>
             <Button onClick={openModal}
-                variant='outline-dark'
+                variant={'outline-success'}
                 size='md'
                 className='m-2 search-btn'>
                 <FontAwesomeIcon icon={faSearch} />
