@@ -47,6 +47,10 @@
   display: flex;
   gap: 20px;
   align-items: center;
+
+  span {
+    font-size: 25px;
+  }
 }
 
 .nav-right-wrapper {

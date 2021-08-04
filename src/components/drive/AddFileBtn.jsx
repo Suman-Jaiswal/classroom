@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactDom from 'react-dom'
-import { faFileUpload } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { database, storage } from '../../fbConfig'
-import { ROOT_FOLDER } from '../../hooks/useFolder'
-import { v4 as uuidV4 } from 'uuid'
-import { ProgressBar, Toast } from 'react-bootstrap';
+import {faFileUpload} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {database, storage} from '../../fbConfig'
+import {ROOT_FOLDER} from '../../hooks/useFolder'
+import {v4 as uuidV4} from 'uuid'
+import {Button, ProgressBar, Toast} from 'react-bootstrap';
 
-export default function AddFileBtn({ currentFolder }) {
+export default function AddFileBtn({currentFolder}) {
+
     const [uploadingFiles, setUploadingFiles] = useState([])
+
+    let fileInput = null
 
     function handleUpload(e) {
 
@@ -21,7 +24,7 @@ export default function AddFileBtn({ currentFolder }) {
 
             setUploadingFiles(previousUploadingFiles => [
                 ...previousUploadingFiles,
-                { id, name: file.name, progress: 0, error: false }
+                {id, name: file.name, progress: 0, error: false}
             ])
 
             const filePath = currentFolder === ROOT_FOLDER ?
@@ -37,7 +40,7 @@ export default function AddFileBtn({ currentFolder }) {
                 setUploadingFiles(previousUploadingFiles => {
                     return previousUploadingFiles.map(uploadFile => {
                         if (uploadFile.id === id) {
-                            return { ...uploadFile, progress }
+                            return {...uploadFile, progress}
                         }
                         return uploadFile
                     })
@@ -46,7 +49,7 @@ export default function AddFileBtn({ currentFolder }) {
                 setUploadingFiles(previousUploadingFiles => {
                     return previousUploadingFiles.map(uploadFile => {
                         if (uploadFile.id === id) {
-                            return { ...uploadFile, error: true }
+                            return {...uploadFile, error: true}
                         }
                         return uploadFile
                     })
@@ -67,7 +70,7 @@ export default function AddFileBtn({ currentFolder }) {
                         .then(existingFiles => {
                             const existingFile = existingFiles[0]
                             if (existingFile) {
-                                existingFile.ref.update({ url: url })
+                                existingFile.ref.update({url: url})
                             } else {
                                 database.files.add({
                                     url,
@@ -83,17 +86,24 @@ export default function AddFileBtn({ currentFolder }) {
         }
     }
 
+    useEffect(() => {
+        fileInput = document.getElementById('file-input')
+    })
+
     return (
         <>
-            <label className='btn btn-transparent text-primary ms-3 mt-2 p-0'>
-                <FontAwesomeIcon icon={faFileUpload} />
+            <Button className='ms-3 mt-1'
+                    variant={'outline-primary'}
+                    onClick={() => fileInput?.click()}>
+                <FontAwesomeIcon icon={faFileUpload}/>
                 <input
+                    id={'file-input'}
                     type="file"
                     onChange={handleUpload}
-                    style={{ opacity: '0', position: 'absolute', left: '-10000px' }}
+                    style={{display: 'none'}}
                     multiple
                 />
-            </label>
+            </Button>
             {
                 uploadingFiles.length > 0 &&
                 ReactDom.createPortal(
@@ -108,13 +118,13 @@ export default function AddFileBtn({ currentFolder }) {
                         {
                             uploadingFiles.map(file => (
                                 <Toast key={file.id}
-                                    onClose={() => {
-                                        setUploadingFiles(previousUploadingFiles => {
-                                            return previousUploadingFiles.filter(uploadFile => {
-                                                return uploadFile.id !== file.id
-                                            })
-                                        })
-                                    }}
+                                       onClose={() => {
+                                           setUploadingFiles(previousUploadingFiles => {
+                                               return previousUploadingFiles.filter(uploadFile => {
+                                                   return uploadFile.id !== file.id
+                                               })
+                                           })
+                                       }}
                                 >
                                     <Toast.Header closeButton={file.error} className='text-truncate w-100 d-block'>
                                         {file.name}
