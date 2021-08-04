@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useRef, useState} from 'react'
 import ReactDom from 'react-dom'
 import {faFileUpload} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -11,7 +11,7 @@ export default function AddFileBtn({currentFolder}) {
 
     const [uploadingFiles, setUploadingFiles] = useState([])
 
-    let fileInput = null
+    const ref = useRef()
 
     function handleUpload(e) {
 
@@ -86,18 +86,14 @@ export default function AddFileBtn({currentFolder}) {
         }
     }
 
-    useEffect(() => {
-        fileInput = document.getElementById('file-input')
-    })
-
     return (
         <>
             <Button className='ms-3 mt-1'
                     variant={'outline-primary'}
-                    onClick={() => fileInput?.click()}>
+                    onClick={() => ref.current?.click()}>
                 <FontAwesomeIcon icon={faFileUpload}/>
                 <input
-                    id={'file-input'}
+                    ref={ref}
                     type="file"
                     onChange={handleUpload}
                     style={{display: 'none'}}
