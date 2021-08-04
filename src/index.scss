@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
 $color-primary: #1fe7e7;
-$color-primary-tint: #57797918;
+$color-primary-tint: #c5ffff;
 $color-primary-shade: #164f4f;
 $color-accent: #ffff5a;
 $color-accent-shade: #361108;
@@ -14,7 +14,7 @@ $color-accent-shade: #361108;
 }
 
 body {
-  background-color: rgb(236, 236, 236);
+  background-color: $color-primary-tint;
 }
 
 .awesome-link {
