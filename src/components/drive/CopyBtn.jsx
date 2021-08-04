@@ -25,7 +25,7 @@ export default function CopyBtn() {
 
     return (
 
-        <Button onClick={copy} variant='outline-primary' size='md' className='ms-1 mt-1'>
+        <Button onClick={copy} variant='transparent text-primary ' size='md' className='ms-3 mt-1 p-0'>
             <FontAwesomeIcon icon={!copied ? faCopy : faCheck} />
         </Button>
 

@@ -15,7 +15,7 @@ export default function NavbarComponent({ signOut, user }) {
                 user ?
                 <div className="nav-right-wrapper">
                         <SearchButton/>
-                        <img src={user.photoURL} alt="" />
+                        <img src={user.photoURL} alt={user.displayName.charAt(0).toUpperCase()} />
                         <span id='name'>{user.displayName}</span>
                         {user ?
                             <button className='sign-button' onClick={signOut}> Log Out</button>

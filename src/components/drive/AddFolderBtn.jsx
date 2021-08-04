@@ -41,7 +41,7 @@ export default function AddFolderBtn({ currentFolder }) {
 
     return (
         <>
-            <Button onClick={openModal} variant='primary transparent-primary' size='md' className='ms-1 mt-1'>
+            <Button onClick={openModal} variant='transparent text-primary' size='md' className='ms-3 mt-1 p-0'>
                 <FontAwesomeIcon icon={faFolderPlus} />
             </Button>
             <Modal show={open} onHide={closeModal}>
