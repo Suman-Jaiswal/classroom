@@ -6,17 +6,17 @@ import logo from '../../assets/brand.svg'
 export default function NavbarComponent({signOut, user}) {
     return (
         <nav className={'nav-return-wrapper'}>
-            <div className="brand-container">
+            <div className={'brand-container'}>
                 <img id="logo" src={logo} alt={'iiti-logo'}/>
                 <Link to={'/'}>Classroom</Link>
             </div>
             {
                 user ?
-                    <div className="nav-right-wrapper">
+                    <div className={'nav-right-wrapper'}>
                         <img src={user.photoURL}
                              alt={user.name}/>
                         {user ?
-                            <button className='sign-button' onClick={signOut}> Log Out</button>
+                            <button onClick={signOut}>Log Out</button>
                             : null
                         }
                     </div>

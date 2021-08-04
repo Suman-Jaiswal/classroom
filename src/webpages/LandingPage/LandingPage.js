@@ -12,7 +12,7 @@ function LandingPage({signInWithGoogle, user}) {
                     <h1>Welcome to IITI Classroom.</h1>
                     <p>Classroom is not limited to four walls. This is the place where you can find all your
                         study material and class notes. You can prepare yourself
-                        for upcoming quizes using the sample paper. 
+                        for upcoming quizzes using the sample paper.
                         Log In to view the resources.</p>
                     {
                         user ?
@@ -20,7 +20,8 @@ function LandingPage({signInWithGoogle, user}) {
                                   className={'awesome-link'}>
                                 Go to Dashboard {'>>'}
                             </Link>
-                            : <span
+                            :
+                            <span
                                 onClick={signInWithGoogle}
                                     className={'awesome-link'}>
                                 Sign In {'>>'}

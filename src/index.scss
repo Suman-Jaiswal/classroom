@@ -6,7 +6,7 @@
 $color-primary: #1fe7e7;
 $color-primary-tint: #57797918;
 $color-primary-shade: #164f4f;
-$color-accent: #d80000;
+$color-accent: #ffff5a;
 $color-accent-shade: #361108;
 
 * {
@@ -14,29 +14,7 @@ $color-accent-shade: #361108;
 }
 
 body {
-  // removed them because they were not working in firefox
   background-color: rgb(236, 236, 236);
-}
-
-.sign-button {
-  width: 80px;
-  height: 35px;
-  font-size: 15px;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  text-decoration: none;
-  color: white;
-  background: $color-accent;
-
-  transition: .4s;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
-
-  &:hover, &:focus {
-    background: $color-accent-shade;
-    transform: translate(-1px, -1px);
-
-  }
 }
 
 .awesome-link {
@@ -44,7 +22,6 @@ body {
 
   color: blue;
   text-decoration: none;
-  margin: auto;
   font-weight: bold;
   font-size: 20px;
 
@@ -56,9 +33,12 @@ body {
     transform: skew(-20deg);
   }
 }
-a{
-  color: rgb(0, 0, 211);
+
+@media (max-width: 1200px) {
+  .awesome-link {
+    margin: auto;
+  }
 }
-h5{
-  color: gray;
-}
+
+// removed the universal styles for anchor and h5 tag from here
+// as they may cause problems further down the road.
