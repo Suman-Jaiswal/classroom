@@ -51,9 +51,9 @@ function SearchButton() {
     return (
         <>
             <Button onClick={openModal}
-                variant='outline-dark'
+                variant={'transpaent'}
                 size='md'
-                className='m-2 search-btn'>
+                className='mt-1 search-btn'>
                 <FontAwesomeIcon icon={faSearch} />
             </Button>
             <Modal show={open} onHide={closeModal}>
@@ -65,13 +65,15 @@ function SearchButton() {
                         ref={myRef}
                     />
                 </Modal.Header>
-                {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
-                    <>
-                        {folderQueryCards}
-                        <hr />
-                        {fileQueryCards}
-                    </>
-                    : <span className='py-3 px-2 text-center'>Nothing to show for now!</span>}
+                <Modal.Body>
+                    {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
+                        <>
+                            {folderQueryCards}
+                            <hr />
+                            {fileQueryCards}
+                        </>
+                        : <span className='py-3 px-2 text-center'>Nothing to show for now!</span>}
+                </Modal.Body>
             </Modal>
         </>
     );

@@ -1,22 +1,20 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import "./NavbarComponent.scss";
 import logo from '../../assets/brand.svg'
-import SearchButton from "../drive/SearchButton";
 
-export default function NavbarComponent({ signOut, user }) {
+export default function NavbarComponent({signOut, user}) {
     return (
         <nav className={'nav-return-wrapper'}>
             <div className="brand-container">
-                <img id="logo" src={logo} alt={'iiti-logo'} />
+                <img id="logo" src={logo} alt={'iiti-logo'}/>
                 <Link to={'/'}>Classroom</Link>
             </div>
             {
                 user ?
-                <div className="nav-right-wrapper">
-                        <SearchButton/>
-                        <img src={user.photoURL} alt={user.displayName.charAt(0).toUpperCase()} />
-                        <span id='name'>{user.displayName}</span>
+                    <div className="nav-right-wrapper">
+                        <img src={user.photoURL}
+                             alt={user.name}/>
                         {user ?
                             <button className='sign-button' onClick={signOut}> Log Out</button>
                             : null

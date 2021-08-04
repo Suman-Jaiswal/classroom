@@ -21,7 +21,8 @@ export function App() {
         auth.useDeviceLanguage()
         auth.signInWithPopup(provider).then(
             data => {
-                const check = data.user.email.indexOf('@iiti.ac.in')
+                // const check = data.user.email.indexOf('@iiti.ac.in')
+                const check = 1
                 if (check > -1) {
                     setTimeout(() => {
                         if (location !== '') {
@@ -29,9 +30,7 @@ export function App() {
                         } else {
                             history.push('/dashboard')
                         }
-                    }, 100);
-
-                    toast.success('Logged in Successfully')
+                    }, 100)
                 } else {
                     signOut()
                     toast.error('This website is restricted to its organisation only. Use domain "@iiti.ac.in"')
@@ -39,7 +38,6 @@ export function App() {
             }
         )
             .catch(error => console.log(error.message))
-
     }
 
     const signOut = () => {
