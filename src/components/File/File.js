@@ -38,7 +38,7 @@ export default function File({ file }) {
                 </div> : <a target='_blank' rel="noreferrer" href={file.url}
                     className={'preview-file-button'}>
                     <FontAwesomeIcon icon={faFile}
-                        size={'4x'} />
+                        size={'3x'} />
                     <span>{file.name}</span>
 
                 </a>

@@ -2,11 +2,12 @@
 
 .landing-page-return-wrapper {
   padding: 7vh 2vw;
+  overflow: hidden;
 }
 
 .hero-section-wrapper {
   position: relative;
-
+  
   width: fit-content;
   margin: auto;
 }
@@ -21,7 +22,7 @@
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
 
   border-radius: 10px;
-  padding: 2vh 2vw;
+  padding: 3vh 2vw;
 
   position: relative;
   z-index: 2;
