@@ -6,9 +6,7 @@
   align-items: center;
 
   padding: 5px 2vw;
-  box-shadow: 0 8px 6px -6px #999;
-
-  background: rgb(60, 255, 255);
+  border-bottom: 1px solid $color-primary-shade;
 
 
   img {
@@ -26,7 +24,7 @@
   a {
     font-family: 'Comic Neue', cursive;
     font-size: 25px;
-    color: black;
+    color: $color-primary-shade;
     text-decoration: none;
     font-weight: bold;
   }

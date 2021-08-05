@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 import "./NavbarComponent.scss";
-import logo from '../../assets/brand.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
@@ -10,7 +9,7 @@ export default function NavbarComponent({signOut, user}) {
     return (
         <nav className={'nav-return-wrapper'}>
             <Link to={'/'} className={'brand-container'}>
-                <img id="logo" src={logo} alt={'iiti-logo'}/>
+                <img id="logo" src={'/img/logo.png'} alt={''}/>
                 <span>Classroom</span>
             </Link>
             {

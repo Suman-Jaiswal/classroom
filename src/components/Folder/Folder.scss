@@ -54,15 +54,16 @@
   position: relative;
 
   width: 145px;
-
+  border: 1px solid $color-primary-shade;
   margin: 10px;
   border-radius: 4px;
+  &:hover{
+    border: 1px solid black;
+  }
 }
 
 .open-folder-button {
-  background: $color-primary;
   border-radius: 4px 4px 0 0;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
 
   text-decoration: none;
 
@@ -76,10 +77,10 @@
 
   svg {
     margin: auto;
-    height: 50%;
+    width: 100%;
 
     path {
-      fill: black;
+      fill: $color-primary-shade;
     }
   }
 
@@ -91,22 +92,7 @@
     text-align: center;
     color: black;
   }
-
-  &:hover {
-    transform: scale(1.06);
-    background: $color-primary-shade;
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
-
-    color: white;
-
-    svg path {
-      fill: white;
-    }
-
-    span {
-      color: white;
-    }
-  }
+  
 }
 
 .folder-options {
