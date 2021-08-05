@@ -6,12 +6,14 @@ import {database, storage} from '../../fbConfig'
 import {ROOT_FOLDER} from '../../hooks/useFolder'
 import {v4 as uuidV4} from 'uuid'
 import {Button, ProgressBar, Toast} from 'react-bootstrap';
+import ReactTooltip from "react-tooltip";
 
 export default function AddFileBtn({currentFolder}) {
 
-    const [uploadingFiles, setUploadingFiles] = useState([])
-
     const ref = useRef()
+    const [tooltipReference, setTooltipReference] = useState(null)
+
+    const [uploadingFiles, setUploadingFiles] = useState([])
 
     function handleUpload(e) {
 
@@ -88,10 +90,15 @@ export default function AddFileBtn({currentFolder}) {
 
     return (
         <>
+            <p ref={ref => setTooltipReference(ref)}
+               data-tip='Upload File'/>
+            <ReactTooltip/>
             <Button className='ms-2 mt-1'
                     variant={'outline-primary'}
                     size='sm'
-                    onClick={() => ref.current?.click()}>
+                    onClick={() => ref.current?.click()}
+                    onMouseEnter={() => ReactTooltip.show(tooltipReference)}
+                    onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
                 <FontAwesomeIcon icon={faFileUpload}/>
                 <input
                     ref={ref}
