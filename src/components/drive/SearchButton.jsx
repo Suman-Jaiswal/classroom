@@ -55,7 +55,7 @@ function SearchButton() {
     return (
         <>
             <p ref={ref => setTooltipReference(ref)}
-               data-tip='Search'/>
+               data-tip='Search' data-place ='bottom'/>
             <ReactTooltip/>
             <Button onClick={openModal}
                     variant={'outline-primary'}

@@ -7,15 +7,14 @@
   align-items: center;
 
   border-radius: 10px;
-
+  background: #e0e793;
+  background: -moz-radial-gradient(bottom right, #e0e793, #6dd0f1);
+  background: radial-gradient(to top left, #e0e793, #6dd0f1);
+  background: -webkit-radial-gradient(bottom right, #e0e793, #6dd0f1);
   overflow: hidden;
 
   cursor: pointer;
-
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
-
-  background: rgb(60, 255, 255);
-  background: linear-gradient(0deg, rgba(60, 255, 255, 1) 27%, rgba(22, 208, 216, 1) 100%);
+  border: 1px solid grey;
   height: fit-content;
 
   img {
@@ -54,7 +53,7 @@
   position: relative;
 
   width: 145px;
-  border: 1px solid $color-primary-shade;
+  border: 1px solid grey;
   margin: 10px;
   border-radius: 4px;
   &:hover{
@@ -98,7 +97,6 @@
 .folder-options {
   background: $color-primary-shade;
   border-radius: 4px;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
 
   padding: 0;
 

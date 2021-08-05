@@ -48,7 +48,7 @@ export default function AddFolderBtn({currentFolder}) {
     return (
         <>
             <p ref={ref => setTooltipReference(ref)}
-               data-tip='Add Folder'/>
+               data-tip='Add Folder' data-place ='bottom' />
             <ReactTooltip/>
             <Button onClick={openModal}
                     variant='outline-primary'

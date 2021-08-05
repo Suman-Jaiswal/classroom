@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
@@ -21,11 +22,11 @@ function LandingPage({signInWithGoogle, user}) {
                                 Go to Dashboard {'>>'}
                             </Link>
                             :
-                            <span
+                            <Button variant='transparent'
                                 onClick={signInWithGoogle}
                                     className={'awesome-link'}>
                                 Sign In {'>>'}
-                            </span>
+                            </Button>
                     }
 
                 </div>

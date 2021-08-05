@@ -91,7 +91,9 @@ export default function AddFileBtn({currentFolder}) {
     return (
         <>
             <p ref={ref => setTooltipReference(ref)}
-               data-tip='Upload File'/>
+               data-tip='Upload File'
+               data-place ='bottom'
+               />
             <ReactTooltip/>
             <Button className='ms-2 mt-1'
                     variant={'outline-primary'}
