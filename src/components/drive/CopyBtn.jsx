@@ -34,7 +34,7 @@ export default function CopyBtn() {
             <Button onClick={copy}
                     variant='outline-primary'
                     size='sm'
-                    className='ms-2 mt-1'
+                    className='ms-2 mb-2'
                     onMouseEnter={() => ReactTooltip.show(tooltipReference)}
                     onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
                 <FontAwesomeIcon icon={!copied ? faCopy : faCheck}/>

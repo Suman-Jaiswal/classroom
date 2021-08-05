@@ -32,7 +32,7 @@ export default function FolderBreadcrumbs({ currentFolder }) {
             {currentFolder && (
                 <Breadcrumb.Item
                     className='text-truncate d-inline-block bread-item'
-                    style={{ maxWidth: '200px', color: "grey" }}
+                    style={{ maxWidth: '200px', color: '4a4e53'  }}
                     active>
                     {currentFolder.name}
                 </Breadcrumb.Item>

@@ -4,14 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 5px 2vw;
-  border-bottom: 1px solid $color-primary-shade;
-
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px  2vw;
+  margin: 0;
 
   img {
     height: 40px;
-    padding: 1px;
     border-radius: 50%;
     margin: 0 2px;
   }

@@ -27,6 +27,22 @@
       width: 150px;
   }
 }
+.count {
+  span{
+    font-size: 13px;
+    color: $color-primary-shade;
+  }
+  
+}
+.top{
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+  z-index: 5;
+  border-bottom: 1px solid grey;
+  padding-top: 10px;
+ 
+}
 @media only screen and (max-width: 572px) {
   
   .top{
@@ -46,7 +62,11 @@
     flex-wrap: wrap;
     width: auto;
   }
-  .count{
-    font-size: 12px;
+  .count {
+    span{
+      font-size: 12px;
+      color: grey;
+    }
+    
   }
 }

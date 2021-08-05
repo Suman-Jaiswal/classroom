@@ -53,7 +53,7 @@ export default function AddFolderBtn({currentFolder}) {
             <Button onClick={openModal}
                     variant='outline-primary'
                     size='sm'
-                    className='ms-2 mt-1'
+                    className='ms-2 mb-2'
                     onMouseEnter={() => ReactTooltip.show(tooltipReference)}
                     onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
                 <FontAwesomeIcon icon={faFolderPlus}/>

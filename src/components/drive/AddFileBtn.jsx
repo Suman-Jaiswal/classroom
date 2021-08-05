@@ -95,7 +95,7 @@ export default function AddFileBtn({currentFolder}) {
                data-place ='bottom'
                />
             <ReactTooltip/>
-            <Button className='ms-2 mt-1'
+            <Button className='ms-2 mb-2'
                     variant={'outline-primary'}
                     size='sm'
                     onClick={() => ref.current?.click()}

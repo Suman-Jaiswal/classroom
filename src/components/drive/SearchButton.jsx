@@ -60,7 +60,7 @@ function SearchButton() {
             <Button onClick={openModal}
                     variant={'outline-primary'}
                     size='sm'
-                    className='mt-1 search-btn'
+                    className='mb-2 search-btn'
                     onMouseEnter={() => ReactTooltip.show(tooltipReference)}
                     onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
                 <FontAwesomeIcon icon={faSearch}/>
