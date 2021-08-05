@@ -22,7 +22,7 @@ export default function FolderBreadcrumbs({ currentFolder }) {
                                 state: { folder: { ...folder, path: path.slice(1, index) } }
                             }
                         }}
-                        className='text-truncate d-inline-block'
+                        className='text-truncate d-inline-block bread-item'
                         style={{ maxWidth: '150px', textDecoration: "none" }}
                     >
                      {folder.name}
@@ -31,7 +31,7 @@ export default function FolderBreadcrumbs({ currentFolder }) {
             }
             {currentFolder && (
                 <Breadcrumb.Item
-                    className='text-truncate d-inline-block'
+                    className='text-truncate d-inline-block bread-item'
                     style={{ maxWidth: '200px', color: "grey" }}
                     active>
                     {currentFolder.name}

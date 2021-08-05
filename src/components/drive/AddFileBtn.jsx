@@ -88,8 +88,9 @@ export default function AddFileBtn({currentFolder}) {
 
     return (
         <>
-            <Button className='ms-3 mt-1'
+            <Button className='ms-2 mt-1'
                     variant={'outline-primary'}
+                    size='sm'
                     onClick={() => ref.current?.click()}>
                 <FontAwesomeIcon icon={faFileUpload}/>
                 <input

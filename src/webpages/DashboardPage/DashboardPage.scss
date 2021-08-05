@@ -22,8 +22,9 @@
 .empty{
   margin: 50px;
   text-align: center;
+  color: grey;
   img{
-      width: 200px;
+      width: 150px;
   }
 }
 @media only screen and (max-width: 572px) {
@@ -39,7 +40,6 @@
   nav{
     li{
       font-size: 13px;
-
     }
   }
   .breadcrumbs{

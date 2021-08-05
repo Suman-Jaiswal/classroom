@@ -27,8 +27,8 @@ export default function CopyBtn() {
 
         <Button onClick={copy}
                 variant='outline-primary'
-                size='md'
-                className='ms-3 mt-1'>
+                size='sm'
+                className='ms-2 mt-1'>
             <FontAwesomeIcon icon={!copied ? faCopy : faCheck} />
         </Button>
 

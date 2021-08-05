@@ -52,7 +52,7 @@ function SearchButton() {
         <>
             <Button onClick={openModal}
                 variant={'outline-primary'}
-                size='md'
+                size='sm'
                 className='mt-1 search-btn'>
                 <FontAwesomeIcon icon={faSearch} />
             </Button>
