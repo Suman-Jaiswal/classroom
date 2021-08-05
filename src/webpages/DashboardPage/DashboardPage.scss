@@ -1,7 +1,9 @@
 @import "src/index";
-.dashboard-container{
+
+.dashboard-container {
   padding: 0 2vw;
 }
+
 .files-container {
   padding: 3vh 2vw;
   background-color: antiquewhite;
@@ -17,56 +19,63 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 3vh 0px;
+  padding: 3vh 0;
+
+  position: relative;
 }
-.empty{
+
+.empty {
   margin: 50px;
   text-align: center;
   color: grey;
-  img{
-      width: 150px;
+
+  img {
+    width: 150px;
   }
 }
+
 .count {
-  span{
+  span {
     font-size: 13px;
     color: $color-primary-shade;
   }
-  
+
 }
-.top{
+
+.top {
   position: sticky;
-  top: 0px;
+  top: 0;
   background-color: #fff;
   z-index: 5;
   border-bottom: 1px solid #d0d0d3;
   padding-top: 10px;
- 
+
 }
+
 @media only screen and (max-width: 572px) {
-  
-  .top{
-    button, label{
+
+  .top {
+    button, label {
       width: 30px;
       height: 30px;
       padding: 0;
-      margin: 0px;
+      margin: 0;
     }
   }
-  nav{
-    li{
+  nav {
+    li {
       font-size: 13px;
     }
   }
-  .breadcrumbs{
+  .breadcrumbs {
     flex-wrap: wrap;
     width: auto;
   }
   .count {
-    span{
+    span {
       font-size: 12px;
       color: grey;
     }
-    
+
   }
 }
