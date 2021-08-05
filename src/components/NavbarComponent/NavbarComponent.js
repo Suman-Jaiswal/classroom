@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPowerOff} from "@fortawesome/free-solid-svg-icons";
 import {Button} from "react-bootstrap";
 import ReactTooltip from "react-tooltip";
+import SearchBar from "../drive/SearchBar";
 
 export default function NavbarComponent({signOut, user}) {
 
@@ -16,6 +17,7 @@ export default function NavbarComponent({signOut, user}) {
                 <img id="logo" src={'/img/logo.png'} alt={''}/>
                 <span>Classroom</span>
             </Link>
+            <SearchBar/>
             {user ?
                 <div className={'nav-right-wrapper'}>
                     <img src={user.photoURL}

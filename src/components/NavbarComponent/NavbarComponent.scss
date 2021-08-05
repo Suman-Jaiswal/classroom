@@ -70,7 +70,24 @@
     padding: 0;
   }
 }
-
+.search-container{
+  width: 30%;
+  .body{
+    display: flex;
+    width: 60vw;
+    height: 40vh;
+    position: absolute;
+    z-index: 6;
+    background-color: #fff;
+    border: 2px solid black;
+    left: 20vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 13px;
+    
+  }
+}
 @media only screen and (max-width: 572px) {
 
   #name {
