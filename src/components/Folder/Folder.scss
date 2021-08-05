@@ -16,9 +16,9 @@
   z-index: 2;
 
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  backdrop-filter: blur(7px) saturate(100%) contrast(45%) brightness(130%);
 
-  transition: 1s;
+  transition: 0.3s;
 
   img {
     height: 320px;
@@ -34,7 +34,7 @@
   }
 
   &:hover, &:focus {
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(2px);
   }
 }
 
@@ -51,12 +51,12 @@
   border-radius: 4px;
 
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  backdrop-filter: blur(7px) saturate(100%) contrast(45%) brightness(130%);
 
-  transition: 1s;
+  transition: 0.3s;
 
   &:hover, &:focus {
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(2px);
   }
 }
 

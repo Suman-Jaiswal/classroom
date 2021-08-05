@@ -45,8 +45,8 @@
 .top {
   position: sticky;
   top: 0;
-  background-color: #fff;
-  z-index: 5;
+  background-color: #fff !important;
+  z-index: 10;
   border-bottom: 1px solid #d0d0d3;
   padding-top: 10px;
 
