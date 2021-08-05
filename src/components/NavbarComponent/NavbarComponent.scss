@@ -4,9 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  padding: 5px  2vw 0 2vw;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  padding: 5px  2vw 5px 2vw;
   margin: 0;
+
 
   img {
     height: 40px;
@@ -77,9 +79,9 @@
     width: 60vw;
     height: 40vh;
     position: absolute;
-    z-index: 6;
     background-color: #fff;
     border: 2px solid black;
+    border-top: none;
     left: 20vw;
     align-items: center;
     justify-content: center;
@@ -121,5 +123,8 @@
     .brand-container{
       gap: 10px;
     }
+  }
+  .search-container{
+    display: none;
   }
 }

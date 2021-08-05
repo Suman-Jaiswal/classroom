@@ -13,6 +13,7 @@ export default function NavbarComponent({signOut, user}) {
 
     return (
         <nav className={'nav-return-wrapper'}>
+            
             <Link to={'/'} className={'brand-container'}>
                 <img id="logo" src={'/img/logo.png'} alt={''}/>
                 <span>Classroom</span>

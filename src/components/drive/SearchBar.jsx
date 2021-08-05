@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { database } from "../../fbConfig";
 import Folder from "../Folder/Folder";
 import File from "../File/File";
@@ -8,7 +8,6 @@ import File from "../File/File";
 function SearchBar() {
 
     const ref1 = useRef(null)
-    const [open, setOpen] = useState(false)
     const [query, setQuery] = useState('')
     const [fileQueryCards, setFileQueryCards] = useState([])
     const [folderQueryCards, setFolderQueryCards] = useState([])
