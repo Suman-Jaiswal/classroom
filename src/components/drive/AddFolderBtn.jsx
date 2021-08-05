@@ -4,7 +4,6 @@ import {database} from '../../fbConfig'
 import {ROOT_FOLDER} from '../../hooks/useFolder'
 import {faFolderPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {toast} from "react-toastify";
 import ReactTooltip from "react-tooltip";
 
 export default function AddFolderBtn({currentFolder}) {
@@ -40,7 +39,7 @@ export default function AddFolderBtn({currentFolder}) {
                 path,
                 createdAt: database.timeStamp
             })
-                .then(() => toast.success('Folder added successfully!'))
+           
             setName('')
         }
     }

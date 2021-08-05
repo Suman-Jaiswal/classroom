@@ -26,7 +26,7 @@ export default function NavbarComponent({signOut, user}) {
                                data-tip='Log Out'
                                data-place={'left'}/>
                             <ReactTooltip/>
-                            <Button variant='outline-dark'
+                            <Button variant='outline-danger'
                                     onClick={signOut}
                                     onMouseEnter={() => ReactTooltip.show(tooltipReference)}
                                     onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>

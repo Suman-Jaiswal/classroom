@@ -73,7 +73,6 @@
 
   svg {
     margin: auto;
-    width: 100%;
 
     path {
       fill: $color-primary-shade;
@@ -99,8 +98,6 @@
 
   position: absolute;
   bottom: -15px;
-  left: 0;
-
   width: 100%;
 
   svg {
@@ -127,7 +124,7 @@
 
   background: $color-primary-shade;
   border-radius: 0 0 4px 4px;
-
+  
   svg {
     path {
       fill: white;
