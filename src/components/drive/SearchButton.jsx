@@ -1,13 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Button, Form, Modal } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { database } from "../../fbConfig";
+import React, {useEffect, useRef, useState} from 'react';
+import {Button, Form, Modal} from "react-bootstrap";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {database} from "../../fbConfig";
 import Folder from "../Folder/Folder";
 import File from "../File/File";
+import ReactTooltip from "react-tooltip";
 
 function SearchButton() {
-    const myRef = useRef(null)
+
+    const ref1 = useRef(null)
+    const [tooltipReference, setTooltipReference] = useState(null)
+
     const [open, setOpen] = useState(false)
     const [query, setQuery] = useState('')
     const [fileQueryCards, setFileQueryCards] = useState([])
@@ -16,7 +20,7 @@ function SearchButton() {
     const openModal = () => {
         setOpen(true)
         setTimeout(() => {
-            myRef.current.focus()
+            ref1.current?.focus()
         }, 100);
     }
     const closeModal = () => {
@@ -31,7 +35,7 @@ function SearchButton() {
                 const tempFileQueryCards = []
                 if (query !== '')
                     filesSnapshot.docs.forEach(doc => {
-                        tempFileQueryCards.push(<File key={doc.id} file={doc.data()} />)
+                        tempFileQueryCards.push(<File key={doc.id} file={doc.data()}/>)
                     })
                 setFileQueryCards(tempFileQueryCards)
             })
@@ -41,8 +45,8 @@ function SearchButton() {
                 const tempFolderQueryCards = []
                 if (query !== '')
                     foldersSnapshot.docs.map(doc => {
-                        const folder = { id: doc.id, ...doc.data() }
-                        return tempFolderQueryCards.push(<Folder key={doc.id} folder={folder} closeModal={closeModal} />)
+                        const folder = {id: doc.id, ...doc.data()}
+                        return tempFolderQueryCards.push(<Folder key={doc.id} folder={folder} closeModal={closeModal}/>)
                     })
                 setFolderQueryCards(tempFolderQueryCards)
             })
@@ -50,11 +54,16 @@ function SearchButton() {
 
     return (
         <>
+            <p ref={ref => setTooltipReference(ref)}
+               data-tip='Search'/>
+            <ReactTooltip/>
             <Button onClick={openModal}
-                variant={'outline-primary'}
-                size='sm'
-                className='mt-1 search-btn'>
-                <FontAwesomeIcon icon={faSearch} />
+                    variant={'outline-primary'}
+                    size='sm'
+                    className='mt-1 search-btn'
+                    onMouseEnter={() => ReactTooltip.show(tooltipReference)}
+                    onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
+                <FontAwesomeIcon icon={faSearch}/>
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Modal.Header>
@@ -62,14 +71,14 @@ function SearchButton() {
                         type='text'
                         value={query}
                         onChange={e => setQuery(e.target.value)}
-                        ref={myRef}
+                        ref={ref1}
                     />
                 </Modal.Header>
                 <Modal.Body>
                     {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
                         <>
                             {folderQueryCards}
-                            <hr />
+                            <hr/>
                             {fileQueryCards}
                         </>
                         : <span className='py-3 px-2 text-center'>Nothing to show for now!</span>}

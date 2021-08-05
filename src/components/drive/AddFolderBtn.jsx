@@ -4,16 +4,21 @@ import {database} from '../../fbConfig'
 import {ROOT_FOLDER} from '../../hooks/useFolder'
 import {faFolderPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {toast} from "react-toastify";
+import ReactTooltip from "react-tooltip";
 
 export default function AddFolderBtn({currentFolder}) {
+
     const myRef = useRef(null)
+    const [tooltipReference, setTooltipReference] = useState(null)
+
     const [open, setOpen] = useState(false)
     const [name, setName] = useState('')
 
     const openModal = () => {
         setOpen(true)
         setTimeout(() => {
-            myRef.current.focus()
+            myRef.current?.focus()
         }, 100);
     }
     const closeModal = () => {
@@ -35,17 +40,23 @@ export default function AddFolderBtn({currentFolder}) {
                 path,
                 createdAt: database.timeStamp
             })
+                .then(() => toast.success('Folder added successfully!'))
             setName('')
         }
     }
 
     return (
         <>
+            <p ref={ref => setTooltipReference(ref)}
+               data-tip='Add Folder'/>
+            <ReactTooltip/>
             <Button onClick={openModal}
                     variant='outline-primary'
                     size='sm'
-                    className='ms-2 mt-1'>
-                <FontAwesomeIcon icon={faFolderPlus} />
+                    className='ms-2 mt-1'
+                    onMouseEnter={() => ReactTooltip.show(tooltipReference)}
+                    onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
+                <FontAwesomeIcon icon={faFolderPlus}/>
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>

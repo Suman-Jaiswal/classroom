@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import { faCopy, faCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from 'react-bootstrap';
-import { useEffect } from 'react';
+import React, {useEffect, useState} from 'react'
+import {faCheck, faCopy} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Button} from 'react-bootstrap';
+import ReactTooltip from "react-tooltip";
 
 export default function CopyBtn() {
+
+    const [tooltipReference, setTooltipReference] = useState(null)
 
     const [copied, setCopied] = useState(false);
 
@@ -17,6 +19,7 @@ export default function CopyBtn() {
         document.body.removeChild(el);
         setCopied(true);
     }
+
     useEffect(() => {
         setTimeout(() => {
             setCopied(false)
@@ -24,13 +27,18 @@ export default function CopyBtn() {
     }, [copied])
 
     return (
-
-        <Button onClick={copy}
-                variant='outline-primary'
-                size='sm'
-                className='ms-2 mt-1'>
-            <FontAwesomeIcon icon={!copied ? faCopy : faCheck} />
-        </Button>
-
+        <>
+            <p ref={ref => setTooltipReference(ref)}
+               data-tip='Copy Link'/>
+            <ReactTooltip/>
+            <Button onClick={copy}
+                    variant='outline-primary'
+                    size='sm'
+                    className='ms-2 mt-1'
+                    onMouseEnter={() => ReactTooltip.show(tooltipReference)}
+                    onMouseLeave={() => ReactTooltip.hide(tooltipReference)}>
+                <FontAwesomeIcon icon={!copied ? faCopy : faCheck}/>
+            </Button>
+        </>
     )
 }
