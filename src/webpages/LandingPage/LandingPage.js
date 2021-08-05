@@ -68,9 +68,6 @@ function LandingPage({signInWithGoogle, user}) {
                     <img className={'hero-image'} src={heroImage} alt={'student'}/>
                 </section>
             </div>
-            {/*<section className={'landing-page-features'}>*/}
-            {/*    */}
-            {/*</section>*/}
         </div>
     )
 }

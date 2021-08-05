@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 $color-primary: #0F9D58;;
 $color-primary-tint: #ffffff;
@@ -20,15 +21,14 @@ body {
 .awesome-link {
   width: fit-content;
 
-  color: blue;
+  color: green;
   text-decoration: none;
-  font-weight: bold;
   font-size: 20px;
 
   transition: .15s;
 
   &:hover {
-    color: darkblue;
+    color: green;
     text-decoration: underline;
     transform: skew(-20deg);
   }
