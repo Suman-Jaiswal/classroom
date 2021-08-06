@@ -19,9 +19,8 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-
-  background: url("background.svg") fixed;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .awesome-link {

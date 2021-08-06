@@ -16,6 +16,9 @@
   cursor: pointer;
 
   background: white;
+  &:hover{
+    border: 1px solid black;
+  }
 }
 
 .preview-file-button {
@@ -89,6 +92,7 @@
 .file-options-buttons-wrapper {
   display: flex;
   justify-content: space-around;
+  transition: 0.5s;
 }
 
 .file-preview-modal-body {

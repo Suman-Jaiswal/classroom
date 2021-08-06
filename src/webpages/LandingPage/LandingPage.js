@@ -5,6 +5,8 @@ import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
 
 function LandingPage({signInWithGoogle, user}) {
+    document.body.style.background = `url('/img/background.svg') fixed no-repeat`
+    document.body.style.backgroundSize = `cover`
     return (
         <div className={'landing-page-return-wrapper'}>
             <section className={"landing-page-hero"}>
