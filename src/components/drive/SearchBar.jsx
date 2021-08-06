@@ -52,7 +52,6 @@ function SearchBar() {
                                      onClick={() => setQuery('')}
                                      opacity={query === '' ? '0' : '1'}/>
                 </div>
-
                 {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
                     <div className="body-wrapper">
                         <h5 className='text-center pt-1'>Results!</h5>
@@ -61,6 +60,7 @@ function SearchBar() {
                             {fileQueryCards}
                         </div>
                     </div>
+
                     : null}
             </div>
         </>
