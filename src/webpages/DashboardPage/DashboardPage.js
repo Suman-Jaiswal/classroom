@@ -19,8 +19,8 @@ export default function DashboardPage() {
     const {folder, childFolders, childFiles, loaded} = useFolder(folderId, state.folder)
 
     return (
-        <Container fluid className='mt-2 dashboard-container'>
-            <div className="d-flex align-center px-1 top bg-transparent">
+        <Container fluid className='dashboard-container'>
+            <div className="d-flex align-center px-1 top">
                 <FolderBreadcrumbs currentFolder={folder}/>
                 <SearchButton/>
                 <AddFolderBtn currentFolder={folder}/>
