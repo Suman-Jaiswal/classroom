@@ -95,6 +95,25 @@
   }
 }
 
+.search-control-wrapper {
+
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 5px 10px;
+  width: fit-content;
+
+  input {
+    outline: none;
+    border: none;
+
+    background: transparent;
+  }
+
+  svg {
+    transition: .5s;
+  }
+}
+
 @media only screen and (max-width: 572px) {
 
   #name {
