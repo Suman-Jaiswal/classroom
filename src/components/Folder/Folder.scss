@@ -10,10 +10,6 @@
 
   cursor: pointer;
   border: 1px solid #d0d0d3;
-  height: fit-content; // to prevent other folders from moving when height of one changes.
-
-  position: relative;
-  z-index: 2;
 
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(7px) saturate(100%) contrast(45%) brightness(130%);
@@ -41,9 +37,6 @@
 .folder-wrapper {
   display: flex;
   flex-direction: column;
-
-  position: relative;
-  z-index: 2;
 
   width: 145px;
   border: 1px solid #d0d0d3;
