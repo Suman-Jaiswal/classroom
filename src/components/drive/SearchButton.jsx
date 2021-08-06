@@ -7,7 +7,7 @@ import Folder from "../Folder/Folder";
 import File from "../File/File";
 import ReactTooltip from "react-tooltip";
 
-function SearchButton({currentFolder}) {
+function SearchButton() {
 
     const ref1 = useRef(null)
     const [tooltipReference, setTooltipReference] = useState(null)
@@ -39,7 +39,7 @@ function SearchButton({currentFolder}) {
                     })
                 setFileQueryCards(tempFileQueryCards)
             })
-        database.folders.where('name', '>=', query).where('name', '<=', query + '\uf8ff').where('name', '!=', currentFolder.name)
+        database.folders.where('name', '>=', query).where('name', '<=', query + '\uf8ff')
         .get()
             .then(foldersSnapshot => {
                 const tempFolderQueryCards = []
@@ -50,7 +50,7 @@ function SearchButton({currentFolder}) {
                     })
                 setFolderQueryCards(tempFolderQueryCards)
             })
-    }, [query, currentFolder])
+    }, [query])
 
     return (
         <>

@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { Form } from 'react-bootstrap';
 
 
-function SearchBar({currentFolder}) {
+function SearchBar() {
 
     const ref1 = useRef(null)
     const [query, setQuery] = useState('')
