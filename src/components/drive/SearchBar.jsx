@@ -60,7 +60,6 @@ function SearchBar() {
                             {fileQueryCards}
                         </div>
                     </div>
-
                     : null}
             </div>
         </>
