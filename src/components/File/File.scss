@@ -13,14 +13,9 @@
   border-radius: 4px;
   border: 1px solid #d0d0d3;
 
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
-
-  transition: 1s;
   cursor: pointer;
-  &:hover, &:focus {
-    backdrop-filter: blur(1px);
-  }
+
+  background: white;
 }
 
 .preview-file-button {
@@ -40,15 +35,18 @@
     display: block;
     height: 80%;
   }
-  iframe{
+
+  iframe {
     cursor: pointer;
     overflow: hidden;
   }
+
   svg {
     margin: auto;
     overflow: hidden;
+
     path {
-      
+
       fill: $color-primary-shade;
     }
   }
@@ -91,8 +89,6 @@
 .file-options-buttons-wrapper {
   display: flex;
   justify-content: space-around;
-
-  transition: 1s;
 }
 
 .file-preview-modal-body {
@@ -106,8 +102,9 @@
     left: 50%;
   }
 }
+
 @media (max-width: 600px) {
-  .file-wrapper{
+  .file-wrapper {
     width: 143px;
   }
 }
