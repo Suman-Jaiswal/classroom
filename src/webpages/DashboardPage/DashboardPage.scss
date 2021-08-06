@@ -1,10 +1,5 @@
 @import "src/index";
 
-.dashboard-container {
-  padding: 0 2vw;
-  margin-top: 0 !important;
-}
-
 .files-container {
   padding: 3vh 2vw;
   background-color: antiquewhite;
@@ -42,25 +37,28 @@
   }
 
 }
-.search-btn{
+
+.search-btn {
   display: none;
 }
+
 .top {
   position: sticky;
   top: 0;
-  background-color: #fff !important;
   z-index: 10;
   border-bottom: 1px solid #d0d0d3;
-  padding: 10px 0px;
+  padding: 10px 0;
   border-radius: 3px;
-  
+
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px) contrast(45%) brightness(130%);
 }
 
 @media only screen and (max-width: 572px) {
-  .search-btn{
+  .search-btn {
     display: block;
   }
-  .dashboard-container{
+  .dashboard-container {
     padding: 0;
     margin-top: 0 !important;
   }
