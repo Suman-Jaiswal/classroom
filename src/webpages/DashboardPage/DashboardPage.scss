@@ -4,7 +4,9 @@
   padding: 3vh 2vw;
   background-color: antiquewhite;
 }
-
+.dashboard-container{
+  padding: 0 2vw;
+}
 .dashboard-title {
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-align: center;
@@ -15,7 +17,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 3vh 0;
+  padding: 3vh 2vw;
 
   position: relative;
 }
@@ -33,14 +35,14 @@
 .count {
   span {
     font-size: 13px;
-    color: $color-primary-shade;
+    color: blue;
   }
 
 }
 
-.search-btn {
-  display: none;
-}
+// .search-btn {
+//   display: none;
+// }
 
 .top {
   position: sticky;
@@ -49,7 +51,7 @@
   border-bottom: 1px solid #d0d0d3;
   padding: 10px 0;
   border-radius: 3px;
-
+  padding: 10px 0;
   background: white;
 }
 

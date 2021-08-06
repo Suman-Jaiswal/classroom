@@ -12,7 +12,10 @@ export default function NavbarComponent({signOut, user}) {
     const [tooltipReference, setTooltipReference] = useState(null)
 
     return (
-        <>
+        <>{
+            user?
+            <SearchBar/> : null
+        }
             <nav className={'nav-return-wrapper'}>
                 <Link to={'/'} className={'brand-container'}>
                     <img id="logo" src={'/img/logo.png'} alt={''}/>
@@ -21,7 +24,6 @@ export default function NavbarComponent({signOut, user}) {
 
                 {user ?
                     <>
-                        <SearchBar/>
                         <div className={'nav-right-wrapper'}>
                             <img src={user.photoURL}
                                  alt={user.name}/>

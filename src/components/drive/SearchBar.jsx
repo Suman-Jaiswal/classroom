@@ -4,6 +4,7 @@ import Folder from "../Folder/Folder";
 import File from "../File/File";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Form } from 'react-bootstrap';
 
 
 function SearchBar() {
@@ -42,19 +43,20 @@ function SearchBar() {
         <>
             <div className="search-container">
                 <div className="search-control-wrapper">
-                    <input
+                    <Form.Control 
+                        inline
                         type='text'
                         value={query}
                         onChange={e => setQuery(e.target.value)}
                         ref={ref1}
                         placeholder='Search...'/>
                     <FontAwesomeIcon icon={faTimes}
+                                    style={{position: 'relative', top:'10px', right: '20px'}}
                                      onClick={() => setQuery('')}
                                      opacity={query === '' ? '0' : '1'}/>
                 </div>
                 {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
                     <div className="body-wrapper">
-                        <h5 className='text-center pt-1'>Results!</h5>
                         <div className='body'>
                             {folderQueryCards}
                             {fileQueryCards}
