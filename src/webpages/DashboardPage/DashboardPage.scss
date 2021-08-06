@@ -38,7 +38,7 @@
 .count {
   span {
     font-size: 13px;
-    color: $color-primary-shade;
+    color: blue;
   }
 
 }
@@ -51,9 +51,11 @@
   background-color: #fff !important;
   z-index: 10;
   border-bottom: 1px solid #d0d0d3;
-  padding: 10px 0px;
+  padding: 8px 0;
   border-radius: 3px;
-  
+  nav{
+    padding: 5px 5px;
+  }
 }
 
 @media only screen and (max-width: 572px) {

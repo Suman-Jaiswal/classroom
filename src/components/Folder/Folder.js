@@ -21,6 +21,8 @@ export default function Folder({ folder, closeModal }) {
         folder.id === 'K8asGgUIDL1kNLUJh8Qp' ||
         folder.id === 'XvizCjW6t1M0pZt43saZ'
     ) {
+        document.body.style.background = `url('/img/background.svg') fixed no-repeat`
+        document.body.style.backgroundSize = `cover`
         return (
             <Button variant='transparent' className='year-card' as={Link}
                 to={{ pathname: `/folders/${folder.id}`, state: { folder } }}>
@@ -29,6 +31,7 @@ export default function Folder({ folder, closeModal }) {
             </Button>
         )
     } else {
+        document.body.style.background = 'none'
         return (
             <div className={'folder-wrapper'}>
                 <Link
