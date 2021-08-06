@@ -16,10 +16,12 @@ $color-accent-shade: #361108;
 }
 
 body {
-  background-color: $color-primary-tint;
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  background: url("background.svg") fixed;
+  background-size: cover;
 }
 
 .awesome-link {
