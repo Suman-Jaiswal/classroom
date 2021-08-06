@@ -34,15 +34,15 @@
 
 .count {
   span {
-    font-size: 13px;
-    color: blue;
+    font-size: 14px;
+   
   }
 
 }
 
-// .search-btn {
-//   display: none;
-// }
+.search-btn {
+  display: none;
+}
 
 .top {
   position: sticky;
@@ -60,10 +60,13 @@
     display: block;
   }
   .dashboard-container {
-    padding: 0;
+    padding: 0 5px;
     margin-top: 0 !important;
   }
   .top {
+    padding: 0;
+
+    flex-direction: column;
     button, label {
       width: 30px;
       height: 30px;
@@ -83,7 +86,6 @@
   .count {
     span {
       font-size: 12px;
-      color: grey;
     }
 
   }

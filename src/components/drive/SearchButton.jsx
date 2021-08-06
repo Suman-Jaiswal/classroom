@@ -73,14 +73,15 @@ function SearchButton() {
                         onChange={e => setQuery(e.target.value)}
                         ref={ref1}
                     />
+                    <Button variant='danger' size='sm' onClick={closeModal} >x</Button>
                 </Modal.Header>
                 <Modal.Body>
-                    {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
-                        <>
+                    {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 ) ?
+                        <div className='search-body-wrapper'>
                             {folderQueryCards}
                             <hr/>
                             {fileQueryCards}
-                        </>
+                        </div>
                         : <span className='py-3 px-2 text-center'>Nothing to show for now!</span>}
                 </Modal.Body>
             </Modal>

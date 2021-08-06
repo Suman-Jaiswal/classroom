@@ -22,14 +22,17 @@ export default function DashboardPage() {
         <Container fluid className='dashboard-container'>
             <div className="d-flex align-center px-1 top">
                 <FolderBreadcrumbs currentFolder={folder}/>
+                <div className="btns d-flex justify-content-center">
                 <SearchButton/>
                 <AddFolderBtn currentFolder={folder}/>
                 <AddFileBtn currentFolder={folder}/>
-                <CopyBtn/>
+                <CopyBtn/> 
+                </div>
+                
             </div>
             {loaded ?
                     <>
-                        <div className='px-1 count'>
+                        <div className='px-1 count text-primary'>
                             <span>Folders: ({childFolders.length}) </span>
                             <span>Files: ({childFiles.length})</span>
                         </div>
