@@ -42,14 +42,15 @@
   border: 1px solid #d0d0d3;
   margin: 10px;
   border-radius: 4px;
-  transition: 0.3s;
-  
- 
+
+  position: relative;
+
+  background: white;
 }
 
 .open-folder-button {
   border-radius: 4px 4px 0 0;
-  
+
   cursor: pointer;
   text-decoration: none;
 
