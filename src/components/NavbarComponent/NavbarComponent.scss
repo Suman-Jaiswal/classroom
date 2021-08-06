@@ -73,7 +73,11 @@
   }
 }
 .search-container{
-  width: 30%;
+  position: fixed;
+  width: 30vw;
+  top: 12px;
+  left: 35vw;
+  z-index: 50;
   .body{
     display: flex;
     width: 60vw;

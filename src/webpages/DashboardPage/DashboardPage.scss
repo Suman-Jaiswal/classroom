@@ -41,19 +41,23 @@
   }
 
 }
-
+.search-btn{
+  display: none;
+}
 .top {
   position: sticky;
   top: 0;
   background-color: #fff !important;
   z-index: 10;
   border-bottom: 1px solid #d0d0d3;
-  padding-top: 10px;
+  padding: 10px 0;
 
 }
 
 @media only screen and (max-width: 572px) {
-
+  .search-btn{
+    display: block;
+  }
   .top {
     button, label {
       width: 30px;

@@ -95,7 +95,7 @@ export default function AddFileBtn({currentFolder}) {
                data-place ='bottom'
                />
             <ReactTooltip/>
-            <Button className='ms-2 mb-2'
+            <Button className='ms-2 mb-1'
                     variant={'outline-primary'}
                     size='sm'
                     onClick={() => ref.current?.click()}
@@ -115,15 +115,19 @@ export default function AddFileBtn({currentFolder}) {
                 ReactDom.createPortal(
                     <div
                         style={{
-                            position: 'absolute',
+                            position: 'fixed',
                             bottom: '1rem',
+                            zIndex: '10',
                             right: '1rem',
                             maxWidth: '250px'
+                            
                         }}
                     >
                         {
                             uploadingFiles.map(file => (
-                                <Toast key={file.id}
+                                <Toast 
+                                
+                                    key={file.id}
                                        onClose={() => {
                                            setUploadingFiles(previousUploadingFiles => {
                                                return previousUploadingFiles.filter(uploadFile => {

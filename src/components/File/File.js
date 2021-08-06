@@ -14,11 +14,15 @@ export default function File({ file }) {
     const [open, setOpen] = useState(false)
     const [fileExpanded, setFileExpanded] = useState(false)
     const [isImage, setIsImage] = useState(false)
+    const [isPdf, setIsPdf] = useState(false)
 
     useEffect(() => {
         const fileExtension = file.name.slice(-3).toLowerCase()
         if (imageExtensions.includes(fileExtension)) {
             setIsImage(true)
+        }
+        if(fileExtension === 'pdf'){
+            setIsPdf(true)
         }
     }, [file.name])
 
@@ -35,9 +39,17 @@ export default function File({ file }) {
                     <img src={file.url} alt={file.name} />
                     <span>{file.name}</span>
 
-                </div> : <a target='_blank' rel="noreferrer" href={file.url}
+                </div> : isPdf? <a target='_blank' rel="noreferrer" href={file.url}
                     className={'preview-file-button'}>
-                    <FontAwesomeIcon icon={faFile}
+                        <iframe src={file.url} frameborder="0" title={file.name} height='96' ></iframe>
+                    {/* <FontAwesomeIcon icon={faFile} */}
+                        {/* size={'3x'} /> */}
+                    <span>{file.name}</span>
+
+                </a>:  <a target='_blank' rel="noreferrer" href={file.url}
+                    className={'preview-file-button'}>
+                
+                    <FontAwesomeIcon icon={faFile} 
                         size={'3x'} />
                     <span>{file.name}</span>
 

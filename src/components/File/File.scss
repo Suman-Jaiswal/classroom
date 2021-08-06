@@ -17,7 +17,7 @@
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
 
   transition: 1s;
-
+  cursor: pointer;
   &:hover, &:focus {
     backdrop-filter: blur(1px);
   }
@@ -29,7 +29,7 @@
   text-decoration: none;
   border: none;
   height: 120px;
-  cursor: pointer;
+
   display: flex;
   flex-direction: column;
   background: transparent;
@@ -40,10 +40,14 @@
     display: block;
     height: 80%;
   }
-
+  iframe{
+    cursor: pointer;
+  }
   svg {
     margin: auto;
+    overflow: hidden;
     path {
+      
       fill: $color-primary-shade;
     }
   }
