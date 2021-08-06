@@ -5,7 +5,7 @@
   background-color: antiquewhite;
 }
 .dashboard-container{
-  padding: 0 2vw;
+  padding: 0;
 }
 .dashboard-title {
   font-family: Comic Sans MS, Comic Sans, cursive;
@@ -33,9 +33,9 @@
 }
 
 .count {
+  padding: 0 2vw;
   span {
     font-size: 14px;
-   
   }
 
 }
@@ -51,7 +51,7 @@
   border-bottom: 1px solid #d0d0d3;
   padding: 10px 0;
   border-radius: 3px;
-  padding: 10px 0;
+  padding: 10px 2vw;
   background: white;
 }
 
@@ -60,12 +60,11 @@
     display: block;
   }
   .dashboard-container {
-    padding: 0 5px;
+    padding: 0;
     margin-top: 0 !important;
   }
   .top {
-    padding: 0;
-
+    width: 100vw;
     flex-direction: column;
     button, label {
       width: 30px;
@@ -80,8 +79,9 @@
     }
   }
   .breadcrumbs {
+    
     flex-wrap: wrap;
-    width: auto;
+
   }
   .count {
     span {

@@ -1,13 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Button, Form, Modal} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faSearch, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {database} from "../../fbConfig";
 import Folder from "../Folder/Folder";
 import File from "../File/File";
 import ReactTooltip from "react-tooltip";
 
-function SearchButton() {
+function SearchButton({currentFolder}) {
 
     const ref1 = useRef(null)
     const [tooltipReference, setTooltipReference] = useState(null)
@@ -30,7 +30,7 @@ function SearchButton() {
 
     useEffect(() => {
         database.files.where('name', '>=', query).where('name', '<=', query + '\uf8ff')
-            .get()
+        .get()
             .then(filesSnapshot => {
                 const tempFileQueryCards = []
                 if (query !== '')
@@ -39,8 +39,8 @@ function SearchButton() {
                     })
                 setFileQueryCards(tempFileQueryCards)
             })
-        database.folders.where('name', '>=', query).where('name', '<=', query + '\uf8ff')
-            .get()
+        database.folders.where('name', '>=', query).where('name', '<=', query + '\uf8ff').where('name', '!=', currentFolder.name)
+        .get()
             .then(foldersSnapshot => {
                 const tempFolderQueryCards = []
                 if (query !== '')
@@ -50,7 +50,7 @@ function SearchButton() {
                     })
                 setFolderQueryCards(tempFolderQueryCards)
             })
-    }, [query])
+    }, [query, currentFolder])
 
     return (
         <>
@@ -67,13 +67,18 @@ function SearchButton() {
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Modal.Header>
-                    <Form.Control
+                <Form.Control 
+                        inline
                         type='text'
                         value={query}
                         onChange={e => setQuery(e.target.value)}
                         ref={ref1}
-                    />
-                    <Button variant='danger' size='sm' onClick={closeModal} >x</Button>
+                        placeholder='Search...'/>
+                    <FontAwesomeIcon icon={faTimes}
+                                    style={{position: 'relative', top:'0px', right: '20px'}}
+                                     onClick={() => setQuery('')}
+                                     opacity={query === '' ? '0' : '1'}/>
+            
                 </Modal.Header>
                 <Modal.Body>
                     {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 ) ?

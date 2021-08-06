@@ -7,13 +7,16 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { Form } from 'react-bootstrap';
 
 
-function SearchBar() {
+function SearchBar({currentFolder}) {
 
     const ref1 = useRef(null)
     const [query, setQuery] = useState('')
     const [fileQueryCards, setFileQueryCards] = useState([])
     const [folderQueryCards, setFolderQueryCards] = useState([])
 
+    const closeModal = () =>{
+        setQuery('')
+    }
 
     useEffect(() => {
         database.files.where('name', '>=', query).where('name', '<=', query + '\uf8ff')
@@ -22,7 +25,7 @@ function SearchBar() {
                 const tempFileQueryCards = []
                 if (query !== '')
                     filesSnapshot.docs.forEach(doc => {
-                        tempFileQueryCards.push(<File size={[20, 15]} key={doc.id} file={doc.data()}/>)
+                        tempFileQueryCards.push(<File closeModal={closeModal} key={doc.id} file={doc.data()}/>)
                     })
                 setFileQueryCards(tempFileQueryCards)
             })
@@ -33,12 +36,12 @@ function SearchBar() {
                 if (query !== '')
                     foldersSnapshot.docs.map(doc => {
                         const folder = {id: doc.id, ...doc.data()}
-                        return tempFolderQueryCards.push(<Folder key={doc.id} folder={folder}/>)
+                        return tempFolderQueryCards.push(<Folder closeModal={closeModal} key={doc.id} folder={folder}/>)
                     })
                 setFolderQueryCards(tempFolderQueryCards)
             })
     }, [query])
-
+  
     return (
         <>
             <div className="search-container">

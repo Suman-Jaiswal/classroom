@@ -11,19 +11,25 @@ import AddFileBtn from '../../components/drive/AddFileBtn'
 import {PulseLoader as Loader} from "react-spinners";
 import CopyBtn from '../../components/drive/CopyBtn'
 import SearchButton from "../../components/drive/SearchButton";
+import SearchBar from '../../components/drive/SearchBar'
 
-export default function DashboardPage() {
+export default function DashboardPage({user}) {
 
     const {folderId} = useParams()
     const {state = {}} = useLocation()
     const {folder, childFolders, childFiles, loaded} = useFolder(folderId, state.folder)
-
+   
     return (
+        <>
+        {
+            user?
+            <SearchBar currentFolder={folder}/> : null
+        }
         <Container fluid className='dashboard-container'>
-            <div className="d-flex align-center px-1 top">
+            <div className="d-flex align-center top">
                 <FolderBreadcrumbs currentFolder={folder}/>
                 <div className="btns d-flex justify-content-center">
-                <SearchButton/>
+                <SearchButton currentFolder={folder}/>
                 <AddFolderBtn currentFolder={folder}/>
                 <AddFileBtn currentFolder={folder}/>
                 <CopyBtn/> 
@@ -32,7 +38,7 @@ export default function DashboardPage() {
             </div>
             {loaded ?
                     <>
-                        <div className='px-1 count text-primary'>
+                        <div className='count text-primary'>
                             <span>Folders: ({childFolders.length}) </span>
                             <span>Files: ({childFiles.length})</span>
                         </div>
@@ -66,5 +72,5 @@ export default function DashboardPage() {
                               css={{position: "absolute", top: "50%", left: "calc(50% - 25px)"}}/>
             }
         </Container>
-    )
+  </>  )
 }

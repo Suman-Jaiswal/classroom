@@ -24,7 +24,7 @@ export default function Folder({ folder, closeModal }) {
         document.body.style.background = `url('/img/background.svg') fixed no-repeat`
         document.body.style.backgroundSize = `cover`
         return (
-            <Button variant='transparent' className='year-card' as={Link}
+            <Button variant='transparent' className='year-card' as={Link}  onClick={closeModal}
                 to={{ pathname: `/folders/${folder.id}`, state: { folder } }}>
                 <img src={`img/years/${folder.name}.svg`} alt={folder.name} />
                 <h3>{folder.name}</h3>
