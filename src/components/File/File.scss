@@ -16,6 +16,9 @@
   cursor: pointer;
 
   background: white;
+  &:hover{
+    border: 1px solid black;
+  }
 }
 
 .preview-file-button {

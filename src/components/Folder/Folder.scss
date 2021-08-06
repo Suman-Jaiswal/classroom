@@ -30,7 +30,7 @@
   }
 
   &:hover, &:focus {
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(1px) saturate(100%) contrast(50%) brightness(130%);
   }
 }
 
@@ -46,6 +46,9 @@
   position: relative;
 
   background: white;
+  &:hover{
+    border: 1px solid black;
+  }
 }
 
 .open-folder-button {
