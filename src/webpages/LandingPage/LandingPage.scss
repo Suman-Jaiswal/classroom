@@ -5,13 +5,6 @@
   overflow: hidden;
 }
 
-.hero-section-wrapper {
-  position: relative;
-  
-  width: fit-content;
-  margin: auto;
-}
-
 .landing-page-hero {
   display: flex;
   justify-content: space-between;
@@ -26,13 +19,6 @@
 
   position: relative;
   z-index: 2;
-}
-
-.hero-circle {
-  position: absolute;
-  z-index: 1;
-
-  border-radius: 50%;
 }
 
 .landing-page-hero-left {
