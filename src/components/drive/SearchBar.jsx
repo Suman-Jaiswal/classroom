@@ -20,7 +20,7 @@ function SearchBar() {
                 const tempFileQueryCards = []
                 if (query !== '')
                     filesSnapshot.docs.forEach(doc => {
-                        tempFileQueryCards.push(<File key={doc.id} file={doc.data()} />)
+                        tempFileQueryCards.push(<File size={[20, 15]} key={doc.id} file={doc.data()} />)
                     })
                 setFileQueryCards(tempFileQueryCards)
             })
@@ -47,11 +47,17 @@ function SearchBar() {
                     ref={ref1}
                     placeholder='Search...'
                 />
+
                 {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 && query === '') ?
-                    <div className='body'>
-                        {folderQueryCards}
-                        {fileQueryCards}
-                    </div> : null}
+                    <div className="body-wrapper">
+                        <h5 className='text-center pt-1'>Results!</h5>
+                    
+                        <div className='body'>
+                            {folderQueryCards}
+                            {fileQueryCards}
+                        </div>
+                    </div>
+                    : null}
 
             </div>
 

@@ -75,22 +75,25 @@
 .search-container{
   position: fixed;
   width: 30vw;
-  top: 12px;
+  top: 10px;
   left: 35vw;
   z-index: 50;
   .body{
     display: flex;
-    width: 60vw;
+    width: 50vw;
     height: 40vh;
-    position: absolute;
-    background-color: #fff;
-    border: 2px solid black;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px) saturate(100%) contrast(45%) brightness(130%);
+    border: 1px solid #d0d0d3;
     border-top: none;
-    left: 20vw;
+    left: 25vw;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     font-size: 13px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
     
   }
 }

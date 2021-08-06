@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faFile } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import DownloadBtn from "../drive/DownloadBtn";
+import { Button } from 'react-bootstrap';
 
 const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'bmp']
 
@@ -12,16 +13,24 @@ export default function File({ file }) {
 
     // use file.url to show the file in new window
     const [open, setOpen] = useState(false)
+    const [modalOpen, setModalOpen] = useState(false)
     const [fileExpanded, setFileExpanded] = useState(false)
     const [isImage, setIsImage] = useState(false)
     const [isPdf, setIsPdf] = useState(false)
+
+    const openModal = () => {
+        setModalOpen(true)
+    }
+    const closeModal = () => {
+        setModalOpen(false)
+    }
 
     useEffect(() => {
         const fileExtension = file.name.slice(-3).toLowerCase()
         if (imageExtensions.includes(fileExtension)) {
             setIsImage(true)
         }
-        if(fileExtension === 'pdf'){
+        if (fileExtension === 'pdf') {
             setIsPdf(true)
         }
     }, [file.name])
@@ -39,23 +48,29 @@ export default function File({ file }) {
                     <img src={file.url} alt={file.name} />
                     <span>{file.name}</span>
 
-                </div> : isPdf? <a target='_blank' rel="noreferrer" href={file.url}
+                </div> : isPdf ? <div
                     className={'preview-file-button'}>
-                        <iframe src={file.url} frameborder="0" title={file.name} height='96' ></iframe>
-                    {/* <FontAwesomeIcon icon={faFile} */}
-                        {/* size={'3x'} /> */}
-                    <span>{file.name}</span>
+                    <iframe src={file.url} frameborder="0" title={file.name} height='96'  ></iframe>
+                    <span onClick={openModal}>{file.name}</span>
 
-                </a>:  <a target='_blank' rel="noreferrer" href={file.url}
+                </div> : <a target='_blank' rel="noreferrer" href={file.url}
                     className={'preview-file-button'}>
-                
-                    <FontAwesomeIcon icon={faFile} 
+
+                    <FontAwesomeIcon icon={faFile}
                         size={'3x'} />
                     <span>{file.name}</span>
 
                 </a>
             }
-
+            <Modal show={modalOpen} onHide={closeModal} size='lg' aria-labelledby="contained-modal-title-vcenter"
+                centered>
+                <Modal.Header>
+                    {file.name} <Button variant='danger' size='sm' className='right' onClick={closeModal} >X</Button>
+                </Modal.Header>
+                <Modal.Body >
+                    <iframe src={file.url} frameborder="0" height='600' width='100%' title='pdf'></iframe>
+                </Modal.Body>
+            </Modal>
 
             <div className={'file-options'}
                 onClick={handleFileOptionsClick}>
