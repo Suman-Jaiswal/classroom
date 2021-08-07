@@ -95,6 +95,13 @@
   transition: 0.5s;
 }
 
+.image-preview-modal {
+  .modal-content {
+    left: -20vw;
+    width: 70vw;
+  }
+}
+
 .image-preview-modal-body {
   display: flex;
   justify-content: center;
