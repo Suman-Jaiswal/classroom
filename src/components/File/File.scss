@@ -102,12 +102,15 @@
   }
 }
 
-.image-preview-modal {
+.image-preview-modal-body {
   display: flex;
   justify-content: center;
 
   img {
-    width: 100%;
+    position: absolute;
+    top: 0;
+
+    width: 80vw;
   }
 }
 
