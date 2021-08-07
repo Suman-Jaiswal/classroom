@@ -104,9 +104,7 @@ export default function File({file}) {
             <Modal show={imageModalOpen}
                    onHide={() => setImageModalOpen(false)}
                    className={'image-preview-modal'}>
-                <Modal.Body>
-                    <img src={file.url} alt={file.name}/>
-                </Modal.Body>
+                <img src={file.url} alt={file.name}/>
             </Modal>
         </div>
     )
