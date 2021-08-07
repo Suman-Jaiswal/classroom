@@ -52,12 +52,12 @@ Start the server
 - Glassmorphic UI.
 - Copy and share link of folders with ease.
 - Preview various formats on the website
-    itself without downloading them.
+    itself including downloading feature.
 - Quickly search through all files and folders with
     a single search bar.
 
   
-## Authors
+## Developers
 
 - [Suman Kumar Jaiswal](https://github.com/Suman-Jaiswal)
 - [Hasnain Raza](https://github.com/hasnain-cyber)
