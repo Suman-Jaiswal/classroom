@@ -5,17 +5,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPowerOff} from "@fortawesome/free-solid-svg-icons";
 import {Button} from "react-bootstrap";
 import ReactTooltip from "react-tooltip";
-import SearchBar from "../drive/SearchBar";
+
 
 export default function NavbarComponent({signOut, user}) {
 
     const [tooltipReference, setTooltipReference] = useState(null)
 
     return (
-        <>{
-            user?
-            <SearchBar/> : null
-        }
+        <>
             <nav className={'nav-return-wrapper'}>
                 <Link to={'/'} className={'brand-container'}>
                     <img id="logo" src={'/img/logo.png'} alt={''}/>
