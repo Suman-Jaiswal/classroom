@@ -82,14 +82,16 @@ function SearchButton() {
                                      opacity={query === '' ? '0' : '1'}/>
 
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='search-body-wrapper'>
                     {!(folderQueryCards.length === 0 && fileQueryCards.length === 0) ?
-                        <div className='search-body-wrapper'>
+                        <>
                             {folderQueryCards}
                             <hr/>
                             {fileQueryCards}
-                        </div>
-                        : <span className='py-3 px-2 text-center'>Nothing to show for now!</span>}
+                        </>
+                        : <span style={{margin: "auto"}}
+                                className='py-3 px-2'>
+                        Nothing to show for now!</span>}
                 </Modal.Body>
             </Modal>
         </>
