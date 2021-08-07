@@ -103,13 +103,6 @@ export default function File({file}) {
 
             <Modal show={imageModalOpen}
                    onHide={() => setImageModalOpen(false)}>
-                <Modal.Header>
-                    {file.name}
-                    <Button variant='danger'
-                            size='sm'
-                            className='right'
-                            onClick={() => setImageModalOpen(false)}>X</Button>
-                </Modal.Header>
                 <Modal.Body className={'image-preview-modal-body'}>
                     <img src={file.url} alt={''}/>
                 </Modal.Body>

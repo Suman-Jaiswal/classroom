@@ -96,9 +96,14 @@
 }
 
 .image-preview-modal-body {
+  display: flex;
+  justify-content: center;
+
   img {
-    width: 100%;
-    margin: auto;
+    position: absolute;
+    top: 0;
+
+    width: 80vw;
   }
 }
 
