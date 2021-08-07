@@ -1,38 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import './File.scss'
 import DeleteBtn from '../drive/DeleteBtn';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp, faFile } from "@fortawesome/free-solid-svg-icons";
-import { Modal } from "react-bootstrap";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCaretDown, faCaretUp, faFile} from "@fortawesome/free-solid-svg-icons";
+import {Button, Modal} from "react-bootstrap";
 import DownloadBtn from "../drive/DownloadBtn";
-import { Button } from 'react-bootstrap';
 
 const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'bmp']
+const pdfExtensions = ['pdf']
 
-export default function File({ file }) {
+export default function File({file}) {
 
     // use file.url to show the file in new window
-    const [open, setOpen] = useState(false)
-    const [modalOpen, setModalOpen] = useState(false)
+    const [imageModalOpen, setImageModalOpen] = useState(false)
+    const [pdfModalOpen, setPdfModalOpen] = useState(false)
     const [fileExpanded, setFileExpanded] = useState(false)
     const [isImage, setIsImage] = useState(false)
     const [isPdf, setIsPdf] = useState(false)
 
-    const openModal = () => {
-        setModalOpen(true)
-    }
-    const closeModal = () => {
-        setModalOpen(false)
-    }
-
     useEffect(() => {
         const fileExtension = file.name.slice(-3).toLowerCase()
-        if (imageExtensions.includes(fileExtension)) {
+        if (imageExtensions.includes(fileExtension))
             setIsImage(true)
-        }
-        if (fileExtension === 'pdf') {
+        else if (pdfExtensions.includes(fileExtension))
             setIsPdf(true)
-        }
     }, [file.name])
 
     function handleFileOptionsClick() {
@@ -42,60 +33,80 @@ export default function File({ file }) {
     return (
         <div className={'file-wrapper'}>
             {
-                isImage ? <div
-                    className={'preview-file-button'}
-                    onClick={() => setOpen(!open)}>
-                    <img src={file.url} alt={file.name} />
-                    <span>{file.name}</span>
+                isImage ?
+                    <div
+                        className={'preview-file-button'}
+                        onClick={() => setImageModalOpen(!imageModalOpen)}>
+                        <img src={file.url} alt={file.name}/>
+                        <span>{file.name}</span>
+                    </div> :
+                    isPdf ?
+                        <div
+                            className={'preview-file-button'}>
+                            <iframe src={file.url} frameBorder="0" title={file.name} height='96'/>
+                            <span onClick={() => setPdfModalOpen(true)}>{file.name}</span>
 
-                </div> : isPdf ? <div
-                    className={'preview-file-button'}>
-                    <iframe src={file.url} frameborder="0" title={file.name} height='96'  ></iframe>
-                    <span onClick={openModal}>{file.name}</span>
-
-                </div> : <a target='_blank' rel="noreferrer" href={file.url}
-                    className={'preview-file-button'}>
-
-                    <FontAwesomeIcon icon={faFile}
-                        size={'3x'} />
-                    <span>{file.name}</span>
-
-                </a>
+                        </div>
+                        : <a target='_blank' rel="noreferrer" href={file.url}
+                             className={'preview-file-button'}>
+                            <FontAwesomeIcon icon={faFile}
+                                             size={'3x'}/>
+                            <span>{file.name}</span>
+                        </a>
             }
-            <Modal show={modalOpen} onHide={closeModal} size='lg' aria-labelledby="contained-modal-title-vcenter"
-                centered>
+
+            <Modal show={pdfModalOpen}
+                   onHide={() => setPdfModalOpen(false)}
+                   size='lg'
+                   aria-labelledby="contained-modal-title-vcenter"
+                   centered>
                 <Modal.Header>
-                    {file.name} <Button variant='danger' size='sm' className='right' onClick={closeModal} >X</Button>
+                    {file.name}
+                    <Button variant='danger'
+                            size='sm'
+                            className='right'
+                            onClick={() => setPdfModalOpen(false)}>X</Button>
                 </Modal.Header>
-                <Modal.Body >
-                    <iframe src={file.url} frameborder="0" height='600' width='100%' title='pdf'></iframe>
+                <Modal.Body>
+                    <iframe src={file.url}
+                            frameBorder="0"
+                            height='600px'
+                            width='100%'
+                            title='pdf'/>
                 </Modal.Body>
             </Modal>
 
             <div className={'file-options'}
-                onClick={handleFileOptionsClick}>
+                 onClick={handleFileOptionsClick}>
                 <div className={"file-options-buttons-wrapper"}
-                    style={fileExpanded ? { maxHeight: '100px' } : { maxHeight: '0' }}>
-                    <div style={fileExpanded ? { display: 'flex' } : { display: 'none' }}>
-                        <DeleteBtn id={file.id} type='file' />
-                        <DownloadBtn downloadUrl={file.url} name={file.name} />
+                     style={fileExpanded ? {maxHeight: '100px'} : {maxHeight: '0'}}>
+                    <div style={fileExpanded ? {display: 'flex'} : {display: 'none'}}>
+                        <DeleteBtn id={file.id} type='file'/>
+                        <DownloadBtn downloadUrl={file.url} name={file.name}/>
                     </div>
                 </div>
                 <div className={'options-caret-wrapper'}>
                     {fileExpanded ?
                         <FontAwesomeIcon
                             icon={faCaretDown}
-                            onClick={handleFileOptionsClick} />
+                            onClick={handleFileOptionsClick}/>
                         : <FontAwesomeIcon
                             icon={faCaretUp}
-                            onClick={handleFileOptionsClick} />}
+                            onClick={handleFileOptionsClick}/>}
                 </div>
             </div>
 
-            <Modal show={open}
-                onHide={() => setOpen(false)}>
-                <Modal.Body className={'file-preview-modal-body'}>
-                    <embed src={file.url} />
+            <Modal show={imageModalOpen}
+                   onHide={() => setImageModalOpen(false)}>
+                <Modal.Header>
+                    {file.name}
+                    <Button variant='danger'
+                            size='sm'
+                            className='right'
+                            onClick={() => setImageModalOpen(false)}>X</Button>
+                </Modal.Header>
+                <Modal.Body className={'image-preview-modal-body'}>
+                    <img src={file.url} alt={''}/>
                 </Modal.Body>
             </Modal>
         </div>

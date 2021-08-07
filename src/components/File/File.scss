@@ -95,15 +95,10 @@
   transition: 0.5s;
 }
 
-.file-preview-modal-body {
-  position: relative;
-
-  embed {
-    position: absolute;
-    width: 70vw;
-    margin-left: -35vw;
-    margin-top: -20px;
-    left: 50%;
+.image-preview-modal-body {
+  img {
+    width: 100%;
+    margin: auto;
   }
 }
 
