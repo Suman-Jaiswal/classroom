@@ -50,7 +50,9 @@ export default function DeleteBtn({ id, type }) {
 
     return (
         <>
-            <Button onClick={openModal} variant='transparent'>
+            <Button onClick={openModal}
+                    variant='transparent'
+                    style={{outline: 'none', boxShadow: 'none'}}>
                 <FontAwesomeIcon icon={faTrash} />
             </Button>
             <Modal show={open} onHide={closeModal}>

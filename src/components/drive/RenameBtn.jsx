@@ -1,12 +1,10 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen } from "@fortawesome/free-solid-svg-icons";
-import { database } from '../../fbConfig';
-import { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
-import { useRef } from 'react';
+import React, {useRef, useState} from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPen} from "@fortawesome/free-solid-svg-icons";
+import {database} from '../../fbConfig';
+import {Button, Form, Modal} from 'react-bootstrap';
 
-export default function RenameBtn({ currentFolder }) {
+export default function RenameBtn({currentFolder}) {
     const myRef = useRef(null)
     const [rename, setRename] = useState('')
     const [open, setOpen] = useState(false)
@@ -14,8 +12,8 @@ export default function RenameBtn({ currentFolder }) {
     const openModal = () => {
         setOpen(true)
         setTimeout(() => {
-            myRef.current.focus()
-        }, 100);
+            myRef.current?.focus()
+        }, 100)
     }
     const closeModal = () => {
         setOpen(false)
@@ -24,15 +22,18 @@ export default function RenameBtn({ currentFolder }) {
         e.preventDefault()
 
         database.folders.doc(currentFolder.id).update({name: rename})
+            .catch(err => console.log(err.message))
+
         setRename('')
     }
 
     return (
         <>
-            <Button onClick={openModal} variant='transparent' style={{ }} >
+            <Button onClick={openModal}
+                    variant='transparent'
+                    style={{outline: 'none', boxShadow: 'none'}}>
                 <FontAwesomeIcon
-                    icon={faPen}
-                    style={{outline: 'none !important'}} />
+                    icon={faPen}/>
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Form onSubmit={handleFormSubmit}>

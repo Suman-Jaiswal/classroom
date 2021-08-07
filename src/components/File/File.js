@@ -7,11 +7,10 @@ import {Button, Modal} from "react-bootstrap";
 import DownloadBtn from "../drive/DownloadBtn";
 
 const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'bmp']
-const pdfExtensions = ['pdf']
+const documentsExtensions = ['pdf']
 
 export default function File({file}) {
 
-    // use file.url to show the file in new window
     const [imageModalOpen, setImageModalOpen] = useState(false)
     const [pdfModalOpen, setPdfModalOpen] = useState(false)
     const [fileExpanded, setFileExpanded] = useState(false)
@@ -19,10 +18,11 @@ export default function File({file}) {
     const [isPdf, setIsPdf] = useState(false)
 
     useEffect(() => {
-        const fileExtension = file.name.slice(-3).toLowerCase()
+        const dotLocation = file.name.indexOf('.') // locate where the dot is.
+        const fileExtension = file.name.slice(dotLocation + 1).toLowerCase()
         if (imageExtensions.includes(fileExtension))
             setIsImage(true)
-        else if (pdfExtensions.includes(fileExtension))
+        else if (documentsExtensions.includes(fileExtension))
             setIsPdf(true)
     }, [file.name])
 
@@ -45,7 +45,6 @@ export default function File({file}) {
                             className={'preview-file-button'}>
                             <iframe src={file.url} frameBorder="0" title={file.name} height='96'/>
                             <span onClick={() => setPdfModalOpen(true)}>{file.name}</span>
-
                         </div>
                         : <a target='_blank' rel="noreferrer" href={file.url}
                              className={'preview-file-button'}>
@@ -72,7 +71,7 @@ export default function File({file}) {
                             frameBorder="0"
                             height='600px'
                             width='100%'
-                            title='pdf'/>
+                            title={file.name}/>
                 </Modal.Body>
             </Modal>
 
@@ -81,8 +80,10 @@ export default function File({file}) {
                 <div className={"file-options-buttons-wrapper"}
                      style={fileExpanded ? {maxHeight: '100px'} : {maxHeight: '0'}}>
                     <div style={fileExpanded ? {display: 'flex'} : {display: 'none'}}>
-                        <DeleteBtn id={file.id} type='file'/>
-                        <DownloadBtn downloadUrl={file.url} name={file.name}/>
+                        <DeleteBtn id={file.id}
+                                   type='file'/>
+                        <DownloadBtn downloadUrl={file.url}
+                                     name={file.name}/>
                     </div>
                 </div>
                 <div className={'options-caret-wrapper'}>
