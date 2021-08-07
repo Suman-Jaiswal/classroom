@@ -102,7 +102,8 @@ export default function File({file}) {
             </div>
 
             <Modal show={imageModalOpen}
-                   onHide={() => setImageModalOpen(false)}>
+                   onHide={() => setImageModalOpen(false)}
+                   className={'image-preview-modal'}>
                 <Modal.Header>
                     {file.name}
                     <Button variant='danger'
