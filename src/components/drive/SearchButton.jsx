@@ -30,7 +30,7 @@ function SearchButton() {
 
     useEffect(() => {
         database.files.where('name', '>=', query).where('name', '<=', query + '\uf8ff')
-        .get()
+            .get()
             .then(filesSnapshot => {
                 const tempFileQueryCards = []
                 if (query !== '')
@@ -40,7 +40,7 @@ function SearchButton() {
                 setFileQueryCards(tempFileQueryCards)
             })
         database.folders.where('name', '>=', query).where('name', '<=', query + '\uf8ff')
-        .get()
+            .get()
             .then(foldersSnapshot => {
                 const tempFolderQueryCards = []
                 if (query !== '')
@@ -55,7 +55,9 @@ function SearchButton() {
     return (
         <>
             <p ref={ref => setTooltipReference(ref)}
-               data-tip='Search' data-place ='bottom'/>
+               data-tip='Search'
+               data-place='left'
+               data-offset="{'top': -5, 'left': -10}"/>
             <ReactTooltip/>
             <Button onClick={openModal}
                     variant={'outline-primary'}
@@ -67,7 +69,7 @@ function SearchButton() {
             </Button>
             <Modal show={open} onHide={closeModal}>
                 <Modal.Header>
-                <Form.Control 
+                    <Form.Control
                         inline
                         type='text'
                         value={query}
@@ -75,13 +77,13 @@ function SearchButton() {
                         ref={ref1}
                         placeholder='Search...'/>
                     <FontAwesomeIcon icon={faTimes}
-                                    style={{position: 'relative', top:'0px', right: '20px'}}
+                                     style={{position: 'relative', top: '0px', right: '20px'}}
                                      onClick={() => setQuery('')}
                                      opacity={query === '' ? '0' : '1'}/>
-            
+
                 </Modal.Header>
                 <Modal.Body>
-                    {!(folderQueryCards.length === 0 && fileQueryCards.length === 0 ) ?
+                    {!(folderQueryCards.length === 0 && fileQueryCards.length === 0) ?
                         <div className='search-body-wrapper'>
                             {folderQueryCards}
                             <hr/>

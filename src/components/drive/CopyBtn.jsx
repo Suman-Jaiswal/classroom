@@ -29,7 +29,9 @@ export default function CopyBtn() {
     return (
         <>
             <p ref={ref => setTooltipReference(ref)}
-               data-tip='Copy Link' data-place ='bottom'/>
+               data-tip='Copy Link'
+               data-place ='left'
+               data-offset="{'top': -5, 'left': -10}"/>
             <ReactTooltip/>
             <Button onClick={copy}
                     variant='outline-primary'

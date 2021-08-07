@@ -92,7 +92,8 @@ export default function AddFileBtn({currentFolder}) {
         <>
             <p ref={ref => setTooltipReference(ref)}
                data-tip='Upload File'
-               data-place ='bottom'
+               data-place ='left'
+               data-offset="{'top': -5, 'left': -10}"
                />
             <ReactTooltip/>
             <Button className='ms-2 mb-1'
@@ -120,13 +121,13 @@ export default function AddFileBtn({currentFolder}) {
                             zIndex: '10',
                             right: '1rem',
                             maxWidth: '250px'
-                            
+
                         }}
                     >
                         {
                             uploadingFiles.map(file => (
-                                <Toast 
-                                
+                                <Toast
+
                                     key={file.id}
                                        onClose={() => {
                                            setUploadingFiles(previousUploadingFiles => {

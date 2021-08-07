@@ -4,9 +4,11 @@
   padding: 3vh 2vw;
   background-color: antiquewhite;
 }
-.dashboard-container{
+
+.dashboard-container {
   padding: 0;
 }
+
 .dashboard-title {
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-align: center;
@@ -23,9 +25,12 @@
 }
 
 .empty {
-  margin: 50px;
   text-align: center;
   color: grey;
+
+  position: absolute;
+  top: calc(50vh - 75px);
+  left: calc(50vw - 75px);
 
   img {
     width: 150px;
@@ -34,10 +39,10 @@
 
 .count {
   padding: 0 2vw;
+
   span {
     font-size: 14px;
   }
-
 }
 
 .search-btn {
@@ -49,7 +54,6 @@
   top: 0;
   z-index: 10;
   border-bottom: 1px solid #d0d0d3;
-  padding: 10px 0;
   border-radius: 3px;
   padding: 10px 2vw;
   background: white;
@@ -66,6 +70,7 @@
   .top {
     width: 100vw;
     flex-direction: column;
+
     button, label {
       width: 30px;
       height: 30px;
@@ -79,7 +84,7 @@
     }
   }
   .breadcrumbs {
-    
+
     flex-wrap: wrap;
 
   }

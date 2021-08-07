@@ -39,7 +39,7 @@ export default function AddFolderBtn({currentFolder}) {
                 path,
                 createdAt: database.timeStamp
             })
-           
+
             setName('')
         }
     }
@@ -47,7 +47,9 @@ export default function AddFolderBtn({currentFolder}) {
     return (
         <>
             <p ref={ref => setTooltipReference(ref)}
-               data-tip='Add Folder' data-place ='bottom' />
+               data-tip='Add Folder'
+               data-place='left'
+               data-offset="{'top': -5, 'left': -10}"/>
             <ReactTooltip/>
             <Button onClick={openModal}
                     variant='outline-primary'

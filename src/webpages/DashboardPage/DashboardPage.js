@@ -18,25 +18,23 @@ export default function DashboardPage({user}) {
     const {folderId} = useParams()
     const {state = {}} = useLocation()
     const {folder, childFolders, childFiles, loaded} = useFolder(folderId, state.folder)
-   
+
     return (
         <>
-        {
-            user?
-            <SearchBar currentFolder={folder}/> : null
-        }
-        <Container fluid className='dashboard-container'>
-            <div className="d-flex align-center top">
-                <FolderBreadcrumbs currentFolder={folder}/>
-                <div className="btns d-flex justify-content-center">
-                <SearchButton currentFolder={folder}/>
-                <AddFolderBtn currentFolder={folder}/>
-                <AddFileBtn currentFolder={folder}/>
-                <CopyBtn/> 
+            {user ?
+                <SearchBar currentFolder={folder}/>
+                : null}
+            <Container fluid className='dashboard-container'>
+                <div className="d-flex align-center top">
+                    <FolderBreadcrumbs currentFolder={folder}/>
+                    <div className="btns d-flex justify-content-center">
+                        <SearchButton currentFolder={folder}/>
+                        <AddFolderBtn currentFolder={folder}/>
+                        <AddFileBtn currentFolder={folder}/>
+                        <CopyBtn/>
+                    </div>
                 </div>
-                
-            </div>
-            {loaded ?
+                {loaded ?
                     <>
                         <div className='count text-primary'>
                             <span>Folders: ({childFolders.length}) </span>
@@ -70,7 +68,7 @@ export default function DashboardPage({user}) {
 
                     : <Loader loading={true} size={15}
                               css={{position: "absolute", top: "50%", left: "calc(50% - 25px)"}}/>
-            }
-        </Container>
-  </>  )
+                }
+            </Container>
+        </>)
 }
