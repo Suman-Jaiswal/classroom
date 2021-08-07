@@ -4,7 +4,7 @@ import Folder from "../Folder/Folder";
 import File from "../File/File";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { Form } from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 
 
 function SearchBar() {
@@ -14,7 +14,7 @@ function SearchBar() {
     const [fileQueryCards, setFileQueryCards] = useState([])
     const [folderQueryCards, setFolderQueryCards] = useState([])
 
-    const closeModal = () =>{
+    const closeModal = () => {
         setQuery('')
     }
 
@@ -41,12 +41,12 @@ function SearchBar() {
                 setFolderQueryCards(tempFolderQueryCards)
             })
     }, [query])
-  
+
     return (
         <>
             <div className="search-container">
                 <div className="search-control-wrapper">
-                    <Form.Control 
+                    <Form.Control
                         inline
                         type='text'
                         value={query}
@@ -54,7 +54,7 @@ function SearchBar() {
                         ref={ref1}
                         placeholder='Search...'/>
                     <FontAwesomeIcon icon={faTimes}
-                                    style={{position: 'relative', top:'10px', right: '20px'}}
+                                     style={{position: 'relative', top: '10px', right: '20px'}}
                                      onClick={() => setQuery('')}
                                      opacity={query === '' ? '0' : '1'}/>
                 </div>

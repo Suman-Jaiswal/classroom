@@ -25,7 +25,8 @@ function LandingPage({signInWithGoogle, user}) {
                             :
                             <Button variant='transparent'
                                     onClick={signInWithGoogle}
-                                    className={'awesome-link'}>
+                                    className={'awesome-link'}
+                                    style={{outline: 'none', boxShadow: 'none'}}>
                                 Sign In {'>>'}
                             </Button>
                     }
