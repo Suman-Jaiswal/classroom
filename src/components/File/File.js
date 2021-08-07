@@ -7,7 +7,7 @@ import {Button, Modal} from "react-bootstrap";
 import DownloadBtn from "../drive/DownloadBtn";
 
 const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'bmp']
-const documentsExtensions = ['pdf', 'docx']
+const documentsExtensions = ['pdf']
 
 export default function File({file}) {
 
@@ -41,10 +41,14 @@ export default function File({file}) {
                     <span>{file.name}</span>
                 </div> :
                 isPdf ?
-                    <div
-                        className={'preview-file-button'}>
-                        <iframe src={file.url} frameBorder="0" title={file.name} height='96'/>
-                        <span onClick={() => setPdfModalOpen(true)}>{file.name}</span>
+                    <div className={'preview-file-button'}
+                         onClick={() => setPdfModalOpen(true)}>
+                        <iframe
+                            src={file.url}
+                            frameBorder="0"
+                            title={file.name}
+                            height='96'/>
+                        <span>{file.name}</span>
                     </div>
                     : <a target='_blank' rel="noreferrer" href={file.url}
                          className={'preview-file-button'}>
