@@ -7,7 +7,7 @@ import {Button, Modal} from "react-bootstrap";
 import DownloadBtn from "../drive/DownloadBtn";
 
 const imageExtensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'bmp']
-const documentsExtensions = ['pdf']
+const documentsExtensions = ['pdf', 'docx']
 
 export default function File({file}) {
 
@@ -18,8 +18,9 @@ export default function File({file}) {
     const [isPdf, setIsPdf] = useState(false)
 
     useEffect(() => {
-        const dotLocation = file.name.indexOf('.') // locate where the dot is.
-        const fileExtension = file.name.slice(dotLocation + 1).toLowerCase()
+
+        const fileExtension = file.name.slice(file.name.indexOf('.') + 1).toLowerCase()
+
         if (imageExtensions.includes(fileExtension))
             setIsImage(true)
         else if (documentsExtensions.includes(fileExtension))
@@ -32,26 +33,25 @@ export default function File({file}) {
 
     return (
         <div className={'file-wrapper'}>
-            {
-                isImage ?
+            {isImage ?
+                <div
+                    className={'preview-file-button'}
+                    onClick={() => setImageModalOpen(!imageModalOpen)}>
+                    <img src={file.url} alt={file.name}/>
+                    <span>{file.name}</span>
+                </div> :
+                isPdf ?
                     <div
-                        className={'preview-file-button'}
-                        onClick={() => setImageModalOpen(!imageModalOpen)}>
-                        <img src={file.url} alt={file.name}/>
+                        className={'preview-file-button'}>
+                        <iframe src={file.url} frameBorder="0" title={file.name} height='96'/>
+                        <span onClick={() => setPdfModalOpen(true)}>{file.name}</span>
+                    </div>
+                    : <a target='_blank' rel="noreferrer" href={file.url}
+                         className={'preview-file-button'}>
+                        <FontAwesomeIcon icon={faFile}
+                                         size={'3x'}/>
                         <span>{file.name}</span>
-                    </div> :
-                    isPdf ?
-                        <div
-                            className={'preview-file-button'}>
-                            <iframe src={file.url} frameBorder="0" title={file.name} height='96'/>
-                            <span onClick={() => setPdfModalOpen(true)}>{file.name}</span>
-                        </div>
-                        : <a target='_blank' rel="noreferrer" href={file.url}
-                             className={'preview-file-button'}>
-                            <FontAwesomeIcon icon={faFile}
-                                             size={'3x'}/>
-                            <span>{file.name}</span>
-                        </a>
+                    </a>
             }
 
             <Modal show={pdfModalOpen}
@@ -67,7 +67,7 @@ export default function File({file}) {
                             onClick={() => setPdfModalOpen(false)}>X</Button>
                 </Modal.Header>
                 <Modal.Body>
-                    <iframe src={file.url}
+                    <iframe src={`https://drive.google.com/viewerng/viewer?key=AIzaSyCxkttBJ9nWGXWR8Bu6p0WAoHqgcgJlFnc&embedded=true&url=${file.url}`}
                             frameBorder="0"
                             height='600px'
                             width='100%'
