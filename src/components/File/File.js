@@ -67,7 +67,7 @@ export default function File({file}) {
                             onClick={() => setPdfModalOpen(false)}>X</Button>
                 </Modal.Header>
                 <Modal.Body>
-                    <iframe src={`https://drive.google.com/viewerng/viewer?key=AIzaSyCxkttBJ9nWGXWR8Bu6p0WAoHqgcgJlFnc&embedded=true&url=${file.url}`}
+                    <iframe src={file.url}
                             frameBorder="0"
                             height='600px'
                             width='100%'
