@@ -96,19 +96,9 @@
 }
 
 .image-preview-modal {
-  .modal-content {
-    left: -20vw;
-    width: 70vw;
-  }
-}
-
-.image-preview-modal-body {
-  display: flex;
-  justify-content: center;
-
   img {
-    position: absolute;
-    top: 0;
+    display: flex;
+    align-self: center;
 
     width: 80vw;
   }
