@@ -4,7 +4,7 @@ import 'firebase/auth'
 import 'firebase/storage'
 
 firebase.initializeApp({
-    apiKey: "AIzaSyCxkttBJ9nWGXWR8Bu6p0WAoHqgcgJlFnc",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "form-1de97.firebaseapp.com",
     projectId: "form-1de97",
     storageBucket: "form-1de97.appspot.com",
