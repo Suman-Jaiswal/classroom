@@ -52,7 +52,7 @@ export default function DashboardPage({user}) {
 
                         {(childFiles.length === 0 && childFolders.length === 0 && loaded) ?
                             <div className="empty">
-                                <img src={"/img/empty-box.png"} alt="Empty"/>
+                                <img src={"/img/empty-box.webp"} alt="Empty"/>
                                 <h5>Empty !</h5>
                             </div>
                             : null}
