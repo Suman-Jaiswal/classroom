@@ -29,8 +29,13 @@ export default function DashboardPage({user}) {
                     <FolderBreadcrumbs currentFolder={folder}/>
                     <div className="btns d-flex justify-content-center">
                         <SearchButton currentFolder={folder}/>
+                        {
+                            user.email.indexOf('@iiti.ac.in')  > -1 && <>
                         <AddFolderBtn currentFolder={folder}/>
                         <AddFileBtn currentFolder={folder}/>
+                        </>
+                        }
+                        
                         <CopyBtn/>
                     </div>
                 </div>
