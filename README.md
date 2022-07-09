@@ -1,5 +1,5 @@
 
-# CLASSROOM IITI
+# DRIVE IITI
 
 The central idea of this project is to make the maintenance and 
 access of the various study materials needed in the four-year 
