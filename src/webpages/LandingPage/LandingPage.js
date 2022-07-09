@@ -1,10 +1,10 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import heroImage from '../../assets/landing-page-hero-image.svg';
 import './LandingPage.scss';
 
-function LandingPage({signInWithGoogle, user}) {
+function LandingPage({ signInWithGoogle, user }) {
     document.body.style.background = `url('/img/background.svg') fixed no-repeat`
     document.body.style.backgroundSize = `cover`
     return (
@@ -19,20 +19,20 @@ function LandingPage({signInWithGoogle, user}) {
                     {
                         user ?
                             <Link to='/dashboard'
-                                  className={'awesome-link'}>
+                                className={'awesome-link'}>
                                 Go to Dashboard {'>>'}
                             </Link>
                             :
                             <Button variant='transparent'
-                                    onClick={signInWithGoogle}
-                                    className={'awesome-link'}
-                                    style={{outline: 'none', boxShadow: 'none'}}>
-                                Sign In {'>>'}
+                                onClick={signInWithGoogle}
+                                className={'awesome-link'}
+                                style={{ outline: 'none', boxShadow: 'none' }}>
+                                Sign In
                             </Button>
                     }
 
                 </div>
-                <img className={'hero-image'} src={heroImage} alt={'student'}/>
+                <img className={'hero-image'} src={heroImage} alt={'student'} />
             </section>
         </div>
     )
